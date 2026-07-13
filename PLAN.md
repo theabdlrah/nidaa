@@ -100,7 +100,30 @@ flagged, reviewer can resolve; no data loss.
 
 ---
 
-## STRETCH (post-Phase 5, optional)
+## PHASE 6 — Offline-Native: Mesh Sync + Decentralized Trust
+**Goal:** survive a TOTAL internet shutdown, not just intermittent connectivity.
+
+- **Device-to-device sync (10.1):** WebRTC data-channel gossip over local
+  WiFi/hotspot (or Bluetooth) so devices in the same room/camp exchange posts
+  directly. Server is no longer a single point of failure for the board to update.
+- **Idempotency (10.2):** already implemented (upsert by clientId) — server-side
+  dedupe makes mesh forwarding and retries safe.
+- **Priority-ordered, compressed sync (10.3):** medical/urgent sync first; gzip
+  payloads; defer images until WiFi.
+- **Field-level merge (10.4):** three-way field merge auto-resolves most offline
+  edit clashes; only true same-field divergences escalate to NGO review.
+- **Decentralized trust (10.5):** N community corroborations raise an entry's
+  trust tier (PARTIAL → CORROBORATED → VERIFIED) so trust isn't gated on a
+  possibly-unreachable NGO account.
+
+**Verify:** two devices on a local network exchange a post with WiFi/internet off
+(bridge via hotspot); entry appears on both; retry doesn't duplicate; corroboration
+tier rises with confirmations.
+**Effort:** ~3–4 days (mesh is the hard part).
+
+---
+
+## STRETCH (post-Phase 6, optional)
 - **WhatsApp/SMS bridge:** post needs via message ( Twilio / WhatsApp Business
   API). Reaches the ~64% who won't install an app. Handle PII carefully.
 - **Multi-region deploy:** same code, `region=syr|gza` scoping, shared
@@ -111,11 +134,12 @@ flagged, reviewer can resolve; no data loss.
 
 ## SEQUENCING SUMMARY
 P0 Baseline → **P1 Real Data** → P2 Maps → **P3 Auth** → **P4 SQLite** → P5 Conflicts
-→ Stretch.
+→ **P6 Offline-Native (mesh + decentralized trust)** → Stretch.
 
 Build order prioritizes the trio that moves Nidaa from "fake-data prototype" to
 "real, safe, scalable tool": **P1 (real data) + P3 (auth) + P4 (SQLite)**.
-P2 and P5 are depth/robustness on top of that foundation.
+P2 and P5 are depth/robustness on top of that foundation. P6 is what makes the
+tool survivable under a total blackout — the offline-native endgame.
 
 ## STATUS
 - [x] Prototype built & verified (build green, API + Arabic round-trip OK)
@@ -127,3 +151,4 @@ P2 and P5 are depth/robustness on top of that foundation.
 - [ ] P3 — auth + gated verify
 - [ ] P4 — SQLite store
 - [ ] P5 — conflict resolution
+- [ ] P6 — offline-native (mesh + decentralized trust)
