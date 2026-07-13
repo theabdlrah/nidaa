@@ -1,11 +1,11 @@
 {
-  "name": "Nidaa",
-  "short_name": "نداء",
-  "description": "Offline-first community needs & services board for Syria.",
+  "name": "Nidaa — نداء",
+  "short_name": "Nidaa",
+  "description": "Offline-first community needs & services board for Gaza, the West Bank, and Syria.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#0f766e",
-  "theme_color": "#0f766e",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a",
   "dir": "rtl",
   "lang": "ar",
   "icons": [

@@ -332,7 +332,7 @@ function NewPostForm({
         <div className="two">
           <div>
             <label>{t("المدينة *", "City *")}</label>
-            <input value={city} onChange={(e) => setCity(e.target.value)} placeholder="Aleppo" />
+            <input value={city} onChange={(e) => setCity(e.target.value)} placeholder={t("غزة", "Gaza")} />
           </div>
           <div>
             <label>{t("جهة النشر", "Your role")}</label>

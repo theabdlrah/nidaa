@@ -3,7 +3,7 @@ import "leaflet/dist/leaflet.css";
 
 export const metadata = {
   title: "Nidaa — نداء",
-  description: "Offline-first community needs & services board for Syria.",
+  description: "Offline-first community needs & services board for Gaza, the West Bank, and Syria.",
   manifest: "/manifest.json",
 };
 
