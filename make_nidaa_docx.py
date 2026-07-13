@@ -652,6 +652,24 @@ add_para(
     "subject of Phases 3–7, not hand-waving."
 )
 
+add_heading("14.7 Third bug pass — the PWA was not actually installable", 2)
+add_para(
+    "In a later verification pass we found the app's offline-first PWA claim was partially false. "
+    "`public/` was completely empty, yet `sw.js` cached `/manifest.json` and `/icon.svg` and the "
+    "root layout set `metadata.manifest` to `/manifest.json`. With those files missing, the service "
+    "worker's `caches.addAll([\"/\", \"/manifest.json\", \"/icon.svg\"])` rejected (silently caught), "
+    "and there was no manifest for the browser to install from — so the app was NOT installable as a "
+    "PWA and had no tab icon, despite the offline app-shell caching working. Fixed by creating a real "
+    "`public/manifest.json` (RTL Arabic, green-on-navy theme, SVG icon) and `public/icon.svg` (a "
+    "map-pin + 'ن' mark). Verified: all three assets serve HTTP 200 and the manifest parses as valid "
+    "JSON, so `addAll` now succeeds and the app is genuinely installable offline."
+)
+add_para(
+    "Same pass also corrected two leftover Gaza-first inconsistencies: the document meta description "
+    "still said 'for Syria' (now 'Gaza, the West Bank, and Syria'), and the new-post city placeholder "
+    "was hardcoded to 'Aleppo' (now a Gaza example)."
+)
+
 # ===== footer note =====
 doc.add_paragraph()
 fn = doc.add_paragraph()
