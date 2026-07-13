@@ -33,7 +33,9 @@ Syria health + education are a SECONDARY region instance.
 
 - `scripts/import-hdx.mjs` (already built): downloads HDX GeoJSON by ISO3, maps OSM
   `amenity` → Nidaa category, upserts as `verified: true` "offer" entries, tags
-  `region: "gza" | "syr"`. PSE=4,712 facilities, SYR=5,670 (10,382 total).
+  `region: "gza" | "wb" | "syr"`. PSE entries are clipped by the Gaza Strip Municipal
+  Boundaries (data/gaza-boundary.geojson, derived from HDX SHP) so gza = inside the
+  Strip, wb = West Bank. Result: Gaza Strip 1,315 + West Bank 3,397 + Syria 5,670.
 - Keep illustrative entries clearly tagged `source: "demo"` and removable.
 
 **Verify:** importer run populates the board; GET returns them; a known Gaza City

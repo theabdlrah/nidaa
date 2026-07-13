@@ -17,6 +17,7 @@ const BoardMap = dynamic(() => import("@/components/BoardMap"), { ssr: false });
 
 type Filter = "all" | "need" | "offer";
 type View = "list" | "map";
+type Region = "all" | "gza" | "wb" | "syr";
 
 interface ServerEntry extends NidaaEntry {}
 
@@ -26,6 +27,7 @@ export default function Page() {
   const [local, setLocal] = useState<QueuedEntry[]>([]);
   const [server, setServer] = useState<ServerEntry[]>([]);
   const [filter, setFilter] = useState<Filter>("all");
+  const [region, setRegion] = useState<Region>("all");
   const [city, setCity] = useState<string>("");
   const [view, setView] = useState<View>("list");
   const [syncing, setSyncing] = useState<boolean>(false);
@@ -121,11 +123,12 @@ export default function Page() {
     }
     let arr = Array.from(map.values());
     if (filter !== "all") arr = arr.filter((e) => e.type === filter);
+    if (region !== "all") arr = arr.filter((e) => (e.region ? e.region === region : true));
     if (city.trim()) arr = arr.filter((e) => e.city.toLowerCase().includes(city.trim().toLowerCase()));
     return arr.sort(
       (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
     );
-  }, [local, server, filter, city]);
+  }, [local, server, filter, region, city]);
 
   const pendingCount = useMemo(() => local.filter((e) => !e.syncedAt).length, [local]);
 
@@ -193,6 +196,12 @@ export default function Page() {
           <option value="all">{t("الكل", "All")}</option>
           <option value="need">{t("احتياجات", "Needs")}</option>
           <option value="offer">{t("عروض", "Offers")}</option>
+        </select>
+        <select value={region} onChange={(e) => setRegion(e.target.value as Region)}>
+          <option value="all">{t("كل المناطق", "All regions")}</option>
+          <option value="gza">{t("غزة", "Gaza Strip")}</option>
+          <option value="wb">{t("الضفة الغربية", "West Bank")}</option>
+          <option value="syr">{t("سوريا", "Syria")}</option>
         </select>
         <select value={view} onChange={(e) => setView(e.target.value as View)}>
           <option value="list">{t("قائمة", "List")}</option>

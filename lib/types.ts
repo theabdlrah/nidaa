@@ -25,7 +25,7 @@ export interface NidaaEntry {
   authorRole: "individual" | "ngo" | "volunteer" | "unknown";
   verified: boolean;     // verified by an NGO/admin after sync
   source?: string;      // e.g. "hdx:hotosm_syr_health_facilities" or "user"
-  region?: "gza" | "syr" | "other"; // deployment region scoping
+  region?: "gza" | "wb" | "syr" | "other"; // deployment region scoping
   createdAt: string;     // ISO
   syncedAt: string | null; // null while pending on a client
 }

@@ -8,6 +8,7 @@
 
 import { gunzipSync, unzipSync } from "fflate";
 import { promises as fs } from "fs";
+import fsSync from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
 
@@ -95,6 +96,53 @@ function centroid(geom) {
   return { lat: undefined, lng: undefined };
 }
 
+// --- Gaza Strip clipping (point-in-polygon) ---
+// PSE (State of Palestine) HDX data bundles Gaza + West Bank. We clip by the
+// Gaza Strip Municipal Boundaries so region:"gza" = inside the Strip, else "wb".
+let GAZA_POLYS = null;
+function loadGazaPolys() {
+  if (GAZA_POLYS) return GAZA_POLYS;
+  try {
+    const raw = fsSync.readFileSync(path.join(ROOT, "data", "gaza-boundary.geojson"), "utf-8");
+    const fc = JSON.parse(raw);
+    GAZA_POLYS = fc.features.map((f) => f.geometry.coordinates); // array of polygons (rings)
+  } catch (e) {
+    GAZA_POLYS = []; // no boundary -> fall back to "gza" for all PSE
+  }
+  return GAZA_POLYS;
+}
+
+function pointInRing(lng, lat, ring) {
+  let inside = false;
+  for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) {
+    const xi = ring[i][0], yi = ring[i][1];
+    const xj = ring[j][0], yj = ring[j][1];
+    const intersect =
+      yi > lat !== yj > lat &&
+      lng < ((xj - xi) * (lat - yi)) / (yj - yi) + xi;
+    if (intersect) inside = !inside;
+  }
+  return inside;
+}
+
+function inGazaStrip(lng, lat) {
+  const polys = loadGazaPolys();
+  if (polys.length === 0) return true; // fallback: treat PSE as gaza if no boundary
+  // HDX boundary: each polygon's coords = [ring]; ring = [[lng,lat], ...]
+  for (const poly of polys) {
+    const ring = poly[0];
+    if (pointInRing(lng, lat, ring)) return true;
+  }
+  return false;
+}
+
+function resolveRegion(dsRegion, lat, lng) {
+  if (dsRegion === "gza" && typeof lat === "number" && typeof lng === "number") {
+    return inGazaStrip(lng, lat) ? "gza" : "wb";
+  }
+  return dsRegion;
+}
+
 async function fetchZip(url) {
   const res = await fetch(url);
   if (!res.ok) throw new Error(`HTTP ${res.status} for ${url}`);
@@ -142,7 +190,7 @@ async function importDataset(ds) {
       authorRole: "ngo",
       verified: true,
       source: `hdx:${ds.key}`,
-      region: ds.region,
+      region: resolveRegion(ds.region, lat, lng),
       createdAt: new Date().toISOString(),
       syncedAt: null,
     });
