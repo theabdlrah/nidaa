@@ -159,5 +159,13 @@ button {
   color: var(--muted);
   font-size: 0.85rem;
 }
+.map-canvas {
+  height: 360px;
+  border-radius: 12px;
+  margin: 10px 0 16px;
+  border: 1px solid #e5e7eb;
+  z-index: 0; /* keep below sticky UI */
+}
+.leaflet-container { font-family: inherit; }
 .skeleton { color: var(--muted); padding: 20px; text-align: center; }
 footer.foot { color: var(--muted); font-size: 0.78rem; text-align: center; padding: 20px 0; }

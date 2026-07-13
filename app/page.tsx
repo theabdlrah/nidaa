@@ -9,10 +9,14 @@ import {
   removeLocal,
   QueuedEntry,
 } from "@/lib/offlineQueue";
-import { NidaaEntry } from "@/lib/types";
+import { NidaaEntry, Lang } from "@/lib/types";
+import dynamic from "next/dynamic";
 
-type Lang = "ar" | "en";
+// Map is client-only (Leaflet needs window); load lazily.
+const BoardMap = dynamic(() => import("@/components/BoardMap"), { ssr: false });
+
 type Filter = "all" | "need" | "offer";
+type View = "list" | "map";
 
 interface ServerEntry extends NidaaEntry {}
 
@@ -23,6 +27,7 @@ export default function Page() {
   const [server, setServer] = useState<ServerEntry[]>([]);
   const [filter, setFilter] = useState<Filter>("all");
   const [city, setCity] = useState<string>("");
+  const [view, setView] = useState<View>("list");
   const [syncing, setSyncing] = useState<boolean>(false);
   const [showForm, setShowForm] = useState<boolean>(false);
   const [lastSync, setLastSync] = useState<string>("");
@@ -178,8 +183,8 @@ export default function Page() {
 
       <div className="notice">
         {t(
-          "يعمل التطبيق حتى بدون إنترنت: أي منشور جديد يُحفظ على جهازك ويرسل تلقائياً عند توفر الاتصال. البيانات الأولية توضيحية فقط.",
-          "This app works even offline: new posts are saved on your device and sent automatically when a connection appears. Seed data is illustrative only."
+          "يعمل التطبيق حتى بدون إنترنت: أي منشور جديد يُحفظ على جهازك ويرسل تلقائياً عند توفر الاتصال. بيانات المرافق مصدرها HDX / HOT OSM (موثّقة). الخريطة تخزّن البلاطات محلياً للعمل دون اتصال.",
+          "Works offline: new posts save on your device and sync when a connection appears. Facility data is from HDX / HOT OSM (verified). Map tiles are cached locally for offline use."
         )}
       </div>
 
@@ -188,6 +193,10 @@ export default function Page() {
           <option value="all">{t("الكل", "All")}</option>
           <option value="need">{t("احتياجات", "Needs")}</option>
           <option value="offer">{t("عروض", "Offers")}</option>
+        </select>
+        <select value={view} onChange={(e) => setView(e.target.value as View)}>
+          <option value="list">{t("قائمة", "List")}</option>
+          <option value="map">{t("خريطة", "Map")}</option>
         </select>
         <input
           type="search"
@@ -202,31 +211,37 @@ export default function Page() {
 
       {showForm && <NewPostForm lang={lang} t={t} onSubmit={submit} onCancel={() => setShowForm(false)} />}
 
-      {merged.length === 0 && (
-        <div className="skeleton">{t("لا توجد منشورات بعد.", "No posts yet.")}</div>
-      )}
+      {view === "map" ? (
+        <BoardMap entries={merged} lang={lang} />
+      ) : (
+        <>
+          {merged.length === 0 && (
+            <div className="skeleton">{t("لا توجد منشورات بعد.", "No posts yet.")}</div>
+          )}
 
-      {merged.map((e) => (
-        <div className="card" key={e.clientId}>
-          <div className="row1">
-            <div>
-              <span className={"tag " + e.type}>{t(e.type === "need" ? "احتياج" : "عرض", e.type === "need" ? "NEED" : "OFFER")}</span>{" "}
-              <span className="tag cat">{e.category}</span>{" "}
-              <span className={"tag " + (e.verified ? "verified" : "unverified")}>
-                {e.verified ? t("موثّق", "Verified") : t("غير موثّق", "Unverified")}
-              </span>
+          {merged.map((e) => (
+            <div className="card" key={e.clientId}>
+              <div className="row1">
+                <div>
+                  <span className={"tag " + e.type}>{t(e.type === "need" ? "احتياج" : "عرض", e.type === "need" ? "NEED" : "OFFER")}</span>{" "}
+                  <span className="tag cat">{e.category}</span>{" "}
+                  <span className={"tag " + (e.verified ? "verified" : "unverified")}>
+                    {e.verified ? t("موثّق", "Verified") : t("غير موثّق", "Unverified")}
+                  </span>
+                </div>
+                {!e.syncedAt && <span className="tag unverified">{t("بانتظار المزامنة", "Pending")}</span>}
+              </div>
+              <h3>{lang === "ar" ? e.titleAr : e.titleEn}</h3>
+              <div>{lang === "ar" ? e.bodyAr : e.bodyEn}</div>
+              <div className="meta">
+                📍 {e.city} · {t("النوع", "Role")}: {e.authorRole}
+                {e.contact ? " · ☎ " + e.contact : ""}
+                {e.lat && e.lng ? " · 🗺 " + e.lat.toFixed(2) + "," + e.lng.toFixed(2) : ""}
+              </div>
             </div>
-            {!e.syncedAt && <span className="tag unverified">{t("بانتظار المزامنة", "Pending")}</span>}
-          </div>
-          <h3>{lang === "ar" ? e.titleAr : e.titleEn}</h3>
-          <div>{lang === "ar" ? e.bodyAr : e.bodyEn}</div>
-          <div className="meta">
-            📍 {e.city} · {t("النوع", "Role")}: {e.authorRole}
-            {e.contact ? " · ☎ " + e.contact : ""}
-            {e.lat && e.lng ? " · 🗺 " + e.lat.toFixed(2) + "," + e.lng.toFixed(2) : ""}
-          </div>
-        </div>
-      ))}
+          ))}
+        </>
+      )}
 
       <footer className="foot">
         {t(

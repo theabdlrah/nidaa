@@ -1,5 +1,7 @@
 export type EntryType = "need" | "offer";
 
+export type Lang = "ar" | "en";
+
 export interface NidaaEntry {
   id: string;            // server-assigned canonical id (uuid)
   clientId: string;      // client-generated id (stable across retries)
