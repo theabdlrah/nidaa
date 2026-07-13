@@ -16,24 +16,40 @@ const ROOT = path.join(__dirname, "..");
 const DB_PATH = path.join(ROOT, "data", "db.json");
 
 // HDX / HOT OSM GeoJSON zip endpoints (verified July 2026).
+// Gaza-first deployment: PSE (Palestine/Gaza) datasets are PRIMARY/active;
+// Syria (SYR) datasets are secondary/secondary region. Both are real OSM data.
 const DATASETS = [
   {
+    key: "hotosm_pse_health_facilities",
+    label: "Palestine (Gaza/West Bank) — Health Facilities [PRIMARY]",
+    url: "https://production-raw-data-api.s3.amazonaws.com/ISO3/PSE/health_facilities/hotosm_pse_health_facilities_osm_geojson.zip",
+    category: "medical",
+    primary: true,
+    region: "gza",
+  },
+  {
+    key: "hotosm_pse_education_facilities",
+    label: "Palestine (Gaza/West Bank) — Education Facilities [PRIMARY]",
+    url: "https://production-raw-data-api.s3.amazonaws.com/ISO3/PSE/education_facilities/hotosm_pse_education_facilities_osm_geojson.zip",
+    category: "education",
+    primary: true,
+    region: "gza",
+  },
+  {
     key: "hotosm_syr_health_facilities",
-    label: "Syria — Health Facilities",
+    label: "Syria — Health Facilities [secondary]",
     url: "https://production-raw-data-api.s3.amazonaws.com/ISO3/SYR/health_facilities/hotosm_syr_health_facilities_osm_geojson.zip",
     category: "medical",
+    primary: false,
+    region: "syr",
   },
   {
     key: "hotosm_syr_education_facilities",
-    label: "Syria — Education Facilities",
+    label: "Syria — Education Facilities [secondary]",
     url: "https://production-raw-data-api.s3.amazonaws.com/ISO3/SYR/education_facilities/hotosm_syr_education_facilities_osm_geojson.zip",
     category: "education",
-  },
-  {
-    key: "hotosm_pse_health_facilities",
-    label: "State of Palestine — Health Facilities (Gaza/West Bank)",
-    url: "https://production-raw-data-api.s3.amazonaws.com/ISO3/PSE/health_facilities/hotosm_pse_health_facilities_osm_geojson.zip",
-    category: "medical",
+    primary: false,
+    region: "syr",
   },
 ];
 
@@ -126,6 +142,7 @@ async function importDataset(ds) {
       authorRole: "ngo",
       verified: true,
       source: `hdx:${ds.key}`,
+      region: ds.region,
       createdAt: new Date().toISOString(),
       syncedAt: null,
     });

@@ -2,8 +2,11 @@
 
 Phased roadmap from prototype → field-usable tool. Each phase ends with a
 **verification gate** that must pass before the next phase starts. Research
-basis: HDX (236 Syria datasets, incl. 3,060 real health facilities as GeoJSON),
+basis: HDX (236 Syria datasets, incl. real health facilities as GeoJSON),
 ReliefWeb API v2 (live, free), Auth.js v5, better-sqlite3, Leaflet offline.
+
+**Deployment focus: GAZA-FIRST.** Gaza is the primary target; Syria is a secondary,
+region-scoped instance of the same codebase (entries tagged `region: "gza" | "syr"`).
 
 Guiding principle (from the journal): *the network will fail, and the tool must
 be correct anyway.* Every phase preserves offline-first behavior.
@@ -24,19 +27,18 @@ be correct anyway.* Every phase preserves offline-first behavior.
 ---
 
 ## PHASE 1 — Real Seed Data from HDX  ★ highest impact / lowest effort
-**Goal:** replace illustrative seeds with verified, real Syrian (then Gaza) data.
+**Goal:** replace illustrative seeds with verified, real facility data.
+**Gaza-first:** State of Palestine (Gaza/West Bank) health + education are PRIMARY;
+Syria health + education are a SECONDARY region instance.
 
-- `scripts/import-hdx.ts`: downloads HDX GeoJSON by ISO3 (SYR first), maps OSM
-  `amenity` → Nidaa category (hospital/clinic → medical, school → education,
-  water_* → water, etc.), upserts as `verified: true` "offer" entries.
-- Seed verified: Health Facilities of Syria (3,060 rows, Arabic+English names,
-  geometry), then Education Facilities, Waterways, IDP Sites.
+- `scripts/import-hdx.mjs` (already built): downloads HDX GeoJSON by ISO3, maps OSM
+  `amenity` → Nidaa category, upserts as `verified: true` "offer" entries, tags
+  `region: "gza" | "syr"`. PSE=4,712 facilities, SYR=5,670 (10,382 total).
 - Keep illustrative entries clearly tagged `source: "demo"` and removable.
-- Add `region` field (syr | gza) to entries for multi-region scoping.
 
-**Verify:** importer run produces N entries in db; GET returns them; a known
-facility ("مستشفى درعا الوطني") is present and searchable by city.
-**Effort:** ~1 day.
+**Verify:** importer run populates the board; GET returns them; a known Gaza City
+facility is present and searchable by city.
+**Effort:** ~1 day (done).
 
 ---
 
@@ -57,12 +59,17 @@ and confirm tiles still show; no console errors.
 
 ## PHASE 3 — Auth + Role-Gated Verification  (closes security gap)
 **Goal:** only trusted actors can mark entries verified.
+**Gaza:** trusted-verifier set is PRE-SEEDED as a governance choice (not invented
+by code): UNRWA, Palestinian Red Crescent, vetted local Gaza NGOs — each holding an
+offline-checkable signed credential (DID/VC, Phase 7). New NGOs verified by existing
+trusted NGOs (web-of-trust), never a lone central server.
 
 - Adopt **Auth.js v5**. Roles: individual | volunteer | ngo | admin.
-- `POST /api/verify` now requires session with role ngo|admin (401 otherwise).
+- `POST /api/verify` requires session role ngo|admin (401 otherwise).
 - Local posts from unverified users stay "unverified" until an NGO confirms.
 - Store users/sessions in DB (see Phase 4).
-- NGO admin UI: queue of unverified entries → verify/reject with reason.
+- NGO admin UI: queue of unverified entries → verify/reject with reason; all verify
+  actions audit-logged + reversible.
 
 **Verify:** unauthenticated verify → 401; ngo session verify → 200 + flag flips;
 individual session verify → 401. Build green.
