@@ -123,7 +123,59 @@ tier rises with confirmations.
 
 ---
 
-## STRETCH (post-Phase 6, optional)
+## PHASE 7 — Advanced Differentiating Mechanisms (the uniqueness push)
+**Goal:** move Nidaa from "competent offline app" to a genuinely novel coordination
+primitive. Each mechanism is established in its own field but essentially unused in
+conflict-zone coordination boards (verified via GitHub landscape scan, July 2026):
+
+- **SSB-style signed append-only feeds (10.6):** each device keeps a cryptographically
+  signed, append-only log of its posts/edits; replication = gossip of log tails.
+  Tamper-evidence + natural conflict detection for free, no server. SSB (patchwork,
+  3.5k★) proves it works offline; no humanitarian board uses it. *Deepest differentiator.*
+- **CRDT field-merge (10.4 → upgrade):** replace hand-rolled three-way merge with a
+  real CRDT (Automerge / Loro / Yjs, all >5k★) so concurrent offline edits merge
+  deterministically with no central arbitrator.
+- **Geo-indistinguishable location (differential privacy):** add calibrated noise to
+  posted coordinates (Google/Meta/IBM DP libs exist) so true point stays within ~k m
+  with a crypto guarantee — defeats location-targeting (Threat 12.1) while keeping
+  "nearest aid" ranking. Safety mitigation becomes a math property.
+- **Proof-of-personhood sybil resistance:** cap corroborations (10.5) per unique human
+  via zero-knowledge proof (Anon Aadhaar / ZK), not per device — closes trust-forgery
+  without a central ID authority. Critical when no government is trusted.
+- **On-device LLM triage & translation (WebLLM / transformers.js):** a small model,
+  downloaded once, translates posts Arabic↔English↔Ukrainian etc. and flags urgent
+  medical posts offline. No cloud, no data leaving the device.
+
+**Verify:** signed-feed replication between two offline devices converges to identical
+state; CRDT merge of divergent edits is deterministic; geo-noise bounds location error;
+ZK proof gates corroboration; offline model translates a posted need.
+**Effort:** ~4–6 days (SSB feed + CRDT are the core).
+
+---
+
+## COMPETITIVE LANDSCAPE (are we first?)
+Exhaustive GitHub + humanitarian-OSS scan (July 2026). Authors are NOT from Syria/Gaza;
+Nidaa is a generalizable offline-first board — claim must hold across ALL regions.
+- **Exists:** crisis-mesh-messenger (192★, mesh *messaging* only), HTBox/allReady
+  (885★, stale 2022, preparedness), ayudapy (118★, peacetime mutual aid), Sahana Eden
+  (409★, IMS), Kiwix (1.4k★, offline content), MapSwipe/fAIr (mapping).
+- **Does NOT exist:** "needs board + offline" → 0 results; Arabic-RTL humanitarian
+  board → 1 result (a UNHCR doc template, 1★); region-specific crisis boards
+  (Ukraine/Haiti/Myanmar/Sudan/Yemen) → none.
+- **Verdict:** first-in-combination, not first-in-principle. The absence is global, not
+  regional — strengthens the claim. Execution, not novelty, is the real risk.
+
+## THREAT MODEL & DO-NO-HARM (cross-cutting, design-time)
+Dual-use: false "shelter" posts (entrapment), location/contact surveillance, sybil
+trust-forgery, spam-DoS amplified by mesh, admin compromise, device seizure.
+Mitigations by design: on-device encryption at rest; no mandatory PII; city-granularity
+location; rate-limit + proof-of-work; device-weighted corroboration; audit log +
+reversible verifies; mesh hop caps; "unverified = unconfirmed" UI. Do-no-harm default:
+safety over convenience.
+
+---
+
+## STRETCH (post-Phase 7, optional)
 - **WhatsApp/SMS bridge:** post needs via message ( Twilio / WhatsApp Business
   API). Reaches the ~64% who won't install an app. Handle PII carefully.
 - **Multi-region deploy:** same code, `region=syr|gza` scoping, shared
@@ -134,12 +186,13 @@ tier rises with confirmations.
 
 ## SEQUENCING SUMMARY
 P0 Baseline → **P1 Real Data** → P2 Maps → **P3 Auth** → **P4 SQLite** → P5 Conflicts
-→ **P6 Offline-Native (mesh + decentralized trust)** → Stretch.
+→ **P6 Offline-Native (mesh + decentralized trust)** → **P7 Advanced Mechanisms
+(SSB feeds + CRDT + DP location + ZK personhood + on-device LLM)** → Stretch.
 
 Build order prioritizes the trio that moves Nidaa from "fake-data prototype" to
 "real, safe, scalable tool": **P1 (real data) + P3 (auth) + P4 (SQLite)**.
-P2 and P5 are depth/robustness on top of that foundation. P6 is what makes the
-tool survivable under a total blackout — the offline-native endgame.
+P2 and P5 are depth/robustness. P6 is the offline-native endgame; P7 is what makes
+the combination genuinely novel rather than a re-assembly of known parts.
 
 ## STATUS
 - [x] Prototype built & verified (build green, API + Arabic round-trip OK)
@@ -152,3 +205,6 @@ tool survivable under a total blackout — the offline-native endgame.
 - [ ] P4 — SQLite store
 - [ ] P5 — conflict resolution
 - [ ] P6 — offline-native (mesh + decentralized trust)
+- [ ] P7 — advanced mechanisms (SSB feeds + CRDT + DP + ZK + on-device LLM)
+- [x] Competitive landscape documented (first-in-combination verdict)
+- [x] Threat model & do-no-harm documented (cross-cutting)
