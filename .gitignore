@@ -1,0 +1,7 @@
+node_modules
+.next
+out
+data/db.json
+*.log
+npm-debug.log*
+.DS_Store
