@@ -54,14 +54,17 @@ export async function makeCachedTileLayer(urlTemplate: string, options: any) {
       getTile(url)
         .then((blob) => {
           if (blob) {
-            tile.src = URL.createObjectURL(blob);
+            const objUrl = URL.createObjectURL(blob);
+            tile.onload = () => URL.revokeObjectURL(objUrl);
+            tile.src = objUrl;
+            finish(null);
             return;
           }
           // not cached: load + cache
           const img = new Image();
           img.crossOrigin = "anonymous";
           img.onload = () => {
-            fetch(url)
+            fetch(url, { mode: "cors" })
               .then((r) => r.blob())
               .then((b) => putTile(url, b))
               .catch(() => {});

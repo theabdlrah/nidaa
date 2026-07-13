@@ -135,8 +135,9 @@ export default function Page() {
   // ---- submit new entry (offline-first: save local first) ----
   async function submit(newEntry: Omit<QueuedEntry, "clientId" | "id" | "createdAt" | "syncedAt" | "verified">) {
     const clientId =
-      (crypto.randomUUID && crypto.randomUUID()) ||
-      "c-" + Math.random().toString(36).slice(2) + Date.now().toString(36);
+      (typeof crypto !== "undefined" && "randomUUID" in crypto
+        ? crypto.randomUUID()
+        : "c-" + Math.random().toString(36).slice(2) + Date.now().toString(36));
     const entry: QueuedEntry = {
       ...newEntry,
       clientId,
@@ -159,8 +160,8 @@ export default function Page() {
         <h1>نداء · Nidaa</h1>
         <p>
           {t(
-            "لوحة احتياجات وخدمات المجتمع في سوريا — تعمل بدون إنترنت.",
-            "Community needs & services board for Syria — works without internet."
+            "لوحة احتياجات وخدمات المجتمع — تعمل بدون إنترنت. البيانات مصدرها HDX / HOT OSM (موثّقة) لغزة والضفة الغربية وسوريا.",
+            "Community needs & services board — works without internet. Facility data is from HDX / HOT OSM (verified) for Gaza, the West Bank, and Syria."
           )}
         </p>
       </header>
@@ -254,8 +255,8 @@ export default function Page() {
 
       <footer className="foot">
         {t(
-          "نداء نموذج أولي — البيانات توضيحية وليست معلومات تشغيلية حية. يجب تأمين التحقق بصلاحيات في الإصدار الإنتاجي.",
-          "Nidaa is a prototype — data is illustrative, not live operational info. Verification must be auth-gated in production."
+          "نداء نموذج أولي — بيانات المرافق مصدرها HDX / HOT OSM (موثّقة). يجب تأمين التحقق بصلاحيات في الإصدار الإنتاجي.",
+          "Nidaa is a prototype — facility data is from HDX / HOT OSM (verified). Verification must be auth-gated in production."
         )}
       </footer>
     </div>

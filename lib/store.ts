@@ -5,6 +5,20 @@ import { SEED_ENTRIES } from "../data/seed";
 
 const DB_PATH = path.join(process.cwd(), "data", "db.json");
 
+// In-process write lock: file read-modify-write is not atomic, and two
+// concurrent POSTs could each read the old db and clobber the other's upsert.
+// Serialize writes through a promise chain.
+let writeChain: Promise<any> = Promise.resolve();
+function withWriteLock<T>(fn: () => Promise<T>): Promise<T> {
+  const run = writeChain.then(fn, fn);
+  // keep the chain alive but swallow errors so one failure doesn't block others
+  writeChain = run.then(
+    () => undefined,
+    () => undefined
+  );
+  return run;
+}
+
 async function ensureDb(): Promise<void> {
   try {
     await fs.access(DB_PATH);
@@ -37,25 +51,29 @@ export async function listEntries(): Promise<NidaaEntry[]> {
 }
 
 export async function upsertEntry(entry: NidaaEntry): Promise<NidaaEntry> {
-  const db = await readDb();
-  const idx = db.entries.findIndex((e) => e.clientId === entry.clientId);
-  if (idx >= 0) {
-    db.entries[idx] = entry;
-  } else {
-    db.entries.push(entry);
-  }
-  await writeDb(db);
-  return entry;
+  return withWriteLock(async () => {
+    const db = await readDb();
+    const idx = db.entries.findIndex((e) => e.clientId === entry.clientId);
+    if (idx >= 0) {
+      db.entries[idx] = entry;
+    } else {
+      db.entries.push(entry);
+    }
+    await writeDb(db);
+    return entry;
+  });
 }
 
 export async function setVerified(
   id: string,
   verified: boolean
 ): Promise<NidaaEntry | null> {
-  const db = await readDb();
-  const entry = db.entries.find((e) => e.id === id || e.clientId === id);
-  if (!entry) return null;
-  entry.verified = verified;
-  await writeDb(db);
-  return entry;
+  return withWriteLock(async () => {
+    const db = await readDb();
+    const entry = db.entries.find((e) => e.id === id || e.clientId === id);
+    if (!entry) return null;
+    entry.verified = verified;
+    await writeDb(db);
+    return entry;
+  });
 }

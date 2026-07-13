@@ -17,6 +17,7 @@ export default function BoardMap({
 }) {
   const elRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<any>(null);
+  const layerRef = useRef<any>(null); // tracked marker group (so we can clear)
 
   useEffect(() => {
     let cancelled = false;
@@ -37,13 +38,12 @@ export default function BoardMap({
         );
         tiles.addTo(map);
         mapRef.current = map;
+        layerRef.current = L.layerGroup().addTo(map);
       }
       const map = mapRef.current;
 
-      // clear old markers
-      map.eachLayer((layer: any) => {
-        if (layer instanceof L.Marker) map.removeLayer(layer);
-      });
+      // clear old markers (circleMarkers, not Markers — must use the group)
+      layerRef.current.clearLayers();
 
       const pts = entries.filter(
         (e) => typeof e.lat === "number" && typeof e.lng === "number"
@@ -64,7 +64,7 @@ export default function BoardMap({
             e.verified ? "✓ verified" : "unverified"
           }${e.city ? "<br/>" + e.city : ""}`
         );
-        marker.addTo(map);
+        marker.addTo(layerRef.current);
         bounds.push([e.lat!, e.lng!]);
       }
       if (bounds.length > 0) {
