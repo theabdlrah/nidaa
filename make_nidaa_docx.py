@@ -670,6 +670,31 @@ add_para(
     "was hardcoded to 'Aleppo' (now a Gaza example)."
 )
 
+add_heading("14.8 Map flickered / disappeared while zooming", 2)
+add_para(
+    "Reported symptom: on the board map, tiles vanished during a zoom gesture and reappeared after. "
+    "Root cause was NOT Leaflet — it was our CUSTOM tile layer (lib/tileCache.ts). Its createTile() had "
+    "a broken lifecycle: for a cached tile it called Leaflet's finish() BEFORE the blob image decoded, "
+    "and set `tile.onload = () => URL.revokeObjectURL(objUrl)` — so the object URL was revoked while "
+    "Leaflet was still using that tile element in the zoom animation. The tile blanked out, then "
+    "reloaded on the next frame -> flicker. Custom createTile() overrides are fragile across Leaflet's "
+    "zoom animation."
+)
+add_para(
+    "Fix (KISS): deleted the custom IndexedDB tile layer and switched BoardMap to the STANDARD "
+    "`L.tileLayer(...).addTo(map)`, which handles zoom correctly. Offline tiles are now cached by the "
+    "service worker instead (sw.js: static/cross-origin tile requests are cache-first with write-thru "
+    "on network success), and the SW cache was bumped to nidaa-v3 so the old shell/tiles are discarded. "
+    "Removed lib/tileCache.ts (dead code). Verified: `makeCachedTileLayer` is absent from the build; "
+    "`L.tileLayer` + openstreetmap present; npm run build + lint green."
+)
+add_para(
+    "Honest caveat: the live zoom could not be eyeballed in the build environment (the browser sandbox "
+    "blocks the client-side fetch to the local API, so the map does not paint for us here). The flicker "
+    "was a code-level lifecycle bug in the custom layer, now removed; the standard layer does not have "
+    "it. User-side confirmation (hard-reload + zoom) is the final check."
+)
+
 # ===== footer note =====
 doc.add_paragraph()
 fn = doc.add_paragraph()
