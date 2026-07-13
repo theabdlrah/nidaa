@@ -565,7 +565,7 @@ add_para(
     "document, read this one — it is the difference between a demo and a dependable tool."
 )
 
-add_heading("14.1 Phase 1 — Real HDX Data (what broke)", 2)
+add_heading("14.1 — 2026-07-13: Phase 1 — Real HDX Data (what broke)", 2)
 add_para("Failures encountered while importing real facility data:")
 add_bullets([
     "Renamed data/seed.js to .ts but left JS syntax inside → build failed. Fixed by rewriting as TS.",
@@ -583,7 +583,7 @@ add_bullets([
     "(32 vs 36 bytes) that caused an infinite loop on the 114 KB boundary file. Fixed both offsets.",
 ])
 
-add_heading("14.2 Phase 2 — Offline Maps (what broke)", 2)
+add_heading("14.2 — 2026-07-13: Phase 2 — Offline Maps (what broke)", 2)
 add_para("Failures encountered while adding the Leaflet map:")
 add_bullets([
     "Imported 'leaflet' types missing → added @types/leaflet.",
@@ -597,7 +597,7 @@ add_bullets([
     "on more. Fixed with a tracked L.layerGroup + clearLayers().",
 ])
 
-add_heading("14.3 The region filter — a bug we shipped, then caught", 2)
+add_heading("14.3 — 2026-07-13: The region filter — a bug we shipped, then caught", 2)
 add_para(
     "When the region filter was first added, its predicate was "
     "`(e.region && e.region === region) || !e.syncedAt`. Because the API serves every entry with "
@@ -607,7 +607,7 @@ add_para(
     "that have one, keeping region-less user posts always visible."
 )
 
-add_heading("14.4 Concurrency bug — lost posts under load", 2)
+add_heading("14.4 — 2026-07-13: Concurrency bug — lost posts under load", 2)
 add_para(
     "The JSON store did a read-modify-write with no synchronization. Two concurrent POSTs could each "
     "read the old db.json and overwrite the other's upsert, silently losing an entry. A test firing "
@@ -621,7 +621,7 @@ add_para(
     "shipping defect — but it proved the race was real and motivated the lock."
 )
 
-add_heading("14.5 Verification honesty — what we could and could NOT prove", 2)
+add_heading("14.5 — 2026-07-13: Verification honesty — what we could and could NOT prove", 2)
 add_para("To avoid overclaiming, here is exactly what was and was not verified:")
 add_bullets([
     "VERIFIED: npm run build passes; npm run lint passes (eslint + eslint-config-next installed — "
@@ -643,7 +643,7 @@ add_bullets([
     "merge, mesh sync, SSB/CRDT/DP/ZK mechanisms.",
 ])
 
-add_heading("14.6 What 'done' actually means here", 2)
+add_heading("14.6 — 2026-07-13: What 'done' actually means here", 2)
 add_para(
     "As of this writing, Nidaa is a verified prototype: real data, offline-first sync, a working "
     "offline-cacheable map, a region scoping filter, and a concurrency-safe store. It is NOT yet a "
@@ -652,7 +652,7 @@ add_para(
     "subject of Phases 3–7, not hand-waving."
 )
 
-add_heading("14.7 Third bug pass — the PWA was not actually installable", 2)
+add_heading("14.7 — 2026-07-13: Third bug pass — the PWA was not actually installable", 2)
 add_para(
     "In a later verification pass we found the app's offline-first PWA claim was partially false. "
     "`public/` was completely empty, yet `sw.js` cached `/manifest.json` and `/icon.svg` and the "
@@ -670,7 +670,7 @@ add_para(
     "was hardcoded to 'Aleppo' (now a Gaza example)."
 )
 
-add_heading("14.8 Map flickered / disappeared while zooming", 2)
+add_heading("14.8 — 2026-07-13: Map flickered / disappeared while zooming", 2)
 add_para(
     "Reported symptom: on the board map, tiles vanished during a zoom gesture and reappeared after. "
     "Root cause was NOT Leaflet — it was our CUSTOM tile layer (lib/tileCache.ts). Its createTile() had "
