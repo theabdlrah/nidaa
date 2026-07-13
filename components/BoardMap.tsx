@@ -1,11 +1,11 @@
 // components/BoardMap.tsx
-// Client-only Leaflet map. Plots entries that carry lat/lng. Tile layer is
-// cache-backed (lib/tileCache) so it keeps working offline.
+// Client-only Leaflet map. Plots entries that carry lat/lng. Tiles are rendered
+// with the standard L.tileLayer (correct zoom behaviour) and cached offline by
+// the service worker (public/sw.js), so no custom tile layer is needed.
 "use client";
 
 import { useEffect, useRef } from "react";
 import type { QueuedEntry } from "@/lib/offlineQueue";
-import { makeCachedTileLayer } from "@/lib/tileCache";
 import type { Lang } from "@/lib/types";
 
 export default function BoardMap({
@@ -29,14 +29,12 @@ export default function BoardMap({
           [33.5, 37.5],
           6
         );
-        const tiles = await makeCachedTileLayer(
-          "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-          {
-            attribution: "© OpenStreetMap",
-            maxZoom: 18,
-          }
-        );
-        tiles.addTo(map);
+        // Standard tile layer — correct zoom animation. Offline tiles are
+        // served by the service worker (public/sw.js), not a custom layer.
+        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+          attribution: "© OpenStreetMap",
+          maxZoom: 18,
+        }).addTo(map);
         mapRef.current = map;
         layerRef.current = L.layerGroup().addTo(map);
       }
