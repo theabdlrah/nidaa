@@ -1,5 +1,6 @@
 // Nidaa service worker: app-shell offline caching + navigation fallback.
-const CACHE = "nidaa-v1";
+// Cache version is bumped on any shell change so stale HTML is discarded on reload.
+const CACHE = "nidaa-v2";
 const APP_SHELL = ["/", "/manifest.json", "/icon.svg"];
 
 self.addEventListener("install", (event) => {
@@ -37,7 +38,17 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
-  // Static assets: cache-first.
+  // Navigations: NETWORK-FIRST so the live server always wins; fall back to
+  // cached shell only when offline. (Previously cache-first, which served
+  // stale HTML after content changes.)
+  if (req.mode === "navigate") {
+    event.respondWith(
+      fetch(req).catch(() => caches.match("/"))
+    );
+    return;
+  }
+
+  // Other static assets: cache-first.
   event.respondWith(
     caches.match(req).then((cached) => cached || fetch(req).catch(() => caches.match("/")))
   );
