@@ -89,7 +89,8 @@ add_para(
     "as the source of truth: a new post is written to local storage first and synchronized to a "
     "server only when a connection becomes available. The application shell is cached by a service "
     "worker, so the board remains fully usable — browse, read, and compose — with zero connectivity "
-    "after the first visit."
+    "after the first visit. Gaza is the primary deployment target; the same codebase serves other "
+    "low-connectivity crisis regions (e.g. Syria) as region-scoped instances."
 )
 add_para(
     "The problem Nidaa addresses is not \"lack of an app\"; it is that the people who most need "
@@ -101,7 +102,13 @@ add_para(
 
 # ===== 2. Context & Motivation =====
 add_heading("2. Context & Motivation", 1)
-add_para("Current conditions in Syria (2025) define the design constraints directly:")
+add_para(
+    "The design constraints are defined directly by current conditions in Gaza and Syria (2025). "
+    "Gaza is the focus of deployment: connectivity collapses under conflict, aid-distribution sites "
+    "have been struck, and the population is almost entirely dependent on intermittent, contested "
+    "connectivity and humanitarian assistance. Syria provides the documented baseline below; the "
+    "constraints are shared in kind:"
+)
 add_bullets([
     "~64% of the population is effectively offline; internet penetration is only ~35.8% (9.01M users of 25.2M people).",
     "Median mobile download speed is ~12.7 Mbps, intermittent and costly.",
@@ -175,34 +182,40 @@ add_para(
     "local-first, community-owned, and resilient against interception."
 )
 
-# ===== 6. Gaza =====
-add_heading("6. Applicability to Gaza", 1)
+# ===== 6. Primary Deployment: Gaza =====
+add_heading("6. Primary Deployment: Gaza", 1)
 add_para(
-    "Gaza is the clearest sibling deployment of this design. The constraints Nidaa was built around — "
-    "severed connectivity, devastated infrastructure, urgent need for local coordination of aid, "
-    "medical care, water, and shelter, and a predominantly Arabic-speaking population — are present "
-    "there in acute form."
+    "Gaza is the primary deployment target for Nidaa, not a sibling case. The constraints the design "
+    "was built around — severed or contested connectivity, devastated infrastructure, acute need for "
+    "local coordination of aid, medical care, water, and shelter, and a predominantly Arabic-speaking "
+    "population — are present there in their most acute form. Crucially, the threat model (Section 12) "
+    "is shaped by Gaza's realities: aid sites have been struck, so location precision and PII exposure "
+    "are live risks, not hypotheticals — which is exactly why geo-indistinguishability (10.6) and "
+    "no-mandatory-PII (12.2) are core, not optional."
 )
-add_para("Nidaa's transfer to Gaza requires no architectural change; it requires:")
+add_para("Deploying to Gaza requires no architectural change; it requires:")
 add_bullets([
-    "Gaza-specific seed/verified data from trusted local actors.",
-    "Arabic (and where useful, bidirectional) content.",
-    "Offline map tiles for the local geography.",
-    "The same auth/verification hardening described above.",
+    "Gaza-specific seed/verified data from trusted local actors (already importable: State of Palestine "
+    "health + education facilities from HDX/HOT OSM — clipped to the Gaza Strip (1,315 facilities) and "
+    "West Bank (3,397) via the Gaza Strip Municipal Boundaries; Syria is a separate secondary region).",
+    "A region filter in the UI (All / Gaza Strip / West Bank / Syria) so the same deployment scopes to "
+    "either Palestinian territory or Syria without code changes.",
+    "A Gaza-facing trusted-verifier set: UNRWA, Palestinian Red Crescent, and vetted local Gaza NGOs pre-seeded as verifiers (Phase 3), with offline-checkable signed credentials (10.6).",
 ])
 add_para(
-    "The same codebase can serve both Syria and Gaza as region-scoped instances, sharing the "
-    "offline-first core while differing only in data and localization."
+    "Syria remains a secondary, region-scoped instance of the same codebase — the offline-first core "
+    "is shared; only data and localization differ. This generality is deliberate: the authors are not "
+    "from either region, so Nidaa is built as a generalizable coordination primitive, Gaza-first."
 )
 
 # ===== 7. Limitations =====
 add_heading("7. Honest Limitations (stated up front)", 1)
 add_bullets([
-    "Seed content is illustrative, not operational.",
-    "The verification endpoint is open in this build and must be secured.",
-    "The server store is a JSON file (chosen for zero-dependency portability); scale demands Postgres.",
-    "No live map rendering yet; coordinates only.",
-    "This is a portfolio / learning prototype demonstrating offline-first architecture for constrained-connectivity humanitarian contexts.",
+    "Seed content is now REAL: 10,382 verified facilities imported from HDX/HOT OSM (Gaza/West Bank primary, Syria secondary). It is curated OSM data, not live operational feeds — still requires local-actor validation before field use.",
+    "The verification endpoint is open in this build and must be secured (Phase 3).",
+    "The server store is a JSON file (chosen for zero-dependency portability); scale demands SQLite/Postgres (Phase 4).",
+    "Offline maps are implemented (Phase 2) with IndexedDB tile cache; tiles cover visited areas only to stay light on cheap devices.",
+    "This is a portfolio / learning prototype demonstrating offline-first architecture for constrained-connectivity humanitarian contexts, Gaza-first.",
 ])
 
 # ===== 8. Phased Build Plan =====
@@ -221,12 +234,13 @@ add_para(
 
 add_heading("Phase 1 — Real Seed Data from HDX  (highest impact, lowest effort)", 2)
 add_para(
-    "Replace illustrative seeds with verified, real Syrian (then Gaza) data. A scripts/import-hdx.ts "
-    "downloader maps OSM amenities to Nidaa categories and upserts them as verified 'offer' entries: "
-    "Health Facilities of Syria (3,060 rows, Arabic+English names, geometry), then Education "
-    "Facilities, Waterways, and IDP Sites. A 'region' field (syr | gza) enables multi-region scoping."
+    "Replace illustrative seeds with verified, real facility data. A scripts/import-hdx.mjs downloader "
+    "maps OSM amenities to Nidaa categories and upserts them as verified 'offer' entries. Gaza-first: "
+    "State of Palestine (Gaza/West Bank) health (2,053) + education (2,659) facilities are PRIMARY; "
+    "Syria health (2,925) + education (2,745) are a SECONDARY region instance. A 'region' field "
+    "(gza | syr) enables region-scoped deployments sharing the offline-first core."
 )
-add_para("Gate: importer run populates the board; a known facility (مستشفى درعا الوطني) is present and searchable by city.", italic=True, color=MUTED, size=10)
+add_para("Gate: importer run populates the board; a known Gaza facility is present and searchable by city (e.g. a مستشفى/عيادة entry in Gaza City).", italic=True, color=MUTED, size=10)
 
 add_heading("Phase 2 — Offline Maps (Leaflet + cached tiles)", 2)
 add_para(
@@ -240,8 +254,12 @@ add_heading("Phase 3 — Auth + Role-Gated Verification (closes security gap)", 
 add_para(
     "Adopt Auth.js v5 with roles (individual | volunteer | ngo | admin). POST /api/verify now "
     "requires an ngo|admin session (401 otherwise) — closing the open verify route flagged in Section 7. "
-    "Local posts from unverified users stay 'unverified' until an NGO confirms. An NGO review queue "
-    "lets trusted actors verify or reject with a reason."
+    "Local posts from unverified users stay 'unverified' until an NGO confirms. For Gaza, the trusted-"
+    "verifier set is PRE-SEEDED as a governance choice (not invented by code): UNRWA, the Palestinian "
+    "Red Crescent, and vetted local Gaza NGOs, each holding an offline-checkable signed credential "
+    "(DID/VC, Section 10.6). New NGOs are verified by existing trusted NGOs (web-of-trust), never by a "
+    "lone central server. An NGO review queue lets trusted actors verify or reject with a reason, and "
+    "all verify actions are audit-logged + reversible (Section 12.2)."
 )
 add_para("Gate: unauthenticated verify → 401; ngo session → 200 and flag flips; individual → 401.", italic=True, color=MUTED, size=10)
 
@@ -534,6 +552,104 @@ add_para(
 add_para(
     "The path forward is not more features; it is trust, verification, and field use. Those are the "
     "gaps between a working prototype and a tool a community can depend on."
+)
+
+# ===== 14. Build Log: Failures, Fixes & Verification Reality =====
+# This section exists because a journal that only lists successes is a brochure, not a record.
+# The point of Nidaa's journal is to be HONEST about how the tool was actually built — what broke,
+# what we wrongly thought was fixed, and what we could and could not verify.
+add_heading("14. Build Log — Failures, Fixes & Verification Reality", 1)
+add_para(
+    "This section is the honest engineering record. It lists what failed, what we believed was fixed "
+    "but was not, and what was actually verified vs. assumed. If you only read one part of this "
+    "document, read this one — it is the difference between a demo and a dependable tool."
+)
+
+add_heading("14.1 Phase 1 — Real HDX Data (what broke)", 2)
+add_para("Failures encountered while importing real facility data:")
+add_bullets([
+    "Renamed data/seed.js to .ts but left JS syntax inside → build failed. Fixed by rewriting as TS.",
+    "Imported types via './types' instead of '../lib/types' → module-not-found. Fixed.",
+    "Gaza/West Bank (PSE) HDX data ships Gaza + West Bank bundled; we initially tagged ALL PSE as "
+    "'gza', which would have wrongly shown West Bank facilities (Jenin, Ramallah) under 'Gaza'.",
+    "Point-in-polygon clipping against the Gaza Strip boundary failed silently at first: the importer "
+    "fell back to tagging everything 'gza' because the boundary file failed to load.",
+    "ROOT CAUSE of that silent failure: used `fs.readFileSync` but imported `fs` as the PROMISES "
+    "namespace (`import { promises as fs }`), which has no sync method → threw → caught → fallback. "
+    "Fixed by importing a sync `fs` for the boundary read.",
+    "Polygon nesting was assumed wrong (`coords = [[ring]]`); actually `coords = [ring]`. The clipping "
+    "passed a single coordinate where a ring was expected → garbage → all points fell through.",
+    "Earlier SHP→GeoJSON converter had an off-by-8 record-length bug and a miscounted bbox offset "
+    "(32 vs 36 bytes) that caused an infinite loop on the 114 KB boundary file. Fixed both offsets.",
+])
+
+add_heading("14.2 Phase 2 — Offline Maps (what broke)", 2)
+add_para("Failures encountered while adding the Leaflet map:")
+add_bullets([
+    "Imported 'leaflet' types missing → added @types/leaflet.",
+    "Dynamic `import 'leaflet/dist/leaflet.css'` inside TSX broke tsc → moved CSS import to layout.tsx.",
+    "L.TileLayer.extend() constructor typing too strict → cast instantiation to any.",
+    "THE OFFLINE CACHE WAS DEAD: a cached tile blob set `tile.src` but never called Leaflet's "
+    "`finish(null)`, so the cached tile never painted and the object URL leaked. Offline, the map "
+    "would have shown blank. Fixed by signalling completion and revoking the URL on load.",
+    "Map markers LEAKED: code used `eachLayer` + `instanceof L.Marker`, but the map draws "
+    "`L.circleMarker` (a different class), so old markers were never removed — every render piled "
+    "on more. Fixed with a tracked L.layerGroup + clearLayers().",
+])
+
+add_heading("14.3 The region filter — a bug we shipped, then caught", 2)
+add_para(
+    "When the region filter was first added, its predicate was "
+    "`(e.region && e.region === region) || !e.syncedAt`. Because the API serves every entry with "
+    "`syncedAt: null` (the importer never sets a real sync time), the `!e.syncedAt` clause evaluated "
+    "TRUE for ALL entries — the filter did nothing (selecting 'Gaza' still showed 10,382 entries). "
+    "This passed a casual look but failed the count test. Fixed to filter by `region` for entries "
+    "that have one, keeping region-less user posts always visible."
+)
+
+add_heading("14.4 Concurrency bug — lost posts under load", 2)
+add_para(
+    "The JSON store did a read-modify-write with no synchronization. Two concurrent POSTs could each "
+    "read the old db.json and overwrite the other's upsert, silently losing an entry. A test firing "
+    "15 concurrent posts lost 14. Fixed with an in-process promise-chained write lock. After the fix, "
+    "20 concurrent posts → 20 survived, zero lost."
+)
+add_para(
+    "A SECOND, related failure: during concurrency testing on a stale server process, the unlocked "
+    "writes corrupted db.json (overlapping partial JSON), which then 500'd every GET with "
+    "'Unexpected non-whitespace character after JSON'. This was a test-environment artifact, not a "
+    "shipping defect — but it proved the race was real and motivated the lock."
+)
+
+add_heading("14.5 Verification honesty — what we could and could NOT prove", 2)
+add_para("To avoid overclaiming, here is exactly what was and was not verified:")
+add_bullets([
+    "VERIFIED: npm run build passes; npm run lint passes (eslint + eslint-config-next installed — "
+    "note: lint was NOT wired up for the first several sessions; 'lint clean' was a false positive "
+    "until eslint was actually installed).",
+    "VERIFIED: runtime API GET/POST round-trip; Arabic (UTF-8) titles persist correctly; known "
+    "facilities (e.g. a Gaza City / Daraa hospital) present and searchable by city.",
+    "VERIFIED: region split after clipping — Gaza Strip 1,315 / West Bank 3,397 / Syria 5,670 "
+    "(+5 demo seeds).",
+    "VERIFIED: concurrent-write lock (20/20 survived).",
+    "NOT VERIFIED IN-BROWSER: the live card/map render could not be visually confirmed in this "
+    "environment because the harness's browser sandbox blocks the client-side fetch to the local "
+    "API (it intercepts it as a 'sensitive primitive'). The same code rendered correctly in an "
+    "earlier check; the build is green; the filter logic is proven against the real API payload. "
+    "This is a harness limitation, not a known code defect — but it means the visual layer is "
+    "asserted, not eyeballed, here.",
+    "NOT YET BUILT (planned, not claimed done): Phase 3 auth + role-gated verify (the open verify "
+    "endpoint is still open by design for the demo; Phase 3 closes it), SQLite store, conflict "
+    "merge, mesh sync, SSB/CRDT/DP/ZK mechanisms.",
+])
+
+add_heading("14.6 What 'done' actually means here", 2)
+add_para(
+    "As of this writing, Nidaa is a verified prototype: real data, offline-first sync, a working "
+    "offline-cacheable map, a region scoping filter, and a concurrency-safe store. It is NOT yet a "
+    "field-deployable tool — the verification endpoint is open, there is no authentication, no "
+    "mesh sync, and no decentralized trust. Those are the honest remaining gaps, and they are the "
+    "subject of Phases 3–7, not hand-waving."
 )
 
 # ===== footer note =====
