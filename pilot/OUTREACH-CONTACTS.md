@@ -60,3 +60,28 @@ person. Personalize `[name]` from the role you find.
 
 Send 3–5 once HEAL's contact is confirmed. After ANY reply, complete
 `assumption-log/<ORG>-<DATE>.md` and update the tracker before next steps.
+
+---
+
+## Outreach Status Log (updated 2026-07-14, evening)
+
+Operational tracker only — not a strategy doc. Records what was sent and what is
+pending. Channel per contact = the user's manual outreach (LinkedIn / IG / email);
+several contacts below were added via cold outreach during the day and are not in
+the original verified-contacts list above.
+
+| # | Contact | Type | Status | Note |
+|---|---------|------|--------|------|
+| 1 | The Sameer Project | Org (mutual-aid, Gaza) | Sent | verified email info@ |
+| 2 | HOTOSM | Org (mapping) | Sent | info@hotosm.org |
+| 3 | HOTOSM WNA Hub | Org (regional hub) | Sent | WNAHub@hotosm.org |
+| 4 | Hand4Gaza | Org / collective | Sent | added via cold outreach |
+| 5 | Ali R. AbuAlatta (Gaza SkillBridge) | Individual | Sent | added via cold outreach |
+| 6 | Shuruq As'ad | Individual | Sent | added via cold outreach |
+| 7 | Adam Elijilah | Individual (resident) | **Interviewed** | Conversation #1 — see assumption-log/AdamElijilah-2026-07-14.md |
+| 8 | Saed Al Farra | Individual | Sent | added via cold outreach |
+| 9 | Israa Z. Zumili | Individual | Pending | request sent, awaiting reply |
+
+Sent: 8 · Pending: 1 · Interviewed: 1.
+Highest-value awaited: Ali AbuAlatta, Sameer Project, HOTOSM, Shuruq As'ad, any
+referral from Adam.

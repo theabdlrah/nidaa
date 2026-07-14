@@ -763,6 +763,39 @@ add_para(
     "planning."
 )
 
+# ===== 14.11 — 2026-07-14 (evening): Evidence collection has started =====
+add_heading("14.11 — 2026-07-14: Evidence collection has started (first interview logged)", 2)
+add_para(
+    "This session marks the project's transition from internal planning into EXTERNAL EVIDENCE "
+    "collection. Per the posture agreed 2026-07-14, this is evidence-collection mode, not build mode: "
+    "no new strategy docs, no new plans, no feature work. Progress is measured by conversations and "
+    "what they do to the assumptions."
+)
+add_bullets([
+    "FIRST INTERVIEW LOGGED: Adam Elijilah (resident perspective), 2026-07-14 — "
+    "assumption-log/AdamElijilah-2026-07-14.md. One resident conversation produced more usable signal "
+    "than many hours of internal planning.",
+    "KEY FINDING (sharpens the thesis): incumbent tools (WhatsApp, Telegram, Facebook) WORK when "
+    "connectivity exists; their failure mode is connectivity ITSELF, not a feature gap. The precise "
+    "framing is NOT 'WhatsApp is insufficient' — it is 'the tools fail exactly when the network drops, "
+    "which is when they are needed most.' Aid info is pushed directly to beneficiaries' phones, so an "
+    "outage severs the channel entirely (one family lost access to food-distribution info).",
+    "WIDER BLAST RADIUS observed: digital payments/transfers also go unavailable during outages — not "
+    "just coordination info. The outage cost is broader than coordination alone.",
+    "ASSUMPTION MOVEMENT: A3 (offline matters) STRONGLY strengthened; A2 (info access is a bottleneck) "
+    "and A5 (existing tools insufficient for some communities) MODERATELY strengthened. NONE weakened, "
+    "none falsified. Pivot Rule NOT triggered (A1/A2/A5 not falsified).",
+    "OPEN DEPENDENCY surfaced: Nidaa's value during an outage only exists if aid info is POSTED into a "
+    "local-first board first. Incumbent push-channels don't require that publishing step — so the "
+    "entry/publishing workflow (who posts? adopted by A7) is a real precondition, not a freebie.",
+    "OUTREACH: 8 messages sent (Sameer Project, HOTOSM, HOTOSM WNA Hub, Hand4Gaza, Ali AbuAlatta, "
+    "Shuruq As'ad, Adam Elijilah, Saed Al Farra); 1 pending (Israa Zumili). See OUTREACH-CONTACTS.md "
+    "status log.",
+    "NEXT PHASE: pattern detection across conversations, NOT feature development. Log evidence only; "
+    "do not treat likes / read-receipts / follows as evidence. Await operations / NGO / journalism / "
+    "field-coordination perspectives as the highest-value untested signal.",
+])
+
 # ===== footer note =====
 doc.add_paragraph()
 fn = doc.add_paragraph()

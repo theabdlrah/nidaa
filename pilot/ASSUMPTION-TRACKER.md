@@ -18,10 +18,10 @@ Confidence: `High` · `Medium` · `Low`
 | # | Assumption | Evidence For | Evidence Against | Confidence | Status |
 |---|------------|--------------|-----------------|------------|--------|
 | 1 | Coordination is a priority problem. | — | — | Low | Untested |
-| 2 | Information/matching is a significant bottleneck. | — | — | Low | Untested |
-| 3 | Offline capability materially matters. | — | — | Low | Untested |
+| 2 | Information/matching is a significant bottleneck. | Resident interview (Adam E., 2026-07-14): info access depends on connectivity; outage cut family's access to food-distribution info. | — | Medium | Strengthened |
+| 3 | Offline capability materially matters. | Resident interview (Adam E., 2026-07-14): connectivity outages cut access to aid info AND digital payments/transfers; incumbent tools' failure mode is connectivity itself. | — | Medium | Strengthened |
 | 4 | Verification materially matters. | — | — | Low | Untested |
-| 5 | Existing tools are insufficient for at least some communities. | — | — | Low | Untested |
+| 5 | Existing tools are insufficient for at least some communities. | Resident interview (Adam E., 2026-07-14): WhatsApp/Telegram/FB work only when connectivity exists; they fail exactly during outages, when needed most. | — | Medium | Strengthened |
 | 6 | Organizations would trust designated verifiers. | — | — | Low | Untested |
 | 7 | Communities would adopt a new workflow if it solved the problem. | — | — | Low | Untested |
 
@@ -111,7 +111,7 @@ After pasting the template and filling the Evidence Ledger:
 
 | # | Org / Role | Date | A1 | A2 | A5 | Biggest-hit assumption | Pivot triggered? |
 |---|------------|------|----|----|----|------------------------|------------------|
-|   |            |      |    |    |    |                        |                  |
+| 1 | Adam Elijilah (Resident) | 2026-07-14 | U | S | S | A3 (offline = connectivity failure mode) | no |
 
 (A1/A2/A5 = status of those assumptions after the call: S=Strengthened,
 W=Weakened, F=Falsified, U=Untested. "Pivot triggered?" = yes only if the Pivot
