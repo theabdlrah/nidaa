@@ -629,8 +629,10 @@ add_bullets([
     "until eslint was actually installed).",
     "VERIFIED: runtime API GET/POST round-trip; Arabic (UTF-8) titles persist correctly; known "
     "facilities (e.g. a Gaza City / Daraa hospital) present and searchable by city.",
-    "VERIFIED: region split after clipping — Gaza Strip 1,315 / West Bank 3,397 / Syria 5,670 "
-    "(+5 demo seeds).",
+    "VERIFIED (2026-07-13): region split after clipping — Gaza Strip 1,315 / West Bank 3,397 / "
+    "Syria 5,670 (+5 illustrative demo seeds present at that time). CORRECTION: the 5 demo "
+    "seeds were later STRIPPED from the live board by fix B (commit 09a8573, 2026-07-14); "
+    "the live board now holds 10,382 real HDX facilities and 0 fabricated entries.",
     "VERIFIED: concurrent-write lock (20/20 survived).",
     "NOT VERIFIED IN-BROWSER: the live card/map render could not be visually confirmed in this "
     "environment because the harness's browser sandbox blocks the client-side fetch to the local "
@@ -788,12 +790,37 @@ add_bullets([
     "OPEN DEPENDENCY surfaced: Nidaa's value during an outage only exists if aid info is POSTED into a "
     "local-first board first. Incumbent push-channels don't require that publishing step — so the "
     "entry/publishing workflow (who posts? adopted by A7) is a real precondition, not a freebie.",
-    "OUTREACH: 8 messages sent (Sameer Project, HOTOSM, HOTOSM WNA Hub, Hand4Gaza, Ali AbuAlatta, "
+    "OUTREACH: 9 messages sent (Sameer Project, HOTOSM, HOTOSM WNA Hub, Hand4Gaza, Ali AbuAlatta, "
     "Shuruq As'ad, Adam Elijilah, Saed Al Farra); 1 pending (Israa Zumili). See OUTREACH-CONTACTS.md "
     "status log.",
     "NEXT PHASE: pattern detection across conversations, NOT feature development. Log evidence only; "
     "do not treat likes / read-receipts / follows as evidence. Await operations / NGO / journalism / "
     "field-coordination perspectives as the highest-value untested signal.",
+])
+
+# ===== 14.12 — 2026-07-14 (night): record-correction pass (honesty fixes + infra files) =====
+add_heading("14.12 — 2026-07-14: Record correction — honesty fixes and new infra files", 2)
+add_para(
+    "Corrective journal entry only. No new features, no new strategy. Restores alignment between "
+    "repo state, runtime behavior, and journal claims."
+)
+add_bullets([
+    "A/B/C HONESTY FIXES (commit 09a8573, 2026-07-14): (A) the store no longer fabricates data when "
+    "data/db.json is absent — it starts EMPTY and the API returns setupRequired:true; (B) illustrative "
+    "demo seeds are stripped from the live board, which now holds 10,382 real HDX facilities and 0 "
+    "fabricated entries (see 14.5 correction); (C) the verification audit log now uses its own write "
+    "lock, matching the primary store. Verified: lint + build green; empty-board path returns no "
+    "fabricated data; 25 concurrent verifies wrote 25 distinct audit lines with zero loss.",
+    "NEW OUTREACH/RESEARCH INFRA FILES added to the repo (process only, no product change): "
+    "OUTREACH-CONTACTS.md now holds a 34-org 'Grassroots & Community Outreach Candidates' section "
+    "(commit 86550f4); RESEARCH-BACKLOG.md captures unanswered questions from conversations "
+    "(commit e24ddf1); OUTREACH-LEDGER.md tracks approached vs to-be-approached with a five-state "
+    "machine (commits fd00953, c63cb0e). Mones (Humanitarian Ops, MSF) added to the outreach log "
+    "(commit d43412d).",
+    "OUTREACH COUNT corrected: 9 messages sent, 1 pending (Israa Zumili), 1 interviewed (Adam). See "
+    "14.11 correction above.",
+    "STATUS: these changes align the journal with runtime behavior. No further journal updates until a "
+    "new interview, a tracker change, or another correctness issue. Evidence-collection mode continues.",
 ])
 
 # ===== footer note =====
