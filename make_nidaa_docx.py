@@ -695,6 +695,74 @@ add_para(
     "it. User-side confirmation (hard-reload + zoom) is the final check."
 )
 
+add_heading("14.9 — 2026-07-14: From build mode to learning mode (failures, disagreements, red meetings)", 2)
+add_para(
+    "This session was almost entirely non-code. We challenged the project's direction and, in doing so, "
+    "surfaced failures of our own earlier thinking. Recorded honestly:"
+)
+add_bullets([
+    "FAILURE OF FRAMING (morning): the demo video we built (operational Palantir/NYT style, 92s, Arabic+English "
+    "burned subs) was scrapped on user instruction ('scrap the video for gods sake'). Lesson: a video is not "
+    "the right artifact for this audience; a document outperforms it for NGO coordinators, technical volunteers, "
+    "and OSM contributors who skim, forward, and translate. We replaced it with a Word FAQ/overview package.",
+    "DISAGREEMENT / CHALLENGE: the user pushed me to challenge my own 'no fatal flaw' conclusion from the red-team "
+    "review. I had accepted the red team's verdict too comfortably. On re-examination I found the verdict was a "
+    "property of the DOCUMENT, not a deployed system, and that 'governance has no fatal flaw' was really "
+    "'governance is unfalsifiable' — an untested assumption wearing a design. I also caught that Nidaa as built "
+    "solves a NARROWER problem (resilient local list) than the pitch (cross-community coordination), because "
+    "mesh/federation is not built.",
+    "RED MEETING (delegated red-team, 4 personas): a subagent attacked the outreach doc as Gaza coordinator, "
+    "diaspora organizer, HOTOSM validator, and NGO program manager. It found real INTERNAL CONTRADICTIONS in our "
+    "own docs: (1) 'another verifier can undo it' vs 'at least one designated verifier' — with one verifier "
+    "there is no fallback; (2) 'governance model: Implemented' vs trust-bootstrap is an open problem; (3) "
+    "self-host/E2E/open-source presented as the targeting-risk fix when NONE are built; (4) verification is "
+    "online-only, so trust dies exactly during the shutdowns Nidaa is built for — a contradiction with the "
+    "offline-first pitch we had never admitted; (5) geolocated needs board is a targeting hazard, buried in Q34; "
+    "(6) stale HDX/OSM facility data shown as real, no date — lethal in active conflict; (7) 'not a partnership' "
+    "hid asymmetric risk/labor.",
+    "FAILURE WE CORRECTED: I initially told the user the seed data was 'real operational data' (10,387 entries). "
+    "On checking the code I found seed.ts entries are EXPLICITLY ILLUSTRATIVE Syria data, not operational. The "
+    "FAQ/overview now states this plainly. Another self-correction: the red team under-ranked 'no evidence the "
+    "problem is a priority' as weakness #5; I re-ranked it as the ROOT weakness.",
+    "ACHIEVED (documents): rewrote the FAQ/overview docx with the red-team fixes — Deployed-vs-Promised controls "
+    "table, verification-online-only admission, targeting hazard elevated to PRIMARY ethical risk, ≥2 verifiers "
+    "required, governance relabeled, failure ranking led with physical harm. Added NIDAA-REDTEAM-CRITIQUE.md as "
+    "evidence.",
+])
+add_para(
+    "The strategic pivot that mattered: we stopped optimizing outreach around SECURING A PILOT and started "
+    "optimizing it around DISCOVERING WHETHER THE PROBLEM IS REAL. The goal of the first five conversations is "
+    "to FALSIFY Nidaa's assumptions, not validate them."
+)
+
+add_heading("14.10 — 2026-07-14: Falsification discipline & outreach readiness achieved", 2)
+add_para("Concrete artifacts produced and committed this session (all markdown/docx, no app code changed):")
+add_bullets([
+    "ASSUMPTION-TRACKER.md — 7 core assumptions (A1–A7) with Evidence For/Against, Confidence, Status; a hard "
+    "PIVOT RULE (if A1/A2/A5 strongly falsified by multiple conversations → pivot/narrow/stop); and a mandatory "
+    "post-conversation template that forbids 'they liked it' summaries.",
+    "LEARNING-PLAN.md — reframed milestones: Day 30 = conversations + populated tracker + A1/A2/A5 read; Day 60 = "
+    "patterns + classification; Day 90 = formal evidence-based DECISION (proceed/narrow/pivot/stop), not 'first "
+    "pilot'. Success redefined as reducing uncertainty, not obtaining a pilot.",
+    "PREDICTIONS.md — baseline priors (A1 60%, A2 55%, A3 65%, A4 50%, A5 60%, A6 45%, A7 40%) written BEFORE "
+    "evidence to prevent hindsight bias.",
+    "first-touch-messages.md — rewritten as problem-discovery (expertise not commitment; 'Nidaa may be solving "
+    "the wrong problem'; invite correction); plus a 23-question interview guide built to break assumptions.",
+    "OUTREACH-TARGETS.md + STAKEHOLDER-QUESTIONNAIRE.md + OUTREACH-CONTACTS.md — 4 targets, fill-in drafts (ask "
+    "= written brief, not a call), and VERIFIED contact surfaces from live site checks (Sameer: "
+    "info@thesameerproject.com; HOTOSM: info@hotosm.org + WNAHub@hotosm.org; HEAL email not found → CONFIRM via "
+    "social; Gaza Soup Kitchen is NOT one org → de-prioritized). No email was guessed.",
+    "PILOT-READINESS-BACKLOG.md — Track B frozen reference; ranked by outcome-resilience; excludes mesh/federation/"
+    "AI/reputation/moderation/cross-community; Verifier Identity named top item but flagged assumption-LIGHT (depends "
+    "on A6, not A1/A2/A5). No implementation authorized until evidence arrives.",
+])
+add_para(
+    "STATE AT SESSION END: planning loop closed. The tracker is the source of truth. Progress is measured by "
+    "evidence, not output. The next meaningful artifact is assumption-log/<ORG>-<DATE>.md from a real conversation. "
+    "Outreach (send Message #1) is the correct action until Conversation #1 exists. Reality now has priority over "
+    "planning."
+)
+
 # ===== footer note =====
 doc.add_paragraph()
 fn = doc.add_paragraph()
