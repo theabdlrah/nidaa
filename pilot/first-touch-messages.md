@@ -5,7 +5,8 @@ Goal = one 15-minute conversation, not a signed partnership.
 Each message answers the director's 5 pre-conversation needs in <5 minutes:
 who you are · what it is/isn't · the ask · the risk/safety story · a demo.
 
-Replace [DEMO LINK] with the recorded video before sending.
+No recorded video exists. Offer a live screen-share of the running app (or point
+to the deployed instance) instead of a demo link.
 
 ────────────────────────────────────────
 MESSAGE 1 — The Sameer Project (diaspora mutual-aid, Gaza coordination)
@@ -34,8 +35,8 @@ The ask: not a partnership — just 15 minutes to hear whether something like
 this would fit your coordination, and what would need to change. Low burden,
 no commitment.
 
-90-sec demo: [DEMO LINK]
 One-page brief + safety summary: [PACKAGE LINK]
+(Live screen-share of the running app available on request)
 
 Worth a quick call?
 
@@ -55,8 +56,8 @@ this fits real coordination work like yours. It's open source, safe by default
 (verification can't be forged, data is exportable/self-hostable), and the ask
 is just a 15-minute conversation.
 
-90-sec demo: [DEMO LINK]
 Brief + do-no-harm summary: [PACKAGE LINK]
+(Live screen-share of the running app available on request)
 
 Open to a short chat?
 
@@ -79,7 +80,7 @@ control who can verify and could self-host.
 I'm asking for one 15-minute conversation to learn whether this is useful to
 your coordination — not a commitment.
 
-Demo: [DEMO LINK] · Package: [PACKAGE LINK]
+Demo: live screen-share on request · Package: [PACKAGE LINK]
 
 Could we find 15 minutes?
 
@@ -100,6 +101,6 @@ It's open source, Arabic-first, verification is role-gated and audited. Not
 asking for a deployment — just a 15-minute technical conversation and, if
 useful, a pointer to a community that coordinates on the ground.
 
-Demo: [DEMO LINK] · Package: [PACKAGE LINK]
+Demo: live screen-share on request · Package: [PACKAGE LINK]
 
 Open to a chat?
