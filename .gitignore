@@ -6,3 +6,6 @@ data/verify-audit.json
 *.log
 npm-debug.log*
 .DS_Store
+
+# TS incremental build info
+tsconfig.tsbuildinfo
