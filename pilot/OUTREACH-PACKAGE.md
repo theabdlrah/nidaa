@@ -18,6 +18,8 @@ product. All first-touch messages reflect this.
 6. `governance-playbook.md` / `partner-brief.md` — background only; useful if a conversation deepens, NOT sent up front.
 7. `LEARNING-PLAN.md` — the reframed milestones (Day 30/60/90) and the decision framework (proceed / narrow / pivot / stop). The tracker is the source of truth; this plan is subordinate to it.
 8. `PREDICTIONS.md` — baseline prior beliefs (A1–A7, 0–100%) written BEFORE evidence, to prevent hindsight bias. Do not edit after conversations begin; update the tracker instead.
+9. `OUTREACH-TARGETS.md` — who to contact + fill-in message drafts (ask = written brief, not a call).
+10. `STAKEHOLDER-QUESTIONNAIRE.md` — the structured written brief contacts return; built to falsify assumptions (specifics + incidents, not opinions).
 
 ## Discipline (non-negotiable)
 Outreach collects **evidence, not testimonials**. After every interview, complete

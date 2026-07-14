@@ -4,6 +4,12 @@ Prepared for the user to review, adjust tone/names, and send. Problem-discovery
 framing only — no pilot, no demo, no commitment. Fill `[PACKAGE LINK]` with one
 shared Drive/Google Folder of the `pilot/` directory (or the docx).
 
+**Ask = a written brief, not a call.** Primary mechanism is a short written
+questionnaire (`STAKEHOLDER-QUESTIONNAIRE.md`) the contact returns. A 15-minute
+call is optional, only if their reply surprises us and we want to probe. Written
+input yields richer, less-guarded evidence and is lower burden for busy
+coordinators.
+
 **Do NOT send until you've (a) confirmed the contact channel for each target,
 and (b) personalized `[name]`.** I have NOT verified live emails/handles — the
 "where to reach" notes are public-facing surfaces to find the right person.
@@ -35,7 +41,8 @@ and (b) personalized `[name]`.** I have NOT verified live emails/handles — the
 > assumed is wrong.
 >
 > No ask beyond a conversation. Happy to share what I've found so far afterward
-> if useful. Worth a short call?
+> if useful. Worth a short written brief instead? I've put a few questions here:
+> [QUESTIONNAIRE LINK]. A 15-min call is optional only if you'd prefer to talk.
 >
 > (Background if you want it: [PACKAGE LINK])
 
@@ -59,7 +66,8 @@ and (b) personalized `[name]`.** I have NOT verified live emails/handles — the
 > whether supply, trust, or something else dominates. If Nidaa (what I've built
 > so far) is aiming at the wrong problem, I'd rather hear that now.
 >
-> Just a conversation, nothing expected in return. Could we find 20 minutes?
+> Just a conversation, nothing expected in return — preferably a short written
+> brief: [QUESTIONNAIRE LINK]. Could we exchange that way?
 >
 > (Background if useful: [PACKAGE LINK])
 
@@ -85,7 +93,8 @@ and (b) personalized `[name]`.** I have NOT verified live emails/handles — the
 > problem is even a priority versus, say, a resources problem. I'm wide open to
 > being told Nidaa — the thing I've been building — is solving the wrong problem.
 >
-> No commitment, no pitch. Just a conversation. Open to it?
+> No commitment, no pitch. Just a conversation — preferably a short written
+> brief: [QUESTIONNAIRE LINK]. Open to it?
 
 ---
 
@@ -111,9 +120,8 @@ and (b) personalized `[name]`.** I have NOT verified live emails/handles — the
 > your perspective on where my assumptions about data integrity and offline-first
 > coordination fall apart — and which of my "obvious" ideas are actually naive.
 > Happy to share what I've built so far if it helps you react, but the conversation
-> is the point, not the tool.
->
-> Open to a chat?
+> is the point, not the tool. A short written brief works even better than a call:
+> [QUESTIONNAIRE LINK]. Open to that?
 
 ---
 
