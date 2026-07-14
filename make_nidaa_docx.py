@@ -203,6 +203,13 @@ add_bullets([
     "A Gaza-facing trusted-verifier set: UNRWA, Palestinian Red Crescent, and vetted local Gaza NGOs pre-seeded as verifiers (Phase 3), with offline-checkable signed credentials (10.6).",
 ])
 add_para(
+    "Current-state note (2026-07-14): the import pipeline (scripts/import-hdx.mjs) now strips any "
+    "illustrative 'demo' rows on import (honesty fix B, commit 09a8573), so the live board holds only "
+    "real HDX/HOT OSM facilities — 10,382 entries, 0 fabricated. The clipping counts above (Gaza 1,315 / "
+    "West Bank 3,397) describe the import design and remain accurate as the real-facility split.",
+    italic=True, color=MUTED, size=10,
+)
+add_para(
     "Syria remains a secondary, region-scoped instance of the same codebase — the offline-first core "
     "is shared; only data and localization differ. This generality is deliberate: the authors are not "
     "from either region, so Nidaa is built as a generalizable coordination primitive, Gaza-first."
@@ -211,7 +218,11 @@ add_para(
 # ===== 7. Limitations =====
 add_heading("7. Honest Limitations (stated up front)", 1)
 add_bullets([
-    "Seed content is now REAL: 10,382 verified facilities imported from HDX/HOT OSM (Gaza/West Bank primary, Syria secondary). It is curated OSM data, not live operational feeds — still requires local-actor validation before field use.",
+    "Board data is REAL HDX/HOT OSM facility data: 10,382 verified facilities imported (Gaza/West Bank "
+    "primary, Syria secondary). It is curated OSM data, not live operational feeds — still requires "
+    "local-actor validation before field use. NOTE (honesty fix B, 2026-07-14, commit 09a8573): the "
+    "board contains 0 fabricated entries; the earlier illustrative 'demo seed' rows were stripped so a "
+    "trust-and-verification tool never ships made-up data. See Build Log 14.5 correction and 14.12.",
     "The verification endpoint is open in this build and must be secured (Phase 3).",
     "The server store is a JSON file (chosen for zero-dependency portability); scale demands SQLite/Postgres (Phase 4).",
     "Offline maps are implemented (Phase 2) with IndexedDB tile cache; tiles cover visited areas only to stay light on cheap devices.",
@@ -822,6 +833,208 @@ add_bullets([
     "STATUS: these changes align the journal with runtime behavior. No further journal updates until a "
     "new interview, a tracker change, or another correctness issue. Evidence-collection mode continues.",
 ])
+
+# ===== 15. Research & Validation History =====
+add_heading("15. Research & Validation History", 1)
+add_para(
+    "This section is the project's evidence memory. It records what we believed before evidence, what "
+    "evidence has arrived, and what remains untested. It is synthesized from ASSUMPTION-TRACKER.md, "
+    "PREDICTIONS.md, LEARNING-PLAN.md, and the interview log — not reinterpreted."
+)
+add_heading("15.1 Why the assumptions (A1–A7) were created", 2)
+add_para(
+    "Nidaa began as a build. The shift to evidence collection produced a set of 7 core assumptions to "
+    "be actively falsified, not validated (ASSUMPTION-TRACKER.md). The framing was explicit: the first "
+    "conversations are an attempt to FALSIFY the thesis, because falsification saves us from building "
+    "the wrong thing. The 7 assumptions:"
+)
+add_bullets([
+    "A1 — Coordination is a priority problem. (baseline belief 60%; Untested as of 2026-07-14)",
+    "A2 — Information/matching is a significant bottleneck. (55%; Strengthened)",
+    "A3 — Offline capability materially matters. (65%; Strengthened)",
+    "A4 — Verification materially matters. (50%; Untested)",
+    "A5 — Existing tools are insufficient for at least some communities. (60%; Strengthened)",
+    "A6 — Organizations would trust designated verifiers. (45%; Untested)",
+    "A7 — Communities would adopt a new workflow if it solved the problem. (40%; Untested)",
+])
+add_para(
+    "PREDICTIONS.md was written BEFORE any conversation and frozen — its priors are not edited after "
+    "evidence; reality gets a vote. The baseline was deliberately skeptical on trust (A6 45%, A7 40%) "
+    "and uncertain on whether coordination is even the binding problem (A1 60%, Low confidence)."
+)
+add_heading("15.2 Prediction baselines (written pre-evidence, 2026-07-14)", 2)
+add_para(
+    "Each assumption carried explicit strengthening / weakening / falsifying conditions. Example: A1 "
+    "is falsified only if, across 5+ conversations, coordination is never raised as a priority and is "
+    "explicitly subordinate to supply/access/security. A3 is weakened only if disconnection proves "
+    "brief/rare and orgs tolerate it with existing tools. These thresholds are the bar evidence must clear."
+)
+add_heading("15.3 Evidence gathered to date", 2)
+add_para(
+    "One interview completed: Adam Elijilah (resident perspective), 2026-07-14 — "
+    "assumption-log/AdamElijilah-2026-07-14.md. What it established (verbatim from the evidence ledger):"
+)
+add_bullets([
+    "A3 STRENGTHENED (strongly): outages cut access to aid info AND digital payments/transfers; one "
+    "family lost access to food-distribution info. The failure mode of incumbent tools IS connectivity loss.",
+    "A2 STRENGTHENED (moderately): info access depends on connectivity; when it drops, info access is the binding constraint for receiving aid.",
+    "A5 STRENGTHENED (moderately): WhatsApp/Telegram/FB work only when connectivity exists; insufficient precisely during outages, when needed most.",
+    "A1, A4, A6, A7 — UNTESTED. No conversation has touched them.",
+    "Pivot Rule NOT triggered (A1/A2/A5 not falsified).",
+])
+add_para(
+    "Surprise recorded in the interview: the framing 'WhatsApp is insufficient' is imprecise. The sharper "
+    "lesson is that incumbent tools work when connectivity exists and fail exactly when it doesn't — the "
+    "failure mode is connectivity itself, not a feature gap. Also: digital payments/transfers fail during "
+    "outages too, a wider blast radius than coordination alone."
+)
+add_heading("15.4 The falsification discipline", 2)
+add_para(
+    "LEARNING-PLAN.md reframed success: not 'obtain a pilot,' but 'reduce uncertainty enough to make a "
+    "high-confidence decision.' The Day 90 goal is a formal evidence-based decision (proceed / narrow / "
+    "pivot / stop), not a first pilot. Operating rule: every conversation updates the tracker BEFORE next "
+    "steps; no 'they liked it' summaries; the Pivot/Stop conditions are a hard gate. Non-evidence (likes, "
+    "read receipts, follows) is explicitly excluded from the record."
+)
+add_heading("15.5 What lacks evidence / remains hypothesis", 2)
+add_bullets([
+    "A1 (coordination is a priority) is still Untested — one resident interview did not address whether coordination is the BINDING constraint vs supply/access/security.",
+    "A4 (verification matters), A6 (orgs trust designated verifiers), A7 (communities adopt a new workflow) — entirely untested.",
+    "Whether Nidaa helps during an outage depends on someone POSTING aid info into it first — an entry/publishing dependency incumbent push-channels don't have (touches A7). This precondition is identified but unvalidated.",
+    "All multi-conversation patterns are unknown; only one data point exists.",
+])
+
+# ===== 16. Decision History =====
+add_heading("16. Decision History", 1)
+add_para(
+    "Decisions that changed the project's direction, with trigger, date, and reasoning. Synthesized from "
+    "the build log (14.9–14.12), LEARNING-PLAN.md, and the red-team critique. No conclusions invented."
+)
+add_heading("16.1 Pilot-first → problem-validation pivot", 2)
+add_para(
+    "Trigger: a red-team critique (2026-07-14) and the user's instruction to challenge the project's own "
+    "direction. Decision: stop optimizing outreach around SECURING A PILOT; start optimizing around "
+    "DISCOVERING WHETHER THE PROBLEM IS REAL. The goal of the first five conversations became falsification, "
+    "not validation. Recorded in Build Log 14.9–14.10. This is the single largest directional decision in the project."
+)
+add_heading("16.2 Red-team conclusions and what we corrected", 2)
+add_para(
+    "A delegated red-team (4 personas: Gaza coordinator, diaspora organizer, HOTOSM validator, NGO program "
+    "manager) produced 8 high-priority fixes (NIDAA-REDTEAM-CRITIQUE.md). The most important, carried into the "
+    "FAQ/overview rewrite:"
+)
+add_bullets([
+    "Single-verifier requirement contradicted the 'another verifier can undo it' mitigation — no fallback exists.",
+    "Headline privacy controls (self-host, E2E, open source) were presented as present but were NOT built; relabeled as planned.",
+    "Verification is online-only, so trust dies exactly during the shutdowns Nidaa targets — an unacknowledged contradiction with the offline-first pitch.",
+    "Geolocated needs board is a targeting hazard; elevated to a PRIMARY ethical risk.",
+    "Stale HDX/OSM facility data shown as real with no date — lethal in active conflict.",
+    "Governance labeled 'Implemented' when it was planned/unvalidated; trust-bootstrap an open problem.",
+])
+add_para(
+    "Self-correction during the review: the user pushed back on accepting the red team's 'no fatal flaw' "
+    "verdict too comfortably. Re-examination found that verdict was a property of the DOCUMENT, not a deployed "
+    "system, and that 'governance has no fatal flaw' was really 'governance is unfalsifiable.' The red team had "
+    "also under-ranked 'no evidence the problem is a priority' as weakness #5; it was re-ranked as the ROOT weakness."
+)
+add_heading("16.3 Outreach-strategy evolution", 2)
+add_bullets([
+    "Initial: 4 targets with fill-in drafts (Sameer, HEAL, HOTOSM, Gaza Soup Kitchen) — OUTREACH-TARGETS.md.",
+    "Correction: Gaza Soup Kitchen is a distributed concept, not one org — de-prioritized; target a specific kitchen only via referral.",
+    "Expansion: a 34-org Grassroots & Community Candidates list was added (2026-07-14) to broaden the pipeline; then frozen as sufficient — no further discovery unless the pipeline dries up.",
+    "State machine: every contact assigned exactly one of five states (Queued / Contacted / Replied / Interviewed / Closed) to prevent ambiguity at scale — OUTREACH-LEDGER.md.",
+])
+add_heading("16.4 Scope and governance corrections", 2)
+add_bullets([
+    "Scope: Nidaa as built solves a NARROWER problem (resilient local list) than the pitch (cross-community coordination), because mesh/federation is not built. This gap is documented, not closed.",
+    "Governance: relabeled from 'Implemented' to 'roles defined in code; operating model planned/unvalidated.'",
+    "Honesty fixes A/B/C (commit 09a8573): the store no longer fabricates data; demo seeds stripped; audit log write-locked. Treated as correctness, not features.",
+])
+add_heading("16.5 Pending decision (the Day-90 gate)", 2)
+add_para(
+    "No proceed/narrow/pivot/stop decision has been made. The Day 90 milestone (LEARNING-PLAN.md) is a formal "
+    "decision point contingent on evidence. As of 2026-07-14 only ONE interview exists; the decision is explicitly "
+    "deferred. The Pivot Rule remains armed: if A1/A2/A5 are strongly falsified by multiple conversations, pivot/narrow/stop is mandatory."
+)
+
+# ===== 17. Failure History =====
+add_heading("17. Failure History", 1)
+add_para(
+    "What was wrong, mistaken, or corrected. Preserved so future readers see the project's real trajectory, "
+    "including its errors. Synthesized from the build log and red-team critique. New mistakes, when found, belong here."
+)
+add_heading("17.1 Wrong assumptions and incorrect reasoning", 2)
+add_bullets([
+    "Narrower problem than the pitch: Nidaa was presented as cross-community coordination, but mesh/federation is not built — it is a resilient local list. Caught during the red-team self-review (14.9).",
+    "Misleading self-statement: an earlier claim that seed data was 'real operational data' (10,387 entries) was FALSE — seed.ts entries are explicitly ILLUSTRATIVE, not operational. Corrected in the FAQ/overview and later by fix B (14.5, 14.12).",
+    "Over-accepted red-team verdict: initially accepted 'no fatal flaw' too comfortably; the verdict applied to the document, not a deployed system (14.9).",
+    "Imprecise thesis: 'WhatsApp is insufficient' understates the real failure mode (connectivity itself). Sharpened after the Adam interview (15.3).",
+])
+add_heading("17.2 Misleading documentation (corrected)", 2)
+add_bullets([
+    "Status box said 'Governance model: Implemented' and 'Verification workflow: Implemented' when both were planned/unvalidated (red-team fix #7). Corrected in the FAQ rewrite.",
+    "Privacy mitigations (self-host, E2E, open source) presented as the answer to targeting when none were built (red-team fix #2). Relabeled as planned.",
+    "Demo seeds implied as part of the real board; stripped by fix B so the board holds 0 fabricated entries (14.5, 14.12).",
+])
+add_heading("17.3 Technical mistakes (build era, 2026-07-13)", 2)
+add_para(
+    "Captured in Build Log 14.1–14.8. Representative examples (all since fixed): renamed seed.js to .ts but left "
+    "JS syntax inside → build failed; imported './types' instead of '../lib/types' → module-not-found; point-in-polygon "
+    "clipping fell back to tagging all PSE as 'gza' (wrong region split); the offline tile cache signaled completion "
+    "incorrectly so cached tiles never painted; map markers leaked via eachLayer + instanceof on the wrong class; the "
+    "region filter predicate '!e.syncedAt' evaluated true for ALL entries so the filter did nothing; the JSON store had "
+    "an unlocked read-modify-write that lost posts under concurrency (15 concurrent → 14 lost; fixed with a write lock); "
+    "the PWA was not actually installable (empty public/, missing manifest/icon). Lint was also reported 'clean' for "
+    "several sessions before eslint was actually installed — a false positive."
+)
+add_heading("17.4 Scope gaps and unresolved concerns", 2)
+add_bullets([
+    "Verification requires connectivity, so the 'verified' signal dies during the shutdowns Nidaa targets (red-team fix #3). Not yet solved.",
+    "Single-verifier has no fallback; 'another verifier can undo it' is impossible with one (red-team fix #1).",
+    "Geolocated needs board is a targeting hazard with weak mitigation (red-team fix #4).",
+    "No security review, no GDPR/DPIA assessment, no formal do-no-harm policy, data ownership undefined (red-team fix #6).",
+    "Silent last-write-wins data loss during conflicts; no field-evidence baseline (red-team fix #8).",
+    "Stale facility data shown without provenance/date (red-team fix #5) — import now records source but a refresh procedure is still open.",
+])
+add_heading("17.5 Failed or closed outreach", 2)
+add_para(
+    "As of 2026-07-14: ZERO outreach attempts have failed, been declined, or been closed. 9 messages sent, 1 pending "
+    "(Israa Zumili, Queued), 1 interviewed (Adam), 0 replied-without-interview, 0 closed. This is recorded explicitly so "
+    "the absence is not mistaken for an omission. The pipeline is healthy; the limiting factor is responses, not candidates."
+)
+
+# ===== 18. Discussion & Open Questions =====
+add_heading("18. Discussion & Open Questions", 1)
+add_para(
+    "Significant debates and what remains unknown. The journal must make clear what has evidence, what lacks it, and "
+    "what is still hypothesis. Uncertainty is not resolved here."
+)
+add_heading("18.1 Significant debates", 2)
+add_bullets([
+    "'Scrap the video' (morning, 2026-07-14): a polished demo video was built then discarded on user instruction; a Word FAQ/overview package replaced it as the right artifact for NGO/OSM/diaspora readers. Debate resolved by user call.",
+    "'Challenge your own no-fatal-flaw conclusion': the user pushed for adversarial self-review rather than comfort with the red team's verdict. Reshaped the critique's ranking.",
+    "'Stop improving the process' (evening, 2026-07-14): after the outreach/ledger/backlog infra matured, the user ruled that further process improvements were diminishing returns; future repo changes gated on a conversation, a repeated operational pain, or a product-correctness issue. The outreach/evidence/tracking systems were declared sufficient.",
+])
+add_heading("18.2 What we still do not know", 2)
+add_para(
+    "Open questions are tracked in RESEARCH-BACKLOG.md (seeded from the project framing and from Conversation #1). "
+    "They are NOT answered here. Representative open questions:"
+)
+add_bullets([
+    "How do humanitarian orgs currently verify information, and how are beneficiary lists managed during connectivity disruptions?",
+    "What trust models are used in community-led aid networks? (bears on A4/A6)",
+    "How do field teams coordinate when communications fail? (bears on A3/A5)",
+    "What existing offline-first humanitarian tools exist, and do they address the binding constraint?",
+    "From Adam's interview: what is the actual outage→info-loss sequence; what do people use when digital payments fail; are there existing offline re-sharing practices; how do resident→humanitarian referral pathways form?",
+])
+add_heading("18.3 Evidence status summary", 2)
+add_para(
+    "HAS EVIDENCE: A2, A3, A5 strengthened by one resident interview. LACKS EVIDENCE: A1, A4, A6, A7 untested. "
+    "HYPOTHESIS: that coordination/verification/offline are the binding problems — partially supported by one data "
+    "point, not established. The next meaningful evidence is Conversation #2 (an operations / NGO / journalism / "
+    "field-coordination perspective), which is the highest-value untested signal. Until then, the project intentionally "
+    "stays quiet and collects evidence rather than building."
+)
 
 # ===== footer note =====
 doc.add_paragraph()
