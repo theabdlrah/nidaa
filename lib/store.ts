@@ -1,7 +1,9 @@
 import { promises as fs } from "fs";
 import path from "path";
-import { NidaaEntry, DbShape } from "./types";
+import { NidaaEntry, DbShape, VerificationAudit } from "./types";
 import { SEED_ENTRIES } from "../data/seed";
+
+const AUDIT_PATH = path.join(process.cwd(), "data", "verify-audit.json");
 
 const DB_PATH = path.join(process.cwd(), "data", "db.json");
 
@@ -66,14 +68,52 @@ export async function upsertEntry(entry: NidaaEntry): Promise<NidaaEntry> {
 
 export async function setVerified(
   id: string,
-  verified: boolean
+  verified: boolean,
+  actorRole: string
 ): Promise<NidaaEntry | null> {
   return withWriteLock(async () => {
     const db = await readDb();
     const entry = db.entries.find((e) => e.id === id || e.clientId === id);
     if (!entry) return null;
+    const priorVerified = entry.verified;
     entry.verified = verified;
     await writeDb(db);
+
+    // Audit log: every verification is logged and reversible (records prior state).
+    const record: VerificationAudit = {
+      entryId: entry.id,
+      clientId: entry.clientId,
+      actorRole,
+      action: verified ? "verify" : "unverify",
+      priorVerified,
+      newVerified: verified,
+      at: new Date().toISOString(),
+    };
+    await appendAudit(record);
     return entry;
   });
+}
+
+async function appendAudit(record: VerificationAudit): Promise<void> {
+  let log: VerificationAudit[] = [];
+  try {
+    const raw = await fs.readFile(AUDIT_PATH, "utf-8");
+    log = JSON.parse(raw) as VerificationAudit[];
+    if (!Array.isArray(log)) log = [];
+  } catch {
+    log = [];
+  }
+  log.push(record);
+  await fs.mkdir(path.dirname(AUDIT_PATH), { recursive: true });
+  await fs.writeFile(AUDIT_PATH, JSON.stringify(log, null, 2), "utf-8");
+}
+
+export async function readAudit(): Promise<VerificationAudit[]> {
+  try {
+    const raw = await fs.readFile(AUDIT_PATH, "utf-8");
+    const log = JSON.parse(raw) as VerificationAudit[];
+    return Array.isArray(log) ? log : [];
+  } catch {
+    return [];
+  }
 }

@@ -1,12 +1,22 @@
 import { NextRequest, NextResponse } from "next/server";
 import { setVerified } from "@/lib/store";
+import { getRole, canVerify } from "@/lib/auth";
 
 export const dynamic = "force-dynamic";
 
-// POST /api/verify  { id, verified } — NGO/admin marks an entry verified.
-// In a real deployment this must be gated behind auth. This build leaves it
-// open for the demo but documents the requirement clearly.
+// POST /api/verify  { id, verified } — a trusted verifier/admin marks an entry
+// verified (or reverses it). This endpoint is now ROLE-GATED: anonymous users,
+// regular users, and unknown tokens all receive 401. Only Verifier/Admin tokens
+// (server-side secrets) may act. Every action is logged and reversible in the store.
 export async function POST(req: NextRequest) {
+  const role = getRole(req);
+  if (!canVerify(role)) {
+    return NextResponse.json(
+      { error: "unauthorized: verification requires a verifier or admin token" },
+      { status: 401 }
+    );
+  }
+
   let payload: { id?: string; verified?: boolean };
   try {
     payload = await req.json();
@@ -16,7 +26,8 @@ export async function POST(req: NextRequest) {
   if (!payload.id) {
     return NextResponse.json({ error: "missing id" }, { status: 400 });
   }
-  const entry = await setVerified(payload.id, Boolean(payload.verified));
+
+  const entry = await setVerified(payload.id, Boolean(payload.verified), role);
   if (!entry) {
     return NextResponse.json({ error: "not found" }, { status: 404 });
   }

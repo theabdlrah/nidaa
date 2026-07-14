@@ -2,6 +2,7 @@ node_modules
 .next
 out
 data/db.json
+data/verify-audit.json
 *.log
 npm-debug.log*
 .DS_Store

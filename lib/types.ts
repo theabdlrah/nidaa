@@ -30,6 +30,16 @@ export interface NidaaEntry {
   syncedAt: string | null; // null while pending on a client
 }
 
+export interface VerificationAudit {
+  entryId: string;
+  clientId: string;
+  actorRole: string;
+  action: "verify" | "unverify";
+  priorVerified: boolean;
+  newVerified: boolean;
+  at: string; // ISO timestamp
+}
+
 export interface DbShape {
   entries: NidaaEntry[];
 }
