@@ -110,6 +110,8 @@ Honest caveat: Ushahidi and similar platforms are **far more mature and field-te
 
 What is **not** built: a real user-account/identity system (tokens are server-side env secrets today), federated verification across organizations, or reputation scoring.
 
+**Limitation (important): verification requires a connection to the Host.** During a network shutdown — the exact condition Nidaa is built for — the "verified" state cannot be updated, so trust signals go stale precisely when crisis peaks. Nidaa preserves unverified local posts; it does **not** solve trust under a total blackout. Mitigation requires at least two independent verifiers per deployment and an out-of-band override the org defines; a single verifier has no automated fallback.
+
 ---
 
 ## 8. How does trust work?
@@ -315,6 +317,10 @@ Any of these would mean Nidaa remains an idea, not evidence.
 - Map seeded from HDX/OSM facility data + Gaza boundary. **[BUILT: import-hdx, gaza-boundary.geojson]**
 - ~10,000 seed entries (illustrative) for demonstration. **[BUILT; illustrative, not operational]**
 
+**Governance roles are defined in code (verifier/admin); the operating model is PLANNED / unvalidated — not "governance implemented."** **[BUILT roles; model IN DEV]**
+
+**Deployed controls vs promised (safety/liability honesty):** actually present today = optional fields, no mandatory personal data, single-host JSON store (readable by host operator). Promised, NOT built = self-hosting packaging, end-to-end encryption, confirmed open-source license, external security/ethics review. Do not treat Nidaa as private or self-controlled until the promised controls ship. A pilot should not proceed without a do-no-harm review, a basic data-protection assessment (DPIA), and a data-processing agreement stating ownership and deletion. (A do-no-harm summary exists; DPIA and agreement are still to be completed.)
+
 ---
 
 ## 24. What is currently being developed?
@@ -438,7 +444,7 @@ Only designated verifiers/admins with a token. Ordinary users cannot. **[BUILT +
 No — the endpoint rejects anonymous and user tokens (returns 401). **[BUILT + runtime-tested]**
 
 **Q18. What if a verifier is wrong?**
-The action is reversible and audited; another verifier can undo it. **[BUILT mechanism; governance is organizational]**
+The action is reversible and audited; another verifier can undo it — provided at least two independent verifiers exist. With a single verifier there is no automated fallback; the org must define an out-of-band override. Trust in the verifier is organizational, not a software guarantee. **[BUILT mechanism; single-verifier gap acknowledged]**
 
 **Q19. Can verification be audited later?**
 Yes — every action is in an audit log with actor, prior/new state, timestamp. **[BUILT]**
@@ -488,7 +494,7 @@ No. The software does not share data with third parties. **[DESIGN commitment; u
 Not yet assessed per deployment. **[ASSUMPTION: needs legal review]**
 
 **Q34. Could the board become a targeting list?**
-That is an acknowledged ethical risk; minimal personal data and self-hosting are the main mitigations. **[RISK; see 17]**
+Yes — this is the PRIMARY ethical risk, not a side note. A geolocated board of who-needs-what can be weaponized. Today's only real mitigations are optional precise coordinates (flagged as potentially unsafe) and no mandatory personal data. Self-hosting and E2E — often cited as the fix — are NOT built yet. Deployments should minimize precise coordinates and weigh this risk explicitly before launch. **[RISK; see 17; mitigations mostly PLANNED]**
 
 ### E. Technical & Architecture
 
@@ -566,7 +572,7 @@ Not yet publicly. Pre-pilot. **[STATUS]**
 Outreach is being prepared; no pilot has launched. **[STATUS: pre-pilot]**
 
 **Q58. What does a pilot require from my org?**
-A verifier role owner, low burden, 4–8 weeks, <1h training (intended). **[PLANNED]**
+At least two independent verifiers, low burden, 4–8 weeks, <1h training (intended). The partner owns local governance and the audit; the Nidaa team provides hosting, software, and metrics. **[PLANNED]**
 
 **Q59. Will Nidaa cost money?**
 No current cost model; hosting is the main expense. **[STATUS]**
@@ -581,7 +587,7 @@ Gaza, West Bank, Syria named; Gaza NGOs currently unreachable, so diaspora orgs 
 Local browse/post works; cross-device sync needs host/mesh (mesh unbuilt). **[BUILT local; limitation otherwise]**
 
 **Q63. Who owns the data in a pilot?**
-Intended: the deploying org (self-host/export). **[DESIGN; not yetcontractual]**
+Intended: the deploying org (self-host/export). **[DESIGN; not yet contractual]** A pilot data-processing agreement stating ownership and deletion is still to be completed, and a basic data-protection assessment (DPIA) should precede any pilot. Until self-host packaging ships, data would sit on the Nidaa team's host.
 
 **Q64. Will there be training material?**
 Planned (lightweight). **[PLANNED]**
@@ -636,7 +642,7 @@ Only as a human-assisted aid (translation, triage, dedup), never autonomous veri
 Not yet established (no public channel). **[STATUS]**
 
 **Q80. What is the single biggest risk to Nidaa?**
-No real-world validation — building impressive tech nobody adopts. **[OPINION; ASSUMPTION unvalidated]**
+Ranked by harm to affected people: (1) **physical/safety harm** — if the board is misused for targeting or misinformation, or if stale facility data sends people into danger; (2) **no real-world validation** — building infrastructure communities do not adopt. The pilot is the instrument for answering (2); the safety items (targeting risk, stale-data banner, DPIA, data agreement, ≥2 verifiers) must be addressed before the first pilot. **[OPINION; ASSUMPTION unvalidated]**
 
 ---
 

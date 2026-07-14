@@ -3,8 +3,9 @@
 """Generate pilot/Nidaa-Overview-FAQ.docx — the external-sharing package.
 
 Three layers (per advisor brief):
-  Page 1      : Executive Summary (read in <60s)
+  Page 1      : Executive Summary (read first; full doc for reference)
   Current Status box (honest implemented / not-yet)
+  Deployed-vs-promised controls note (safety/liability honesty)
   Pages 2-4   : Project Overview (7 subsections)
   FAQ Section  : the skeptical questions a pilot partner asks
 Mirrors the style of the repo's make_nidaa_docx.py (teal headings, RTL, Calibri).
@@ -29,7 +30,6 @@ normal = doc.styles["Normal"]
 normal.font.name = "Calibri"
 normal.font.size = Pt(11)
 
-# RTL whole document (Arabic + Latin mix)
 sect = doc.sections[0]
 sectPr = sect._sectPr
 sectPr.append(OxmlElement("w:bidi"))
@@ -78,7 +78,10 @@ sr = sub.add_run("External-sharing package for NGO coordinators, technical volun
                 "OSM contributors, diaspora organizers, and mutual-aid groups.")
 sr.italic = True; sr.font.color.rgb = MUTED; sr.font.size = Pt(10)
 
-para("Read this page in under 60 seconds.", bold=True, color=DARK, space_after=8)
+para("Read the summary above first; the rest of the document is for reference. "
+     "Honesty note: this is an early-stage prototype with no pilot yet — several "
+     "safety and privacy controls described below are planned, not built.",
+     bold=True, color=DARK, size=10, space_after=8)
 
 bullet(" an offline-first, Arabic-first community board where a local community posts and "
        "browses needs and offers (medical, food, water, shelter), and trusted coordinators "
@@ -94,9 +97,12 @@ bullet(" the board stays usable with no internet after first visit — posts are
 bullet(" it is a shared, browsable, verifiable board — not a chat — and verification is role-gated, "
        "audited, and reversible. It complements WhatsApp/Telegram; it does not replace them.",
        bold_lead="What makes it different? ")
-bullet(" not a partnership. We are seeking one organization willing to evaluate Nidaa over a "
-       "4–8 week period with approximately 30–100 participants and at least one designated verifier "
-       "who owns the audit. Low burden, under one hour of training.",
+bullet(" a board of who-needs-what is a sensitive record. Precise coordinates are optional and flagged "
+       "as potentially unsafe; any deployment must weigh surveillance/targeting risk against coordination value.",
+       bold_lead="Safety note: ")
+bullet(" we are seeking one organization willing to evaluate Nidaa over a 4–8 week period with "
+       "approximately 30–100 participants and at least two independent verifiers who jointly own the audit. "
+       "Low burden, under one hour of training. This is problem-validation, not a commitment.",
        bold_lead="What we ask of a pilot partner: ")
 
 # ---- Current Status box ----
@@ -104,11 +110,11 @@ heading("Current Status", level=1)
 para("Nidaa is currently in the pilot-preparation stage. The following is explicit and honest.",
      italic=True, color=MUTED, size=10)
 
-status_line("Implemented:", [
+status_line("Implemented (in code, not yet field-tested):", [
     "Offline-first synchronization (posts saved on device, synced when online)",
     "Verification workflow (role-gated; anonymous and ordinary users cannot verify)",
     "Audit logging (every verification action recorded, reversible)",
-    "Governance model (verifier / admin roles defined; audit + reversibility)",
+    "Governance roles defined in code (verifier / admin); operating model PLANNED / unvalidated",
 ], GREEN)
 
 status_line("Not yet implemented:", [
@@ -118,11 +124,25 @@ status_line("Not yet implemented:", [
     "Mesh / peer sync, CRDT conflict resolution, end-to-end encryption, AI assistance",
 ], RED)
 
-para("Everything about real-world usefulness is an assumption awaiting validation through pilot "
-     "deployment. This document distinguishes implemented features from intended ones throughout.",
+para("Deployed controls vs promised controls (read this before trusting Nidaa with sensitive data):",
+     bold=True, color=RED, size=10)
+status_line("Actually present today:", [
+    "Optional contact fields; no mandatory personal identifiers to post or browse",
+    "Single-host JSON store; posts readable by the host operator",
+], MUTED)
+status_line("Promised, NOT built yet:", [
+    "Self-hosting packaging (today you would run on the Nidaa team's host or self-host manually)",
+    "End-to-end encryption (data is not E2E-encrypted yet)",
+    "Confirmed open-source license (code is public-in-intent; license to be finalized)",
+    "External security / ethics review (none yet)",
+], RED)
+para("Do not treat Nidaa as private or self-controlled until the promised controls ship. A pilot "
+     "should not proceed without a do-no-harm review, a basic data-protection assessment, and a "
+     "data-processing agreement stating ownership and deletion. (A do-no-harm summary already "
+     "exists; the DPIA and agreement are still to be completed.)",
      italic=True, color=MUTED, size=10)
 
-# ---- Architecture flow diagram (Device -> Local -> Sync -> Host -> Verify -> Audit) ----
+# ---- Architecture flow diagram ----
 heading("How information flows (architecture)", level=2)
 para("One line of flow. The device is the source of truth; verification and audit sit at the host.",
      italic=True, color=MUTED, size=10)
@@ -138,18 +158,18 @@ for i, cell in enumerate(ft.rows[0].cells):
         rr = pr.add_run(line) if j == 0 else pr.add_run("\n" + line)
         rr.font.size = Pt(9); rr.bold = (i in (0, 4, 5))
         if i in (4, 5): rr.font.color.rgb = TEAL
-    # shade host/verify/audit lightly
     if i >= 3:
         tcPr = cell._tc.get_or_add_tcPr()
         shd = OxmlElement("w:shd"); shd.set(qn("w:val"), "clear")
         shd.set(qn("w:fill"), "EAF6F4"); tcPr.append(shd)
-# arrow row under the table
 arrow = doc.add_paragraph(); arrow.alignment = WD_ALIGN_PARAGRAPH.CENTER
 ar = arrow.add_run("      →      →      →      →      →      ")
 ar.font.size = Pt(12); ar.font.color.rgb = MUTED
 para("Offline posting and browsing work at the Device + Local Storage stage with no connection. "
-     "Sync, Verification, and Audit require a connection to the Host. Mesh sync (device-to-device, "
-     "no host) is planned but not built.", size=10, color=DARK)
+     "Sync, Verification, and Audit require a connection to the Host — so during a network shutdown "
+     "the 'verified' state cannot be updated. Nidaa preserves unverified local posts; it does NOT "
+     "solve trust under a total blackout. Mesh sync (device-to-device, no host) is planned, not built.",
+     size=10, color=DARK)
 
 doc.add_page_break()
 
@@ -160,7 +180,8 @@ heading("Why Nidaa? — comparison", level=2)
 para("Nidaa is not a messaging app. The differences that matter for coordination:", size=10, color=MUTED)
 cmp_rows = [
     ("Capability", "WhatsApp", "Telegram", "Nidaa"),
-    ("Offline posting / browsing", "Partial", "Partial", "Yes (device-first)"),
+    ("Post offline (no connection)", "No", "No", "Yes (device-first)"),
+    ("Browse history offline", "Yes (local)", "Yes (local)", "Yes"),
     ("Shared browsable board", "No", "Limited (channels)", "Yes"),
     ("Role-gated verification", "No", "No", "Yes (verifier/admin)"),
     ("Audit trail of verification", "No", "No", "Yes (recorded, reversible)"),
@@ -183,15 +204,18 @@ for ri, row in enumerate(cmp_rows):
         elif ci == 3:
             rn.bold = True; rn.font.color.rgb = TEAL
 para("Honest note: WhatsApp/Telegram are far more mature and field-tested. Nidaa's only claimed "
-     "differentiators are offline-first (device is source of truth) and audited, reversible "
-     "verification. Whether those matter in practice is unvalidated.", italic=True, color=MUTED, size=9.5)
+     "differentiators are offline-first posting (device is source of truth) and audited, reversible "
+     "verification. Whether those matter in practice is unvalidated. Nidaa today is a resilient "
+     "LOCAL list per community; cross-community coordination depends on mesh/federation, which is "
+     "planned, not built.", italic=True, color=MUTED, size=9.5)
 
 heading("1. The coordination problem", level=2)
 para("In crises, the channels people rely on — messaging groups, central servers, social platforms — "
      "become unreliable at the moment needs spike. Information scatters across closed chats newcomers "
      "cannot see, is lost when phones die or accounts are banned, and cannot be trusted because anyone "
      "can post anything. Nidaa targets the information-coordination layer only: it does not solve "
-     "logistics, physical delivery, funding, or personal security.")
+     "logistics, physical delivery, funding, or personal security. Important: if a community's real "
+     "bottleneck is physical supply (resources, not information), Nidaa does not address it.")
 
 heading("2. How Nidaa works", level=2)
 bullet("A Next.js web app (installable PWA) that runs in a browser on a phone.")
@@ -199,7 +223,7 @@ bullet("Posts (needs/offers) are written to the device first (IndexedDB), so pos
 bullet("When a connection is available, queued posts sync to a server, which stores them in a JSON file.")
 bullet("The board displays entries by type, category, region, and verification status.")
 bullet("A trusted verifier can mark an entry verified through a protected endpoint; the action is audited and reversible.")
-bullet("The map seeds facility locations from humanitarian datasets (HDX / OpenStreetMap).")
+bullet("The map seeds facility locations from humanitarian datasets (HDX / OpenStreetMap) — see the staleness caveat below.")
 
 heading("3. Verification model", level=2)
 para("Verification is institutional, not algorithmic. A reader trusts a “verified” mark because a party "
@@ -207,25 +231,48 @@ para("Verification is institutional, not algorithmic. A reader trusts a “verif
      "ordinary-user tokens (returns 401); only verifier/admin tokens succeed (tested). Every action is "
      "written to an audit log (entry, actor role, prior/new state, timestamp) and is reversible. Nidaa "
      "cannot make information true — it can only make the act of verification accountable.")
+para("Limitation: verification requires a connection to the Host. During a network shutdown the "
+     "'verified' state cannot be updated, so trust signals are stale precisely when crisis peaks. "
+     "Mitigation requires at least two independent verifiers per deployment and an out-of-band override "
+     "the org defines; a single verifier has no automated fallback.", color=DARK, size=10)
 
 heading("4. Offline-first architecture", level=2)
 para("The device is the source of truth. New posts are saved locally with a “pending” flag, then synced "
      "when online. Browsing works fully offline. Current limitations: sync is client→server only (no "
-     "mesh), conflict resolution is last-write-wins (no CRDT), and there is no end-to-end encryption yet.")
+     "mesh), conflict resolution is last-write-wins (no CRDT), and there is no end-to-end encryption yet. "
+     "Silent data loss is possible if two offline devices edit the same entry; this is a known safety "
+     "concern for life-saving posts and is not yet mitigated in the UI.")
 
 heading("5. Governance model", level=2)
 para("The deploying organization defines verifier roles, owns the audit, and handles disputes. The "
      "project maintainer governs the software; pilot governance sits with the partner. Verification is "
      "transparent (auditable) and reversible so abuse can be detected and corrected — but trust in a "
-     "verifier is organizational, not technical.")
+     "verifier is organizational, not technical, and the trust-bootstrap (who legitimately designates "
+     "the verifier) is an open, unresolved problem.")
+para("Responsibilities in a pilot:", bold=True, size=10)
+rt = doc.add_table(rows=3, cols=2); rt.style = "Table Grid"
+resp = [("Partner provides", "Nidaa team provides"),
+        ("≥2 independent verifiers + audit ownership", "Hosting + sync infrastructure"),
+        ("Local governance, dispute handling, staff time", "Software, metrics, co-authored field report")]
+for ri, row in enumerate(resp):
+    for ci, val in enumerate(row):
+        c = rt.rows[ri].cells[ci]; c.text = ""
+        pp = c.paragraphs[0]; rn = pp.add_run(val); rn.font.size = Pt(9.5)
+        if ri == 0:
+            rn.bold = True; rn.font.color.rgb = TEAL
 
 heading("6. Known limitations", level=2)
 bullet("Single JSON store — not built for high concurrency or large scale.")
 bullet("No real user identity yet; token leakage would compromise verification.")
-bullet("Naive conflict resolution; no mesh / offline peer sync.")
+bullet("Naive conflict resolution (last-write-wins, silent loss); no mesh / offline peer sync.")
 bullet("No end-to-end encryption; privacy architecture not yet externally audited.")
-bullet("Scale, latency, and sync under real networks are unmeasured.")
+bullet("Map facility data is seeded from HDX/OSM without a snapshot date or update path; in active "
+       "conflict it can be outdated — treat map facilities as indicative until validated.")
+bullet("In some sandboxed environments the board may render empty if it cannot reach the API; a live "
+       "deployment avoids this.")
 bullet("Depends on at least one host (mesh is planned, not built).")
+bullet("Scope: Nidaa is a resilient local list per community; cross-community coordination needs "
+       "mesh/federation (planned, not built).")
 
 heading("7. Pilot structure", level=2)
 para("Intended: a low-risk, instrumented pilot with one reachable coordination community "
@@ -233,7 +280,8 @@ para("Intended: a low-risk, instrumented pilot with one reachable coordination c
      "unreachable). 4–8 weeks, low burden, under one hour of training. The partner defines verifier "
      "roles and owns the audit; the Nidaa team provides the host and metrics and co-authors a field "
      "report. Success = evidence the board helped coordination; failure = documented lessons. No pilot "
-     "has launched; outreach is prepared but not yet sent.")
+     "has launched; outreach is prepared but not yet sent. Before any pilot, the safety/liability items "
+     "above (do-no-harm, DPIA, data agreement) must be in place.")
 
 doc.add_page_break()
 
@@ -244,10 +292,13 @@ para("The most decision-relevant questions a skeptical partner asks. The full 80
 
 FAQ = [
     ("Is this a social network?",
-     "No. It is a shared, browsable board for needs and offers — not a feed, profile, or chat network."),
+     "No. It is a shared, browsable board for needs and offers — not a feed, profile, or chat network. "
+     "But we do not dodge the surveillance question: a board of who-needs-what is a sensitive record, "
+     "and we treat that as a primary risk, not a side note."),
     ("Is this encrypted?",
-     "Not end-to-end yet. Posts are stored on the device and on the host server. End-to-end encryption is "
-     "planned but not built. Self-hosting is emphasized so the deploying org controls the data."),
+     "Not end-to-end yet. Posts are stored on the device and on the host server in a readable form. "
+     "E2E is planned but not built. Self-hosting is intended but not yet packaged. Do not treat Nidaa "
+     "as private until those ship."),
     ("What happens when connectivity is lost?",
      "Posting and browsing keep working on the device. Queued posts sync automatically when a connection "
      "returns. Cross-device sync without any host requires mesh networking, which is planned, not built."),
@@ -256,8 +307,9 @@ FAQ = [
      "endpoint returns 401 for them. This was tested."),
     ("What if a verifier is compromised?",
      "Every verification action is audited (actor, prior/new state, timestamp) and reversible, so another "
-     "verifier can undo it. The mitigation is attribution + reversibility; trust in the verifier is the "
-     "organization's responsibility, not a software guarantee."),
+     "verifier can undo it — provided at least two independent verifiers exist. With a single verifier "
+     "there is no automated fallback; the org must define an out-of-band override. Trust in the verifier "
+     "is the organization's responsibility, not a software guarantee."),
     ("How is misinformation handled?",
      "Primarily by human verification and by visually distinguishing verified from unverified entries. There "
      "is no automated false-information detection and no moderation AI yet. Reporting and community "
@@ -265,34 +317,43 @@ FAQ = [
     ("Why not just use WhatsApp?",
      "WhatsApp is private messaging; posts there are not browsable, persist per-account, and anyone can claim "
      "anything. Nidaa is a shared board that survives disconnection and is verifiable. It can complement "
-     "WhatsApp (e.g. receive posts from a group), not replace it."),
+     "WhatsApp (e.g. receive posts from a group), not replace it. We acknowledge WhatsApp is more mature "
+     "and has network effects we do not."),
     ("Why not just use Telegram?",
      "Same reasoning as WhatsApp: Telegram is a messaging platform without a verifiable, offline-first, "
      "browsable coordination record. Nidaa's differentiators are the device-is-source-of-truth design and "
      "audited, reversible verification."),
     ("Who owns the data?",
-     "Intended: the deploying organization, via self-hosting and export. This is a design commitment; the "
-     "exact contractual terms for a pilot are to be defined with the partner."),
+     "Intended: the deploying organization, via self-hosting and export. Export UI and self-host packaging "
+     "are not yet built; today data would sit on the Nidaa team's host. A pilot data-processing agreement "
+     "stating ownership and deletion is still to be completed."),
     ("What stage is the project in?",
      "Active development, prototype stage, pilot-preparation. Core coordination, offline-first storage, and "
-     "role-gated verification with audit exist. Identity, mesh, CRDT, AI assistance, and any real pilot do not."),
+     "role-gated verification with audit exist. Identity, mesh, CRDT, E2E, AI assistance, and any real pilot do not."),
     ("What has and has not been built yet?",
      "Built: offline-first PWA, local device store, server entries API, role-gated verification + audit "
      "(reversible), Arabic-first RTL UI, HDX/OSM map seed, ~10k illustrative entries. Not built: real identity, "
      "mesh/CRDT sync, end-to-end encryption, automated moderation, self-host packaging, external security/"
      "ethics review, and any pilot."),
     ("What support is required from a pilot partner?",
-     "A designated verifier role owner, low burden, 4–8 weeks, and under one hour of training. The partner "
-     "owns verifier governance and the audit; the Nidaa team provides the host and metrics."),
+     "At least two independent verifiers, 30–100 participants, low burden, 4–8 weeks, under one hour of "
+     "training, and ownership of local governance/audit. The Nidaa team provides hosting, software, and metrics."),
     ("Is the seed data real operational data?",
-     "No. The sample entries shipped with the app are illustrative (Syria cities) and explicitly not real "
-     "operational data. The production dataset is intended to come from humanitarian sources and live posts."),
+     "No. The sample entries are illustrative (Syria cities) and explicitly not real operational data. The "
+     "map facilities are seeded from HDX/OSM but carry no snapshot date — treat them as indicative, not current."),
     ("Can it run with no internet at all?",
      "Local posting and browsing: yes. Cross-device synchronization: needs a host server today, or mesh "
      "(planned, not built) in the future."),
+    ("What about the targeting / surveillance risk?",
+     "It is real. A geolocated board of needs can be weaponized. Mitigations today are limited: optional "
+     "precise coordinates (flagged as potentially unsafe), no mandatory personal data, and self-hosting "
+     "(planned). We recommend deployments minimize precise coordinates and weigh this risk explicitly "
+     "before launch. This is the primary ethical risk, not a footnote."),
     ("What is the single biggest risk to Nidaa?",
-     "No real-world validation — building technically interesting infrastructure that communities do not "
-     "actually adopt. The pilot is the instrument for answering that."),
+     "Two kinds, ranked by harm to affected people: (1) physical/safety harm if the board is misused for "
+     "targeting or misinformation; (2) no real-world validation — building infrastructure communities do not "
+     "adopt. The pilot is the instrument for answering the second; the safety items above must be addressed "
+     "before the first."),
 ]
 
 for q, a in FAQ:
