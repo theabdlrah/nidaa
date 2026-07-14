@@ -1,27 +1,32 @@
 # Nidaa — Outreach Package (share in ONE link)
 
-This folder is the complete, shareable trust package for a first conversation
-with a potential pilot partner. Send one link (a Drive/Google Folder of this
-`pilot/` directory, or the documents below). Nothing else is required to
-evaluate Nidaa.
+This folder is the complete, shareable package for a first **problem-discovery
+conversation** with a coordination practitioner. Send one link (a Drive/Google
+Folder of this `pilot/` directory, or the documents below). Nothing else is
+required to evaluate Nidaa.
+
+NOTE ON POSTURE: outreach is research, not a pilot pitch. The goal is to
+falsify our assumptions about the coordination problem — not to validate the
+product. All first-touch messages reflect this.
 
 ## Contents
-1. `Nidaa-Overview-FAQ.docx` — the forwardable package: 60-second executive summary, current-status box, project overview, and the key skeptic FAQs.
-2. `partner-brief.md` — what Nidaa is, the problem, what makes it different, the ask.
+1. `Nidaa-Overview-FAQ.docx` — the forwardable package: executive summary, current-status box (honest built vs planned), project overview, and the key skeptic FAQs.
+2. `first-touch-messages.md` — the actual outreach messages (problem-discovery framing) + a 23-question interview guide built to break our assumptions.
 3. `do-no-harm.md` — plain-language safety & security summary (the risk person's gate).
-4. `governance-playbook.md` — verifier roles, verification rules, audit, escalation.
-5. `NIDAA-FAQ-OVERVIEW.md` — the full 80-question FAQ and complete overview (depth reference).
+4. `NIDAA-FAQ-OVERVIEW.md` — the full 80-question FAQ and complete overview (depth reference).
+5. `governance-playbook.md` / `partner-brief.md` — background only; useful if a conversation deepens, NOT sent up front.
 
 ## Demo
-There is no recorded video asset. `demo-script.md` is the narrative walkthrough
-you can read or screen-share live. If a partner wants a visual, walk them through
-the running app (or record your own screen capture when ready).
+There is no recorded video asset. If a contact asks for background, share the
+docx or offer a brief live screen-share of what's built so far — framed as "here's
+what we've built, react honestly," never as a sales demo.
 
-## One-line pitch
-An offline-first, Arabic-first coordination board that stays usable when the
-network doesn't — verified by trusted actors, safe by default, open source,
-exportable, self-hostable.
+## One-line framing (for first contact)
+"We're researching coordination challenges in connectivity-stressed environments
+and would value your perspective." Not: "we have a solution to test."
 
 ## The ask (for first contact)
-Not a partnership. A 15-minute conversation about whether Nidaa fits your
-coordination needs as a 4–8 week, low-burden pilot.
+Not a pilot. Not a partnership. A 15–30 minute conversation to learn whether the
+coordination problem we believe exists is real, urgent, and worth changing
+behavior for. We explicitly invite correction, including that Nidaa may be
+solving the wrong problem.
