@@ -215,9 +215,15 @@ async function main() {
     db = JSON.parse(await fs.readFile(DB_PATH, "utf-8"));
   } catch {}
   const byClient = new Map();
-  for (const e of db.entries) if (e.source && e.source.startsWith("hdx:")) byClient.set(e.clientId, e);
-  for (const e of db.entries) if (!e.source || !e.source.startsWith("hdx:")) byClient.set(e.clientId, e);
-  for (const e of all) byClient.set(e.clientId, e);
+  for (const e of db.entries) {
+    // Drop illustrative/demo seeds so a trust-and-verification tool never ships
+    // fabricated entries (especially not marked verified). They carry either
+    // source:"demo" (current) or a "seed-" clientId prefix (legacy local db).
+    if (e.source === "demo") continue;
+    if (String(e.clientId).startsWith("seed-")) continue;
+    byClient.set(e.clientId, e);
+  }
+  for (const e of all) byClient.set(e.clientId, e); // HDX data wins on collision
   db.entries = [...byClient.values()];
   await fs.mkdir(path.dirname(DB_PATH), { recursive: true });
   await fs.writeFile(DB_PATH, JSON.stringify(db, null, 2), "utf-8");

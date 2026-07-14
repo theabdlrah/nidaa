@@ -1,8 +1,12 @@
 import { NidaaEntry } from "../lib/types";
 
-// Seed entries are illustrative / illustrative only — NOT real operational data.
-// They exist so the board is not empty on first run and demonstrate the model.
-// Coordinates are approximate city centers for map display.
+// Seed entries are illustrative / demo only — NEVER real operational data.
+// They exist so a DEVELOPER running the app locally before loading real data
+// sees the model. They are tagged source:"demo" so `npm run import-hdx` STRIPS
+// them (a trust-and-verification tool must not ship fabricated, verified entries).
+// A fresh clone with no db.json starts EMPTY (see lib/store.ts ensureDb) — it
+// does NOT fall back to these. Run `npm run import-hdx` for real HDX facilities.
+// NOTE: coordinates are approximate city centers for map display.
 export const SEED_ENTRIES: NidaaEntry[] = [
   {
     id: "seed-1",
@@ -21,6 +25,7 @@ export const SEED_ENTRIES: NidaaEntry[] = [
     lng: 37.1343,
     authorRole: "ngo",
     verified: true,
+    source: "demo",
     region: "syr",
     createdAt: "2026-07-01T09:00:00.000Z",
     syncedAt: "2026-07-01T09:00:00.000Z",
@@ -41,6 +46,7 @@ export const SEED_ENTRIES: NidaaEntry[] = [
     lng: 36.6333,
     authorRole: "volunteer",
     verified: true,
+    source: "demo",
     region: "syr",
     createdAt: "2026-07-03T12:30:00.000Z",
     syncedAt: "2026-07-03T12:30:00.000Z",
@@ -61,6 +67,7 @@ export const SEED_ENTRIES: NidaaEntry[] = [
     lng: 36.2765,
     authorRole: "volunteer",
     verified: false,
+    source: "demo",
     region: "syr",
     createdAt: "2026-07-05T08:15:00.000Z",
     syncedAt: "2026-07-05T08:15:00.000Z",
@@ -81,6 +88,7 @@ export const SEED_ENTRIES: NidaaEntry[] = [
     lng: 36.2873,
     authorRole: "individual",
     verified: false,
+    source: "demo",
     region: "syr",
     createdAt: "2026-07-07T17:45:00.000Z",
     syncedAt: "2026-07-07T17:45:00.000Z",
@@ -101,6 +109,7 @@ export const SEED_ENTRIES: NidaaEntry[] = [
     lng: 36.2323,
     authorRole: "ngo",
     verified: true,
+    source: "demo",
     region: "syr",
     createdAt: "2026-07-08T10:00:00.000Z",
     syncedAt: "2026-07-08T10:00:00.000Z",

@@ -14,7 +14,13 @@ function uuid(): string {
 // GET /api/entries — returns all entries (used by client sync pull)
 export async function GET() {
   const entries = await listEntries();
-  return NextResponse.json({ entries, serverTime: new Date().toISOString() });
+  return NextResponse.json({
+    entries,
+    serverTime: new Date().toISOString(),
+    // Honesty signal: an empty board means no real data was loaded (db.json
+    // missing or import-hdx not run) — not "no posts". Surfaced to the UI.
+    setupRequired: entries.length === 0,
+  });
 }
 
 // POST /api/entries — upsert a single entry from a client (offline-first sync push)

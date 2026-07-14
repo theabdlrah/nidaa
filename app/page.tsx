@@ -33,6 +33,7 @@ export default function Page() {
   const [syncing, setSyncing] = useState<boolean>(false);
   const [showForm, setShowForm] = useState<boolean>(false);
   const [lastSync, setLastSync] = useState<string>("");
+  const [setupRequired, setSetupRequired] = useState<boolean>(false);
 
   const t = (ar: string, en: string) => (lang === "ar" ? ar : en);
 
@@ -65,8 +66,9 @@ export default function Page() {
     try {
       const res = await fetch("/api/entries", { cache: "no-store" });
       if (!res.ok) return;
-      const data = (await res.json()) as { entries: ServerEntry[] };
+      const data = (await res.json()) as { entries: ServerEntry[]; setupRequired?: boolean };
       setServer(data.entries || []);
+      setSetupRequired(!!data.setupRequired);
       setLastSync(new Date().toLocaleTimeString());
     } catch {
       /* offline — ignore */
@@ -226,7 +228,14 @@ export default function Page() {
       ) : (
         <>
           {merged.length === 0 && (
-            <div className="skeleton">{t("لا توجد منشورات بعد.", "No posts yet.")}</div>
+            <div className="skeleton">
+              {setupRequired
+                ? t(
+                    "لا توجد بيانات مرافق محمّلة — شغّل: npm run import-hdx",
+                    "No facility data loaded — run: npm run import-hdx"
+                  )
+                : t("لا توجد منشورات بعد.", "No posts yet.")}
+            </div>
           )}
 
           {merged.map((e) => (

@@ -1,7 +1,6 @@
 import { promises as fs } from "fs";
 import path from "path";
 import { NidaaEntry, DbShape, VerificationAudit } from "./types";
-import { SEED_ENTRIES } from "../data/seed";
 
 const AUDIT_PATH = path.join(process.cwd(), "data", "verify-audit.json");
 
@@ -21,13 +20,32 @@ function withWriteLock<T>(fn: () => Promise<T>): Promise<T> {
   return run;
 }
 
+// Separate lock for the verification audit log so audit writes are safe even if
+// appendAudit is ever called outside the main db write lock.
+let auditChain: Promise<any> = Promise.resolve();
+function withAuditLock<T>(fn: () => Promise<T>): Promise<T> {
+  const run = auditChain.then(fn, fn);
+  auditChain = run.then(
+    () => undefined,
+    () => undefined
+  );
+  return run;
+}
+
 async function ensureDb(): Promise<void> {
   try {
     await fs.access(DB_PATH);
   } catch {
-    const initial: DbShape = { entries: SEED_ENTRIES };
+    // Honesty guard: NEVER fabricate data. Start empty and tell the operator to
+    // load real data. (Previously this seeded illustrative/demo entries, which
+    // made the prototype imply data it did not actually have.)
+    const initial: DbShape = { entries: [] };
     await fs.mkdir(path.dirname(DB_PATH), { recursive: true });
     await fs.writeFile(DB_PATH, JSON.stringify(initial, null, 2), "utf-8");
+    console.warn(
+      "[nidaa] data/db.json not found — starting with an EMPTY board (no fabricated demo data). " +
+        "Run `npm run import-hdx` to load real HDX / HOT OSM facility data."
+    );
   }
 }
 
@@ -95,6 +113,7 @@ export async function setVerified(
 }
 
 async function appendAudit(record: VerificationAudit): Promise<void> {
+  return withAuditLock(async () => {
   let log: VerificationAudit[] = [];
   try {
     const raw = await fs.readFile(AUDIT_PATH, "utf-8");
@@ -106,6 +125,7 @@ async function appendAudit(record: VerificationAudit): Promise<void> {
   log.push(record);
   await fs.mkdir(path.dirname(AUDIT_PATH), { recursive: true });
   await fs.writeFile(AUDIT_PATH, JSON.stringify(log, null, 2), "utf-8");
+  });
 }
 
 export async function readAudit(): Promise<VerificationAudit[]> {
