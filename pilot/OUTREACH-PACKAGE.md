@@ -17,6 +17,7 @@ product. All first-touch messages reflect this.
 5. `NIDAA-FAQ-OVERVIEW.md` — the full 80-question FAQ and complete overview (depth reference).
 6. `governance-playbook.md` / `partner-brief.md` — background only; useful if a conversation deepens, NOT sent up front.
 7. `LEARNING-PLAN.md` — the reframed milestones (Day 30/60/90) and the decision framework (proceed / narrow / pivot / stop). The tracker is the source of truth; this plan is subordinate to it.
+8. `PREDICTIONS.md` — baseline prior beliefs (A1–A7, 0–100%) written BEFORE evidence, to prevent hindsight bias. Do not edit after conversations begin; update the tracker instead.
 
 ## Discipline (non-negotiable)
 Outreach collects **evidence, not testimonials**. After every interview, complete
