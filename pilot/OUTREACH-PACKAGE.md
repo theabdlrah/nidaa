@@ -20,6 +20,7 @@ product. All first-touch messages reflect this.
 8. `PREDICTIONS.md` — baseline prior beliefs (A1–A7, 0–100%) written BEFORE evidence, to prevent hindsight bias. Do not edit after conversations begin; update the tracker instead.
 9. `OUTREACH-TARGETS.md` — who to contact + fill-in message drafts (ask = written brief, not a call).
 10. `STAKEHOLDER-QUESTIONNAIRE.md` — the structured written brief contacts return; built to falsify assumptions (specifics + incidents, not opinions).
+11. `OUTREACH-CONTACTS.md` — verified contact surfaces per target (compiled via live site checks; no guessed emails; flags HEAL email + Gaza Soup Kitchen not being one org).
 
 ## Discipline (non-negotiable)
 Outreach collects **evidence, not testimonials**. After every interview, complete
