@@ -86,3 +86,108 @@ the original verified-contacts list above.
 Sent: 9 · Pending: 1 · Interviewed: 1.
 Highest-value awaited: Ali AbuAlatta, Sameer Project, HOTOSM, Shuruq As'ad, any
 referral from Adam.
+
+---
+
+## Grassroots & Community Outreach Candidates
+
+Added 2026-07-14 (evening) as an **outreach-discovery** task only. This is a
+pipeline-breadth list, NOT evidence. No contact here has been messaged,
+interviewed, or logged as evidence. Channels marked per the rules:
+
+- **[VERIFIED]** = a public email / contact page / social handle was OBSERVED on
+  the org's own site during this sweep (curl of primary source).
+- **[SOCIAL-ONLY]** = only social handles observed; no public email confirmed.
+- **[MANUAL]** = site is JS-rendered / no channel observable via fetch; contact
+  requires human discovery (visit site, DM, or ask a referral). NOT guessed.
+
+Relevance scores are ESTIMATED outreach value for *testing* each assumption
+(0 = likely no signal, 3 = strong signal), not a verdict:
+A1 priority · A2 info/matching · A3 offline · A4 verification/trust model ·
+A5 tool insufficiency · A6 org trust · A7 adoption.
+
+### Gaza
+
+| Org | Focus | Verified channels (observed) | Relevance (A1/A2/A3/A4/A5/A6/A7) | Notes |
+|-----|-------|------------------------------|-----------------------------------|-------|
+| The Sameer Project | Gaza mutual-aid, medical/relief + local partners | [VERIFIED] info@thesameerproject.com · IG @thesameerproject · X @sameerproject · FB | 3/3/3/2/3/2/2 | Best-fit; already in status log (sent). Connectivity-stressed coord env. |
+| Hand4Gaza | Gaza grassroots aid collective | [MANUAL] hand4gaza.org (fetch empty) · already in status log (sent) | 2/2/3/2/3/2/2 | Site JS-rendered; channel needs manual confirmation. |
+| Gaza Soup Kitchen | Distributed local Gaza kitchens/fundraisers | [VERIFIED] joinus@gazasoupkitchen.org · IG @gazasoupkitchen · LinkedIn "Gaza Soup Kitchen" · FB | 2/3/3/2/3/2/1 | Distributed concept, not one org (noted in original contacts). Local kitchens = strong A3 signal. |
+| Hope for Gaza (hopeforgaza.foundation) | Gaza relief fundraising/coordination | [VERIFIED] contact form page observed (hopeforgaza.foundation/pages/contact) | 1/2/2/1/2/1/1 | Contact form only; email not exposed via fetch. Manual discovery. |
+| Humanity for Gaza | Gaza aid org | [MANUAL] humanityforgaza.com (fetch empty) | 1/2/2/1/2/1/1 | JS-rendered; manual discovery. |
+
+### Palestine (non-Gaza: West Bank + diaspora)
+
+| Org | Focus | Verified channels (observed) | Relevance (A1/A2/A3/A4/A5/A6/A7) | Notes |
+|-----|-------|------------------------------|-----------------------------------|-------|
+| Taawon (Welfare Association) | Palestinian diaspora-led grantmaking/community dev | [VERIFIED] social: X/TaawonPalestine · IG @taawonpalestine · FB · LinkedIn | 2/2/1/2/2/2/2 | Larger diaspora org; field partners = coordination signal. |
+| Medical Aid for Palestinians (MAP) | UK-based, verification-minded medical aid | [MANUAL] map.org.uk (fetch empty) | 2/2/2/3/2/3/3 | Strong A4/A6 (trust/verification) signal; contact page needs manual. |
+| PCRF (Palestine Children's Relief Fund) | Medical/humanitarian for children | [VERIFIED] contact-us page + social (X @ThePCRF · IG @thepcrf · FB · LinkedIn) | 2/2/2/2/2/2/2 | Major-ish NGO with field coordination; some grassroots chapters. |
+| We Are Not Numbers | Gaza youth/voice storytelling + support network | [VERIFIED] contact-us page + social (IG @we_are_not_numbers · FB · X) | 1/2/3/1/2/1/2 | Community/info network; beneficiary-adjacent (A3 offline comms). |
+| Tech for Palestine | Diaspora tech coalition (mapping/tools) | [VERIFIED] social: X @tech4palestine · IG @techforpalestine · LinkedIn | 2/3/3/2/3/2/2 | Technical validator + possible referral to ground orgs. |
+| USCPR (US Campaign for Palestinian Rights) | Diaspora organizing network | [VERIFIED] contact page + social (IG @uscpr · FB · X @USCPR_) | 2/2/1/2/2/2/2 | Organizing network; reach to local committees. |
+| Al-Haq | West Bank-based human rights org (field documentation) | [VERIFIED] contact-us page + social (IG @al_haq_organization · X @AlHaq_org · FB) | 1/2/2/3/2/3/2 | Trust/verification & documentation angle (A4/A6). |
+| Adalah | Palestinian citizen-rights legal center | [VERIFIED] social (IG @adalah.legal.center · FB) | 1/1/1/2/1/2/1 | Legal/rights; lighter coordination signal. |
+
+### Syria
+
+| Org | Focus | Verified channels (observed) | Relevance (A1/A2/A3/A4/A5/A6/A7) | Notes |
+|-----|-------|------------------------------|-----------------------------------|-------|
+| Syria Civil Defense (White Helmets) | Local Syrian civil defense / emergency response | [VERIFIED] social: IG @the_whitehelmets · X @SyriaCivilDef · FB · LinkedIn | 2/3/3/3/3/3/3 | Gold-standard grassroots field-coordination + verification case. Top Syria candidate. |
+| SAMS (Syrian American Medical Society) | Syria medical relief, local clinics | [VERIFIED] social: IG @samsusa1 · X @SAMSUSA1 · FB | 2/2/2/2/2/3/3 | Field medical coordination; adoption/trust signal. |
+| Syria Direct | Local Syrian independent news / info coordination | [VERIFIED] contact-us page + social (IG @syriadirecten · FB · X @syriadirect) | 2/3/2/2/2/2/2 | Information-sharing angle (A2) — directly relevant. |
+| Molham Volunteer Team | Syria diaspora + local volunteer aid network | [MANUAL] molhamteam.org (fetch empty) | 2/3/3/2/3/2/3 | Strong grassroots volunteer-coordination signal; manual discovery. |
+| Bonyan | Syria local NGO (child/family aid) | [MANUAL] bonyan.org (fetch empty) | 2/2/3/2/3/2/2 | Local aid coordination; manual discovery. |
+| Hurras Network | Syria child-protection local network | [MANUAL] hurras.network (fetch empty) | 1/2/2/3/2/3/2 | Verification/child-protection; manual discovery. |
+| Violet (Organisation for Women's Freedom) | Syria/West local women-led aid | [MANUAL] violet.org.uk (fetch empty) | 1/2/2/2/2/2/2 | Community-led; manual discovery. |
+| RIWAQ | Palestinian (incl. West Bank) heritage/community rehab | [MANUAL] riwaq.org (fetch empty) | 1/2/1/1/1/1/1 | Lighter coordination signal; manual discovery. |
+
+### Sudan
+
+| Org | Focus | Verified channels (observed) | Relevance (A1/A2/A3/A4/A5/A6/A7) | Notes |
+|-----|-------|------------------------------|-----------------------------------|-------|
+| Sudan Relief Fund | Sudan community-led relief | [VERIFIED] info@sudanreliefund.com · IG @sdnrlffund · X @sudanrelieffund · FB | 3/3/3/2/3/2/2 | Strong Sudan grassroots signal across all axes. Top Sudan candidate. |
+| Emergency Response Rooms (Sudan) | Community-led local response (neighborhood ERRs) | [MANUAL] emergencyresponseports.org (fetch empty) | 3/3/3/3/3/2/3 | EXEMPLARY grassroots coordination + trust model; manual discovery critical. |
+| Sudanese American Physicians Association | Diaspora + Sudan medical relief | [MANUAL] sudaneseamericanphysicians.org (fetch empty) | 2/2/2/2/2/3/2 | Medical coordination; manual discovery. |
+| Sudan Emergency (sudanemergency.org) | Sudan crisis relief coordination | [MANUAL] fetch empty | 2/2/2/2/2/2/1 | Manual discovery. |
+| Darfur Women Action Group | Darfur/Sudan women-led advocacy + aid | [MANUAL] darfurwomen.org (fetch empty) | 1/2/2/2/1/2/2 | Manual discovery. |
+| Meals of Hope | Sudan/community food relief | [VERIFIED] social: IG @mealsofhope_ · FB | 2/2/2/1/2/1/1 | Social-only; food-relief coordination. |
+
+### Other (MENA conflict-affected / diaspora)
+
+| Org | Focus | Verified channels (observed) | Relevance (A1/A2/A3/A4/A5/A6/A7) | Notes |
+|-----|-------|------------------------------|-----------------------------------|-------|
+| Islamic Relief USA | Large INGO (Muslim aid, some field units) | [VERIFIED] contact-us page + social (IG @islamicreliefusa · FB · LinkedIn · X @IslamicRelief) | 2/2/1/2/2/3/2 | MAJOR INGO — lower grassroots priority per criteria; referral potential only. |
+| MSF (Doctors Without Borders) | Intl medical (field coordination) | [VERIFIED] social: IG/FB @doctorswithoutborders · X @MSF_USA · LinkedIn | 2/3/2/3/2/3/3 | Intl NGO; Mones (MSF, status log) is the grassroots-adjacent entry point. Referral only. |
+| AFSC (American Friends Service Committee) | Quaker humanitarian, some MENA field work | [VERIFIED] social: IG @afsc_org · FB · X @afsc_org | 1/2/1/2/2/2/2 | Larger org; MENA programming. |
+| International Rescue Committee (Sudan) | Large INGO | [VERIFIED] social: IG @RESCUEorg · FB · LinkedIn | 1/2/1/2/2/3/2 | MAJOR INGO — referral only, not grassroots priority. |
+
+### Highest-priority candidates to pursue next (after current pending replies)
+
+1. **Syria Civil Defense (White Helmets)** — best single grassroots verification + coordination + trust case.
+2. **Sudan Relief Fund** and **Emergency Response Rooms (Sudan)** — strongest Sudan community-led coordination signal.
+3. **Syria Direct** — information-sharing/coordination angle (directly tests A2).
+4. **MAP / Al-Haq / SAMS** — trust/verification (A4/A6) and field-medical coordination.
+5. **Tech for Palestine** — technical validator + referral to ground orgs.
+
+### Gaps (no suitable org verifiable from public sources in this sweep)
+
+- **Yemen, Afghanistan, Myanmar, Haiti** community-led orgs: not searched this pass (scope was
+  Gaza/West Bank/diaspora/Syria/Sudan + other MENA). Open if breadth expands.
+- **Local Gaza kitchens / neighborhood committees**: real but diffuse and handle-based; require
+  referral (e.g. via Adam or Sameer) rather than directory discovery. Marked [MANUAL] where surfaced.
+- **JS-rendered orgs above marked [MANUAL]** (Hand4Gaza, Molham, Bonyan, Hurras, Violet, RIWAQ,
+  MAP, ERRs, SAPAM, Darfur Women, Sudan Emergency): site fetch returned no channel. These are
+  REAL orgs but their contact must be confirmed by a human (site visit / DM / referral) — no email
+  was guessed.
+- **Large UN agencies / government ministries / major INGOs** (UNRWA, OCHA, IRC, Islamic Relief HQ,
+  MSF HQ) were intentionally deprioritized per criteria; listed only where they may yield a referral.
+
+### Counts
+
+- Total organizations identified in this sweep: **34** (Gaza 5, Palestine 8, Syria 7,
+  Sudan 6, Other 8).
+- Channel status: [VERIFIED] observed = 16 · [SOCIAL-ONLY] = 1 (Meals of Hope) ·
+  [MANUAL] = 17.
+- Sameer and Hand4Gaza already appear in the active status log above (sent) and are not
+  double-counted as "new" — they remain the live outreach items.
