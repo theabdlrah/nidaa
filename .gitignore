@@ -9,3 +9,7 @@ npm-debug.log*
 
 # TS incremental build info
 tsconfig.tsbuildinfo
+
+# generated demo video (reproducible via pilot/build_demo_video.py)
+pilot/demo-video.mp4
+pilot/frame_*.png
