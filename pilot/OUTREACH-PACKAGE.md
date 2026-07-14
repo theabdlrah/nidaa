@@ -12,7 +12,10 @@ else is required to evaluate Nidaa.
 4. `demo-script.md` — 90-second demo flow (offline post → reconnect → verify).
 
 ## Demo video
-[DEMO LINK — record pilot/demo-script.md on a phone, upload unlisted, paste link here]
+- `pilot/demo-video.mp4` — 90-second camera-free walkthrough (offline post →
+  reconnect/sync → trusted verification), Arabic+English narration, built from
+  real seed data. Regenerate any time with `python pilot/build_demo_video.py`.
+- (The earlier `demo-script.md` is the textual storyboard; the video is the asset.)
 
 ## One-line pitch
 An offline-first, Arabic-first coordination board that stays usable when the
