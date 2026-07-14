@@ -1,0 +1,72 @@
+# Outreach Ledger
+
+Canonical record of **who has been approached** and **who is still to be
+approached**. This is a status ledger, not evidence, not strategy.
+
+- The original message drafts and target rationale live in the standalone file
+  `Nidaa-Outreach-Targets.docx` on the Desktop (kept intentionally; not retired).
+- Per-target contact details (emails, socials, CONFIRM flags) live in
+  `OUTREACH-CONTACTS.md` (the verified-contacts section at the top).
+- This file only tracks approached vs pending and links to those sources.
+
+Legend:
+- **Approached** = outreach sent (any channel).
+- **To be approached** = identified, not yet contacted.
+- **Hold** = identified but deliberately paused (reason noted).
+- Evidence only begins after a reply + conversation (see workflow in
+  OUTREACH-CONTACTS.md). Outreach status is NEVER evidence.
+
+---
+
+## Approached (initial wave — from Nidaa-Outreach-Targets.docx)
+
+| # | Target | Tier | Channel | Status | Detail source |
+|---|--------|------|---------|--------|---------------|
+| 1 | The Sameer Project | 1 — diaspora mutual-aid | email/IG (research framing) | Sent | OUTREACH-CONTACTS.md §1 (VERIFIED) |
+| 2 | HOTOSM (info@ + WNAHub@) | 2 — technical validator | email (data-freshness Q) | Sent | OUTREACH-CONTACTS.md §4 (VERIFIED) |
+| 3 | HEAL Palestine | 1 — diaspora mutual-aid | social CONFIRM → brief | Sent | OUTREACH-CONTACTS.md §2 (PARTIAL/CONFIRM) |
+| 4 | Hand4Gaza | — grassroots (added later) | cold outreach | Sent | OUTREACH-CONTACTS.md status log |
+| 5 | Ali R. AbuAlatta (Gaza SkillBridge) | individual | cold outreach | Sent | status log |
+| 6 | Shuruq As'ad | individual | cold outreach | Sent | status log |
+| 7 | Saed Al Farra | individual | cold outreach | Sent | status log |
+| 8 | Mones (Humanitarian Ops, MSF) | individual | LinkedIn | Sent 2026-07-14 | status log |
+| 9 | Israa Z. Zumili | individual | request sent | Pending (awaiting reply) | status log |
+| 10 | Adam Elijilah | individual (resident) | — | **Interviewed** (Conversation #1) | assumption-log/AdamElijilah-2026-07-14.md |
+
+Note: Gaza Soup Kitchen (docx target #3) was **Hold** — it is a distributed
+concept, not one org (see OUTREACH-CONTACTS.md §3). Not sent as a generic blast.
+
+---
+
+## To be approached (next-wave — from Grassroots & Community Candidates)
+
+Source: the "Grassroots & Community Outreach Candidates" section in
+OUTREACH-CONTACTS.md. Highest-priority subset listed first; the full 34-org list
+is there. Do NOT proactively expand beyond that list unless the pipeline dries up.
+
+| Priority | Target | Region | Channel status | Why next |
+|----------|--------|--------|----------------|----------|
+| 1 | Syria Civil Defense (White Helmets) | Syria | VERIFIED (social) | Best single grassroots verification + coordination + trust case |
+| 2 | Sudan Relief Fund | Sudan | VERIFIED (email + social) | Strongest Sudan community-led signal |
+| 3 | Emergency Response Rooms (Sudan) | Sudan | MANUAL (site fetch empty) | Exemplary community-led coord + trust model; confirm contact |
+| 4 | Syria Direct | Syria | VERIFIED (contact + social) | Information-sharing/coordination angle (tests A2) |
+| 5 | MAP (Medical Aid for Palestinians) | Palestine | MANUAL (site fetch empty) | Trust/verification (A4/A6); confirm contact |
+| 6 | Al-Haq | Palestine/West Bank | VERIFIED (contact + social) | Field documentation / trust angle |
+| 7 | SAMS (Syrian American Medical Society) | Syria | VERIFIED (social) | Field medical coordination |
+| 8 | Tech for Palestine | diaspora | VERIFIED (social) | Technical validator + referral to ground orgs |
+
+(The remaining ~26 candidates from the Grassroots section remain parked; promote
+as bandwidth allows, after current pending replies land.)
+
+---
+
+## Hold
+
+| Target | Reason |
+|--------|--------|
+| Gaza Soup Kitchen (as a generic entity) | Distributed concept, not one org — target a specific kitchen only if a referral names one (OUTREACH-CONTACTS.md §3). |
+
+---
+
+Last updated: 2026-07-14 (evening). This ledger is maintained; the candidate
+list is NOT expanded proactively.
