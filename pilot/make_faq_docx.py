@@ -94,8 +94,9 @@ bullet(" the board stays usable with no internet after first visit — posts are
 bullet(" it is a shared, browsable, verifiable board — not a chat — and verification is role-gated, "
        "audited, and reversible. It complements WhatsApp/Telegram; it does not replace them.",
        bold_lead="What makes it different? ")
-bullet(" not a partnership. A 15-minute conversation about whether Nidaa fits your coordination as a "
-       "low-burden, 4–8 week pilot — you define verifier roles and own the audit.",
+bullet(" not a partnership. We are seeking one organization willing to evaluate Nidaa over a "
+       "4–8 week period with approximately 30–100 participants and at least one designated verifier "
+       "who owns the audit. Low burden, under one hour of training.",
        bold_lead="What we ask of a pilot partner: ")
 
 # ---- Current Status box ----
@@ -121,10 +122,69 @@ para("Everything about real-world usefulness is an assumption awaiting validatio
      "deployment. This document distinguishes implemented features from intended ones throughout.",
      italic=True, color=MUTED, size=10)
 
+# ---- Architecture flow diagram (Device -> Local -> Sync -> Host -> Verify -> Audit) ----
+heading("How information flows (architecture)", level=2)
+para("One line of flow. The device is the source of truth; verification and audit sit at the host.",
+     italic=True, color=MUTED, size=10)
+flow = ["Device\n(browser/PWA)", "Local Storage\n(IndexedDB,\noffline)", "Sync\n(when online)",
+        "Host Server\n(JSON store)", "Verification\n(verifier token,\nrole-gated)", "Audit Log\n(recorded,\nreversible)"]
+ft = doc.add_table(rows=1, cols=len(flow))
+ft.style = "Table Grid"
+ft.alignment = WD_ALIGN_PARAGRAPH.CENTER
+for i, cell in enumerate(ft.rows[0].cells):
+    cell.text = ""
+    pr = cell.paragraphs[0]; pr.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    for j, line in enumerate(flow[i].split("\n")):
+        rr = pr.add_run(line) if j == 0 else pr.add_run("\n" + line)
+        rr.font.size = Pt(9); rr.bold = (i in (0, 4, 5))
+        if i in (4, 5): rr.font.color.rgb = TEAL
+    # shade host/verify/audit lightly
+    if i >= 3:
+        tcPr = cell._tc.get_or_add_tcPr()
+        shd = OxmlElement("w:shd"); shd.set(qn("w:val"), "clear")
+        shd.set(qn("w:fill"), "EAF6F4"); tcPr.append(shd)
+# arrow row under the table
+arrow = doc.add_paragraph(); arrow.alignment = WD_ALIGN_PARAGRAPH.CENTER
+ar = arrow.add_run("      →      →      →      →      →      ")
+ar.font.size = Pt(12); ar.font.color.rgb = MUTED
+para("Offline posting and browsing work at the Device + Local Storage stage with no connection. "
+     "Sync, Verification, and Audit require a connection to the Host. Mesh sync (device-to-device, "
+     "no host) is planned but not built.", size=10, color=DARK)
+
 doc.add_page_break()
 
 # ============================ PAGES 2-4: OVERVIEW ============================
 heading("Project Overview", level=1)
+
+heading("Why Nidaa? — comparison", level=2)
+para("Nidaa is not a messaging app. The differences that matter for coordination:", size=10, color=MUTED)
+cmp_rows = [
+    ("Capability", "WhatsApp", "Telegram", "Nidaa"),
+    ("Offline posting / browsing", "Partial", "Partial", "Yes (device-first)"),
+    ("Shared browsable board", "No", "Limited (channels)", "Yes"),
+    ("Role-gated verification", "No", "No", "Yes (verifier/admin)"),
+    ("Audit trail of verification", "No", "No", "Yes (recorded, reversible)"),
+    ("End-to-end encryption", "Yes (default)", "Optional", "Not yet (planned)"),
+    ("Self-hostable", "No", "No", "Intended (packaging planned)"),
+]
+ct = doc.add_table(rows=len(cmp_rows), cols=4)
+ct.style = "Table Grid"
+for ri, row in enumerate(cmp_rows):
+    for ci, val in enumerate(row):
+        c = ct.rows[ri].cells[ci]
+        c.text = ""
+        pp = c.paragraphs[0]
+        rn = pp.add_run(val); rn.font.size = Pt(9.5)
+        if ri == 0:
+            rn.bold = True; rn.font.color.rgb = RGBColor(0xFF, 0xFF, 0xFF)
+            tcPr = c._tc.get_or_add_tcPr()
+            shd = OxmlElement("w:shd"); shd.set(qn("w:val"), "clear")
+            shd.set(qn("w:fill"), "0F766E"); tcPr.append(shd)
+        elif ci == 3:
+            rn.bold = True; rn.font.color.rgb = TEAL
+para("Honest note: WhatsApp/Telegram are far more mature and field-tested. Nidaa's only claimed "
+     "differentiators are offline-first (device is source of truth) and audited, reversible "
+     "verification. Whether those matter in practice is unvalidated.", italic=True, color=MUTED, size=9.5)
 
 heading("1. The coordination problem", level=2)
 para("In crises, the channels people rely on — messaging groups, central servers, social platforms — "
@@ -244,8 +304,7 @@ for q, a in FAQ:
     ap.paragraph_format.space_after = Pt(8)
 
 para("— End of overview. For the complete 80-question FAQ, implementation status, and ethical-risk "
-     "detail, see NIDAA-FAQ-OVERVIEW.md in the same package. Where this document and the running code "
-     "disagree, the code is the source of truth.", italic=True, color=MUTED, size=9)
+     "detail, see NIDAA-FAQ-OVERVIEW.md in the same package.", italic=True, color=MUTED, size=9)
 
 doc.save(OUT)
 print("WROTE:", OUT)
