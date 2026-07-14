@@ -6,10 +6,11 @@ with a potential pilot partner. Send one link (a Drive/Google Folder of this
 evaluate Nidaa.
 
 ## Contents
-1. `partner-brief.md` — what Nidaa is, the problem, what makes it different, the ask.
-2. `do-no-harm.md` — plain-language safety & security summary (the risk person's gate).
-3. `governance-playbook.md` — verifier roles, verification rules, audit, escalation.
-4. `demo-script.md` — 90-second demo narrative (offline post → reconnect → verify).
+1. `Nidaa-Overview-FAQ.docx` — the forwardable package: 60-second executive summary, current-status box, project overview, and the key skeptic FAQs.
+2. `partner-brief.md` — what Nidaa is, the problem, what makes it different, the ask.
+3. `do-no-harm.md` — plain-language safety & security summary (the risk person's gate).
+4. `governance-playbook.md` — verifier roles, verification rules, audit, escalation.
+5. `NIDAA-FAQ-OVERVIEW.md` — the full 80-question FAQ and complete overview (depth reference).
 
 ## Demo
 There is no recorded video asset. `demo-script.md` is the narrative walkthrough
