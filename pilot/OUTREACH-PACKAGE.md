@@ -16,6 +16,7 @@ product. All first-touch messages reflect this.
 4. `do-no-harm.md` — plain-language safety & security summary (the risk person's gate).
 5. `NIDAA-FAQ-OVERVIEW.md` — the full 80-question FAQ and complete overview (depth reference).
 6. `governance-playbook.md` / `partner-brief.md` — background only; useful if a conversation deepens, NOT sent up front.
+7. `LEARNING-PLAN.md` — the reframed milestones (Day 30/60/90) and the decision framework (proceed / narrow / pivot / stop). The tracker is the source of truth; this plan is subordinate to it.
 
 ## Discipline (non-negotiable)
 Outreach collects **evidence, not testimonials**. After every interview, complete
