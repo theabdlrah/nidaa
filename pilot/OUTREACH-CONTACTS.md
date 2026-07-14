@@ -81,7 +81,8 @@ the original verified-contacts list above.
 | 7 | Adam Elijilah | Individual (resident) | **Interviewed** | Conversation #1 — see assumption-log/AdamElijilah-2026-07-14.md |
 | 8 | Saed Al Farra | Individual | Sent | added via cold outreach |
 | 9 | Israa Z. Zumili | Individual | Pending | request sent, awaiting reply |
+| 10 | Mones | Individual — Humanitarian Ops (MSF) | Sent | LinkedIn · 2026-07-14 · Evidence: None yet |
 
-Sent: 8 · Pending: 1 · Interviewed: 1.
+Sent: 9 · Pending: 1 · Interviewed: 1.
 Highest-value awaited: Ali AbuAlatta, Sameer Project, HOTOSM, Shuruq As'ad, any
 referral from Adam.
