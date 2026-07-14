@@ -42,7 +42,7 @@ allowed — use Queued (not yet contacted) or Contacted (sent, awaiting reply).
 | 4 | Hand4Gaza | — grassroots (added later) | cold outreach | Contacted | OUTREACH-CONTACTS.md status log |
 | 5 | Ali R. AbuAlatta (Gaza SkillBridge) | individual | cold outreach | Contacted | status log |
 | 6 | Shuruq As'ad | individual | cold outreach | Contacted | status log |
-| 7 | Saed Al Farra | individual | cold outreach | Contacted | status log |
+| 7 | Saed Al Farra | individual | cold outreach | Closed | declined (explicit "لا") |
 | 8 | Mones (Humanitarian Ops, MSF) | individual | LinkedIn | Contacted | status log |
 | 9 | Israa Z. Zumili | individual | request sent | Queued | status log |
 | 10 | Adam Elijilah | individual (resident) | — | Interviewed | assumption-log/AdamElijilah-2026-07-14.md |

@@ -82,11 +82,11 @@ reply).
 | 5 | Ali R. AbuAlatta (Gaza SkillBridge) | Individual | Contacted | added via cold outreach |
 | 6 | Shuruq As'ad | Individual | Contacted | added via cold outreach |
 | 7 | Adam Elijilah | Individual (resident) | Interviewed | Conversation #1 — see assumption-log/AdamElijilah-2026-07-14.md |
-| 8 | Saed Al Farra | Individual | Contacted | added via cold outreach |
+| 8 | Saed Al Farra | Individual | Closed | declined (explicit "لا"); no tracker/assumption/interview change |
 | 9 | Israa Z. Zumili | Individual | Queued | request pending access / awaiting reply |
 | 10 | Mones | Individual — Humanitarian Ops (MSF) | Contacted | LinkedIn · 2026-07-14 · Evidence: None yet |
 
-Contacted: 8 · Queued: 1 · Interviewed: 1 · Replied: 0 · Closed: 0.
+Contacted: 7 · Queued: 1 · Interviewed: 1 · Replied: 0 · Closed: 1.
 Highest-value awaited: Ali AbuAlatta, Sameer Project, HOTOSM, Shuruq As'ad, any
 referral from Adam.
 
