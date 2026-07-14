@@ -16,25 +16,41 @@ Legend:
 - Evidence only begins after a reply + conversation (see workflow in
   OUTREACH-CONTACTS.md). Outreach status is NEVER evidence.
 
+## Required state machine (every contact has EXACTLY one state)
+
+To prevent ambiguity at 30–40 orgs, every contact must be in precisely one of
+these five states:
+
+- **Queued** — identified, not yet contacted.
+- **Contacted** — outreach sent, no reply yet.
+- **Replied** — they responded; not yet a full conversation/interview.
+- **Interviewed** — a real conversation happened (evidence may now be logged).
+- **Closed** — no longer in active pipeline (declined, unreachable, out of scope).
+
+No contact may sit in a vague status. "Pending" without a clear state is not
+allowed — use Queued (not yet contacted) or Contacted (sent, awaiting reply).
+
 ---
 
 ## Approached (initial wave — from Nidaa-Outreach-Targets.docx)
 
-| # | Target | Tier | Channel | Status | Detail source |
-|---|--------|------|---------|--------|---------------|
-| 1 | The Sameer Project | 1 — diaspora mutual-aid | email/IG (research framing) | Sent | OUTREACH-CONTACTS.md §1 (VERIFIED) |
-| 2 | HOTOSM (info@ + WNAHub@) | 2 — technical validator | email (data-freshness Q) | Sent | OUTREACH-CONTACTS.md §4 (VERIFIED) |
-| 3 | HEAL Palestine | 1 — diaspora mutual-aid | social CONFIRM → brief | Sent | OUTREACH-CONTACTS.md §2 (PARTIAL/CONFIRM) |
-| 4 | Hand4Gaza | — grassroots (added later) | cold outreach | Sent | OUTREACH-CONTACTS.md status log |
-| 5 | Ali R. AbuAlatta (Gaza SkillBridge) | individual | cold outreach | Sent | status log |
-| 6 | Shuruq As'ad | individual | cold outreach | Sent | status log |
-| 7 | Saed Al Farra | individual | cold outreach | Sent | status log |
-| 8 | Mones (Humanitarian Ops, MSF) | individual | LinkedIn | Sent 2026-07-14 | status log |
-| 9 | Israa Z. Zumili | individual | request sent | Pending (awaiting reply) | status log |
-| 10 | Adam Elijilah | individual (resident) | — | **Interviewed** (Conversation #1) | assumption-log/AdamElijilah-2026-07-14.md |
+| # | Target | Tier | Channel | State | Detail source |
+|---|--------|------|---------|-------|---------------|
+| 1 | The Sameer Project | 1 — diaspora mutual-aid | email/IG (research framing) | Contacted | OUTREACH-CONTACTS.md §1 (VERIFIED) |
+| 2 | HOTOSM (info@ + WNAHub@) | 2 — technical validator | email (data-freshness Q) | Contacted | OUTREACH-CONTACTS.md §4 (VERIFIED) |
+| 3 | HEAL Palestine | 1 — diaspora mutual-aid | social CONFIRM → brief | Contacted | OUTREACH-CONTACTS.md §2 (PARTIAL/CONFIRM) |
+| 4 | Hand4Gaza | — grassroots (added later) | cold outreach | Contacted | OUTREACH-CONTACTS.md status log |
+| 5 | Ali R. AbuAlatta (Gaza SkillBridge) | individual | cold outreach | Contacted | status log |
+| 6 | Shuruq As'ad | individual | cold outreach | Contacted | status log |
+| 7 | Saed Al Farra | individual | cold outreach | Contacted | status log |
+| 8 | Mones (Humanitarian Ops, MSF) | individual | LinkedIn | Contacted | status log |
+| 9 | Israa Z. Zumili | individual | request sent | Queued | status log |
+| 10 | Adam Elijilah | individual (resident) | — | Interviewed | assumption-log/AdamElijilah-2026-07-14.md |
 
 Note: Gaza Soup Kitchen (docx target #3) was **Hold** — it is a distributed
 concept, not one org (see OUTREACH-CONTACTS.md §3). Not sent as a generic blast.
+Hold items are parked outside the five-state machine until a specific target is
+identified.
 
 ---
 

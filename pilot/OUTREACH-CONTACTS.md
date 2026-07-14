@@ -68,22 +68,25 @@ Send 3–5 once HEAL's contact is confirmed. After ANY reply, complete
 Operational tracker only — not a strategy doc. Records what was sent and what is
 pending. Channel per contact = the user's manual outreach (LinkedIn / IG / email);
 several contacts below were added via cold outreach during the day and are not in
-the original verified-contacts list above.
+the original verified-contacts list above. State column uses the five-state
+machine defined in OUTREACH-LEDGER.md (Queued / Contacted / Replied / Interviewed /
+Closed). "Pending" maps to Queued (not yet contacted) or Contacted (sent, awaiting
+reply).
 
-| # | Contact | Type | Status | Note |
-|---|---------|------|--------|------|
-| 1 | The Sameer Project | Org (mutual-aid, Gaza) | Sent | verified email info@ |
-| 2 | HOTOSM | Org (mapping) | Sent | info@hotosm.org |
-| 3 | HOTOSM WNA Hub | Org (regional hub) | Sent | WNAHub@hotosm.org |
-| 4 | Hand4Gaza | Org / collective | Sent | added via cold outreach |
-| 5 | Ali R. AbuAlatta (Gaza SkillBridge) | Individual | Sent | added via cold outreach |
-| 6 | Shuruq As'ad | Individual | Sent | added via cold outreach |
-| 7 | Adam Elijilah | Individual (resident) | **Interviewed** | Conversation #1 — see assumption-log/AdamElijilah-2026-07-14.md |
-| 8 | Saed Al Farra | Individual | Sent | added via cold outreach |
-| 9 | Israa Z. Zumili | Individual | Pending | request sent, awaiting reply |
-| 10 | Mones | Individual — Humanitarian Ops (MSF) | Sent | LinkedIn · 2026-07-14 · Evidence: None yet |
+| # | Contact | Type | State | Note |
+|---|---------|------|-------|------|
+| 1 | The Sameer Project | Org (mutual-aid, Gaza) | Contacted | verified email info@ |
+| 2 | HOTOSM | Org (mapping) | Contacted | info@hotosm.org |
+| 3 | HOTOSM WNA Hub | Org (regional hub) | Contacted | WNAHub@hotosm.org |
+| 4 | Hand4Gaza | Org / collective | Contacted | added via cold outreach |
+| 5 | Ali R. AbuAlatta (Gaza SkillBridge) | Individual | Contacted | added via cold outreach |
+| 6 | Shuruq As'ad | Individual | Contacted | added via cold outreach |
+| 7 | Adam Elijilah | Individual (resident) | Interviewed | Conversation #1 — see assumption-log/AdamElijilah-2026-07-14.md |
+| 8 | Saed Al Farra | Individual | Contacted | added via cold outreach |
+| 9 | Israa Z. Zumili | Individual | Queued | request pending access / awaiting reply |
+| 10 | Mones | Individual — Humanitarian Ops (MSF) | Contacted | LinkedIn · 2026-07-14 · Evidence: None yet |
 
-Sent: 9 · Pending: 1 · Interviewed: 1.
+Contacted: 8 · Queued: 1 · Interviewed: 1 · Replied: 0 · Closed: 0.
 Highest-value awaited: Ali AbuAlatta, Sameer Project, HOTOSM, Shuruq As'ad, any
 referral from Adam.
 
