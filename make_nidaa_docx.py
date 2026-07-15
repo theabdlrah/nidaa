@@ -1351,6 +1351,46 @@ add_para(
     "grassroots case + contradiction hunt pending."
 )
 
+# ===== 14.22 — 2026-07-15 (evening): A6 Grassroots Hunt — corrected the population =====
+add_heading("14.22 — 2026-07-15: A6 Grassroots Hunt — the formal-org evidence answered the wrong population", 2)
+add_para(
+    "Direction correction (user-pushed). The first A6 pass proved formal orgs maintain structure — never in "
+    "doubt. The live question is whether the SMALL/INFORMAL coordinator Nidaa depends on does. No design/"
+    "architecture/solution work."
+)
+add_bullets([
+    "NEW FILE pilot/A6-GRASSROOTS-HUNT.md — hunts the Nidaa-target population only (mutual-aid networks, "
+    "neighborhood committees, camp committees, local volunteers, ERRs, White Helmets local, community "
+    "organizers). Applies the 6 behavioral questions (who keeps info / how / what written / what verbal / "
+    "when breaks / what abandoned first).",
+    "REAL GRASSROOTS SOURCES (HTTP 200): ACAPS 'Khartoum State Emergency Response Rooms' (16 Oct 2025) and "
+    "ACAPS/SSHAP 'Mutual aid lessons — ERRs Sudan' (case study Jun-Aug 2024). ERRs = ~360 volunteer networks "
+    "across 7 states; Khartoum ERRs across 54 neighborhoods; many from neighborhood resistance committees. "
+    "The 'room' = the ONLINE GROUP CHATS where they were conceived — coordination is chat/verbal-based, not a "
+    "structured database. The brief calls for 'ongoing documentation, analysis and learning' as a RECOMMENDED "
+    "GAP, not an observed practice.",
+    "GRASSROOTS ANSWER: no dedicated owner; info in chat; beneficiary/distribution data lives in chat not a "
+    "register; most coordination verbal; breaks down under surge/insecurity/CONNECTIVITY LOSS (chat-dependent "
+    "= inherits A3); documentation abandoned first under load.",
+    "SUCCESS CRITERION: NO successful grassroots structured-maintenance example yet found; collapse-under-"
+    "pressure partially evidenced (chat-dependence + documentation-as-gap). So for the Nidaa user, A6 is "
+    "UNPROVEN, LEANING WEAK — the opposite of the formal-org 'early support.' The formal evidence does NOT "
+    "transfer to this population.",
+    "IMPLICATION (behavioral, not willingness): structured maintenance by small coordinators is plausible "
+    "ONLY if burden is near-zero and the tool lives inside the channel they already use (the chat). They will "
+    "not run a separate structured system under load. Still to retrieve: a grassroots SUCCESS case (White "
+    "Helmets local recording rescues; a camp committee with a real register) + a hard-collapse case + a "
+    "coordinator interview answering the 6 questions.",
+    "UPDATED: A6-EVIDENCE-CAMPAIGN.md (added 'Grassroots correction' section; split status into formal=Early "
+    "Support vs grassroots=Unproven-Leaning-Weak) and EVIDENCE-CONVERGENCE-SCOREBOARD.md (A6 row now shows "
+    "both). A1 preserved at bounded conclusion. NO DESIGN WORK.",
+])
+add_para(
+    "A6 verdict after grassroots correction: formal orgs = Early Support; Nidaa-target grassroots coordinator "
+    "= Unproven, leaning Weak. The project's real next question is no longer 'can structured info be "
+    "maintained?' but 'can the kind of coordinator Nidaa depends on maintain it?'"
+)
+
 # ===== footer note =====
 doc.add_paragraph()
 fn = doc.add_paragraph()

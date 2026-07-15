@@ -37,7 +37,7 @@ beats any single report or interview. Update this board after every evidence eve
 | A3 — offline capability matters | 2 | 0 | 2 | Emerging Convergence |
 | A4 — verification matters | 3 | 0 | 0 | Weak (conceptual only; no first-hand pain) |
 | A5 — existing tools insufficient | 0 | 0 | 1 | Weak (single interview: Adam) |
-| A6 — coordinators maintain structured info | 6 | 0 | 0 | Early Support (6 real/established IM sources FOR; grassroots case + contradiction hunt pending) |
+| A6 — coordinators maintain structured info | 6 | 0 | 0 | Early Support (formal orgs) / Unproven-Weak (grassroots — the Nidaa user) |
 | A7 — communities adopt workflow | 0 | 0 | 0 | Untested |
 
 ## Reading the board (2026-07-15)

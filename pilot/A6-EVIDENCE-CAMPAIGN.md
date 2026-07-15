@@ -70,18 +70,42 @@ board is abandoned the moment bandwidth drops, A6 fails.
 - **This bounds A6 the way A1 was bounded:** A6 holds where a data owner + low burden exist; it
   fails where maintenance is unpaid, untrained, and abandoned under pressure.
 
+## Grassroots correction (2026-07-15) — the formal-org evidence answered the wrong population
+
+The six sources above are all **formal organizations with IM departments / automation / designated
+roles**. They prove "large humanitarian orgs maintain structured information" — which was never
+really in doubt. The Nidaa-target coordinator is a *different population*: camp volunteer,
+community focal point, local coordinator, mutual-aid organizer, neighborhood committee. See
+A6-GRASSROOTS-HUNT.md for the dedicated hunt. Summary of that hunt:
+
+- **Emergency Response Rooms (ERRs), Sudan** (ACAPS, real, HTTP 200): ~360 ERRs across 7 states;
+  Khartoum ERRs across 54 neighborhoods; volunteer networks, many from neighborhood resistance
+  committees. The "room" = **online group chats** where they were conceived — coordination is
+  **chat/verbal-based, not a structured database**. The mutual-aid brief calls for "ongoing
+  documentation, analysis and learning" as a *recommended gap*, not an observed practice.
+- **Grassroots answer to the 6 questions:** no dedicated owner; info kept in chat; beneficiary/
+  distribution info lives in chat not a register; most coordination verbal; breaks down under
+  surge/insecurity/connectivity loss (chat-dependent = inherits A3); documentation abandoned first
+  under load.
+- **Success-criterion status:** NO successful grassroots structured-maintenance example yet found;
+  collapse-under-pressure is partially evidenced (chat-dependence + documentation-as-gap). So for the
+  Nidaa user, A6 is **unproven, leaning Weak** — the opposite of the formal-org "early support."
+- **Implication:** structured maintenance by small coordinators is plausible ONLY if the burden is
+  near-zero and the tool lives inside the channel they already use (the chat). They will not run a
+  separate structured system under load. That is a behavioral constraint, not a willingness question.
+
 ## Current status
 
-- **A6: Early support (not yet convergence).** 6 real/established sources, all FOR, but mostly
-  *organizational* IM (Red Cross, MapAction, WFP, OCHA) — not small grassroots coordinators.
-- **Gap:** the grassroots/small-coordinator case (the actual Nidaa user) is NOT yet evidenced.
-  SARC/WFP are large orgs with departments. The harder test is whether a *small* coordinator
-  maintains structure without a department. That needs either a small-org IM case study or a
-  coordinator interview (the §5 contacts from A1 still apply).
-- **Contradiction hunt not yet run for A6.** Per discipline, after early support we should seek
-  the strongest case where structured maintenance collapsed under pressure. Candidate: a response
-  where the IM function was abandoned during peak load (e.g. a surge where the single IM person was
-  overwhelmed). To be pursued before declaring A6 converged.
+- **A6 — formal organizations: Early support** (real IM behavior, owner + automation). Transfer to
+  the Nidaa user is NOT assumed.
+- **A6 — grassroots / small coordinators (the actual Nidaa user): Unproven, leaning Weak.** No
+  successful structured-maintenance example yet; chat-based coordination + documentation-as-gap.
+  This is now the higher-stakes, open question.
+- **Contradiction hunt pending:** a grassroots SUCCESS case (e.g. White Helmets local teams recording
+  rescues; a camp committee with a real beneficiary register) and a hard-collapse case are still
+  required before A6 can be judged for the actual user. Coordinator interviews (AbuAlatta, Sameer,
+  White Helmets local, a camp committee) answering the 6 questions directly remain the highest-leverage
+  gap.
 
 ## What would weaken A6 (to hunt next)
 
