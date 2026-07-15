@@ -5,6 +5,16 @@ replies arrive. Source of truth for assumptions: ASSUMPTION-TRACKER.md.
 
 Date: 2026-07-15 (evening)
 
+## Posture (updated 2026-07-15): Evidence Pyramid, not interview-only
+
+The strategy shifted from "interviews are the only evidence" to a **hybrid Evidence
+Pyramid**: Tier 1 = public evidence (reports, datasets, evals) ~60% effort; Tier 2 =
+field interviews ~40%, run in parallel, whose job is **triangulation** ("do the public
+findings match your reality?"), not open-ended teaching. Tier 3 (solution/product
+evidence) is explicitly deferred until A1, A4, A6 survive both tiers. See
+PUBLIC-EVIDENCE-REVIEW.md for the Tier-1 matrix (9 sources retrieved + URL-verified;
+~21 more targeted). Convergence = strongest signal.
+
 ---
 
 ## Tested Assumptions

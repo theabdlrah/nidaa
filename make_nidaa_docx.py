@@ -1191,6 +1191,35 @@ add_para(
     "entry via the intake template, and pursue the coordinator-level conversations that can move A1/A6/A7."
 )
 
+# ===== 14.17 — 2026-07-15 (evening): strategic pivot to Evidence Pyramid (Tier 1 public evidence) =====
+add_heading("14.17 — 2026-07-15: Strategic pivot — Evidence Pyramid (public evidence + interviews)", 2)
+add_para(
+    "Strategy correction, no feature work. The posture moved from 'interviews are the only evidence' to a "
+    "hybrid Evidence Pyramid: Tier 1 public evidence (~60% effort), Tier 2 field interviews (~40%, in parallel, "
+    "job = triangulation not teaching), Tier 3 solution evidence deferred until A1/A4/A6 survive both tiers."
+)
+add_bullets([
+    "NEW FILE pilot/PUBLIC-EVIDENCE-REVIEW.md — the Tier-1 deliverable. Assumption-by-assumption evidence "
+    "matrix (A1 coordination, A4 verification, A3 comms disruptions) built ONLY from REAL, fetchable sources. "
+    "9 HDX dataset URLs retrieved and URL-verified live (HTTP 200) this session; ~21 more named targets queued "
+    "(OCHA evals, Internews info-integrity, Access Now #KeepItOn, ReliefWeb reports). No citation invented.",
+    "HONESTY BAR HELD: every matrix row carries [RETRIEVED] (fetched + URL checked) or [TO RETRIEVE] (named "
+    "real source not yet pulled). The doc explicitly states a row with no source is a GAP, not evidence. This "
+    "matches the project's no-fabricated-evidence rule.",
+    "CONVERGENCE RULE documented: one report weak, one interview weak, three independent sources agreeing = "
+    "strong. Interview questions are now DERIVED from public findings ('does this match your reality?'), not "
+    "open-ended. This prevents both failure modes: outreach before learning what is known, and reading without "
+    "talking to real people.",
+    "CURRENT-EVIDENCE-STATE.md updated with the new posture block. A3 remains best-supported (public + Adam + "
+    "Abdelrahman converge); A1 weakest (sources show coordination EXISTS as infrastructure, not that it is a "
+    "PAIN — needs eval text + field confirmation).",
+    "Tier 1 seed established: 9 verified HDX URLs. Target 20-30 sources before Tier 1 declared sufficient. Tier "
+    "3 explicitly gated behind A1/A4/A6 survival. No architecture/mesh/UI/solution work performed.",
+])
+add_para(
+    "Next week focus per user direction: EVIDENCE CONVERGENCE, not product design."
+)
+
 # ===== footer note =====
 doc.add_paragraph()
 fn = doc.add_paragraph()

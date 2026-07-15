@@ -9,3 +9,6 @@ npm-debug.log*
 
 # TS incremental build info
 tsconfig.tsbuildinfo
+
+# research scratch dumps
+.research/
