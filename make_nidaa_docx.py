@@ -1317,6 +1317,40 @@ add_para(
     "attempt to disprove itself."
 )
 
+# ===== 14.21 — 2026-07-15 (evening): A1 paused; A6 Resolution Campaign begins =====
+add_heading("14.21 — 2026-07-15: A1 paused at bounded conclusion; A6 Resolution Campaign begins", 2)
+add_para(
+    "Strategic re-prioritization. A1 reached diminishing returns and is preserved at its bounded conclusion. "
+    "The new highest existential risk is A6: even if A1 survives, Nidaa dies if coordinators will not maintain "
+    "structured information. No Nidaa/features/UI/architecture discussion."
+)
+add_bullets([
+    "NEW FILE pilot/A6-EVIDENCE-CAMPAIGN.md — the question: 'Will coordinators actually maintain structured "
+    "information?' Includes the 5 behavioral questions (who enters / how often / under what conditions / what is "
+    "worth the effort / what is abandoned under pressure) and the 'what would have to be true to willingly "
+    "maintain structured info during a crisis' statement.",
+    "A6 EVIDENCE MATRIX built from REAL sources (URLs HTTP 200): SARC IM Department (dedicated owner across 14 "
+    "branches, ~40 trained analysts, MEAL unit — FOR, requires capacity building); MapAction automated pipeline "
+    "(FOR with caveat: automation exists BECAUSE manual collection is the burden); Ushahidi->HDX (FOR mixed: "
+    "needs human cleaning/triage); WFP edge capture (FOR: lightweight laminated-map marking works); HOTOSM "
+    "validation + ReliefWeb editorial (FOR: designated human roles). All six point the same way.",
+    "A6 READING: structured info maintenance is a REAL, observed behavior — but survives only with a designated "
+    "owner + low burden (often automation). The live risk is burden + ownership, not willingness. A6 is bounded "
+    "exactly like A1: holds where owner+low burden exist; fails where maintenance is nobody's job under surge.",
+    "GAPS HONESTLY NOTED: the grassroots/small-coordinator case (the actual Nidaa user) is NOT yet evidenced — "
+    "SARC/WFP are large orgs with departments. And the A6 contradiction hunt (maintenance collapse under peak "
+    "load) has NOT been run. Both required before convergence.",
+    "UPDATED: EVIDENCE-CONVERGENCE-SCOREBOARD.md (A6 row relabeled to 'coordinators maintain structured info', "
+    "status Early Support; reading notes name A6 the top campaign, A1 paused) and CURRENT-EVIDENCE-STATE.md "
+    "(added Current Risk Ranking per user's table; refreshed scoreboard). A1 conclusion preserved, not discarded.",
+    "NO DESIGN WORK. Gate unchanged for A1; A6 now the active gate. Next: run the A6 contradiction hunt and seek "
+    "one small-coordinator / grassroots IM case or interview (the A1 sec.5 contacts still apply).",
+])
+add_para(
+    "A6 verdict (early): Strengthened (early) — real IM behavior observed, but conditioned on owner + low burden; "
+    "grassroots case + contradiction hunt pending."
+)
+
 # ===== footer note =====
 doc.add_paragraph()
 fn = doc.add_paragraph()

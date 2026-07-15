@@ -79,22 +79,37 @@ Ranked by expected evidence value (which assumptions they can move / falsify):
 
 ---
 
+## Current Risk Ranking (2026-07-15)
+
+| Risk | Status |
+|------|--------|
+| A6 — Coordinator bandwidth (will they maintain structured info?) | 🔴 Highest (active campaign) |
+| A1 — Coordination importance | 🟡 Paused at bounded conclusion |
+| A4 — Verification / trust | 🟠 Significant |
+| A7 — Coordinator-led model | 🟠 Significant |
+| A3 — Offline matters | 🟢 Emerging convergence |
+| A2 — Info/matching bottleneck | 🟢 Early support |
+| A5 — Existing tools insufficient | 🟢 Early support |
+
 ## Evidence Convergence Scoreboard (live)
 
 | Assumption | Public | First-Hand | Interview | Convergence Status |
 |------------|:------:|:----------:|:---------:|--------------------|
-| A1 — coordination is a priority problem | 4 | 0 | 0 | Weak (structural only; no pain evidence) |
+| A1 — coordination is a priority problem | 4 | 1 | 0 | Emerging (bounded; paused) |
 | A2 — info/matching is a bottleneck | 0 | 0 | 1 | Weak (single interview: Adam) |
 | A3 — offline capability matters | 2 | 0 | 2 | Emerging Convergence |
 | A4 — verification matters | 3 | 0 | 0 | Weak (conceptual only; no first-hand pain) |
 | A5 — existing tools insufficient | 0 | 0 | 1 | Weak (single interview: Adam) |
-| A6 — orgs trust verifiers | 0 | 0 | 0 | Untested |
+| A6 — coordinators maintain structured info | 6 | 0 | 0 | Early Support (active campaign) |
 | A7 — communities adopt workflow | 0 | 0 | 0 | Untested |
 
-A3 is the only Emerging Convergence. **A1 is the largest unresolved risk** (4 structural
-sources show coordination exists, but 0 show it is a pain). Full board + definitions:
-EVIDENCE-CONVERGENCE-SCOREBOARD.md. A1 campaign plan: A1-EVIDENCE-CAMPAIGN.md.
-Next milestone: does A1 survive convergence? Not a prototype.
+A3 is the only Emerging Convergence. **A6 is now the highest-priority campaign** (it is
+existentially upstream of the coordinator-led model). A1 is PAUSED at its bounded conclusion:
+coordination is binding where capacity+access exist but mobilization/sequencing/verification/
+info-flow fail; secondary where physical/political/security dominate. Full board + definitions:
+EVIDENCE-CONVERGENCE-SCOREBOARD.md. Campaigns: A1-EVIDENCE-CAMPAIGN.md, A6-EVIDENCE-CAMPAIGN.md.
+Next milestone: determine whether coordinators realistically maintain structured information
+(A6) — not a prototype.
 
 Discipline reminder: outreach status is NOT evidence. Likes / read-receipts /
 follows do not count. Only concrete signal logged via EVIDENCE-INTAKE-TEMPLATE.md

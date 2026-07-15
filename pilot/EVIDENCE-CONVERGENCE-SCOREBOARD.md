@@ -37,21 +37,21 @@ beats any single report or interview. Update this board after every evidence eve
 | A3 — offline capability matters | 2 | 0 | 2 | Emerging Convergence |
 | A4 — verification matters | 3 | 0 | 0 | Weak (conceptual only; no first-hand pain) |
 | A5 — existing tools insufficient | 0 | 0 | 1 | Weak (single interview: Adam) |
-| A6 — orgs trust verifiers | 0 | 0 | 0 | Untested |
+| A6 — coordinators maintain structured info | 6 | 0 | 0 | Early Support (6 real/established IM sources FOR; grassroots case + contradiction hunt pending) |
 | A7 — communities adopt workflow | 0 | 0 | 0 | Untested |
 
 ## Reading the board (2026-07-15)
 
-- **A3 is the only assumption with Emerging Convergence** — public infrastructure
-  evidence (World Bank WB&Gaza; ReliefWeb coordination reports) + Adam interview
-  (Strengthened) + Abdelrahman reply (internet/electricity scarcity) all point the
-  same way. This is the project's strongest current signal.
-- **A1 is the largest unresolved risk** — 4 structural public sources show coordination
-  *exists*, but 0 first-hand accounts and 0 interviews show it is a *pain*. Weak.
+- **A6 is now the highest-priority campaign** (replaces A1 as the active gate). 6 real/established
+  IM sources (SARC, MapAction, Ushahidi→HDX, WFP, HOTOSM, ReliefWeb) all show coordinators/orgs
+  DO maintain structured information — but only with a designated owner + low burden. The live risk
+  is burden + ownership, not willingness. Grassroots/small-coordinator case + contradiction hunt
+  (maintenance collapse under surge) still pending. See A6-EVIDENCE-CAMPAIGN.md.
+- **A1 is PAUSED at its bounded conclusion** (see contradiction hunt note above) — not abandoned.
 - **A2 / A5** rest on a single interview each (Adam) — Strengthened but not convergent.
 - **A4** has 3 conceptual public sources (INFORM indexes, Ethiopia Access) but no
   first-hand verification-pain evidence — Weak, conceptual only.
-- **A6 / A7** entirely untested.
+- **A7** entirely untested.
 
 ## The milestone
 
