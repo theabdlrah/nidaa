@@ -1140,6 +1140,27 @@ add_para(
     "now canonical, the project is fully in evidence-collection mode and the repository is frozen for features."
 )
 
+add_heading("14.15 — 2026-07-15 (midday): 3 targeted lead profiles added to outreach doc + ledger", 2)
+add_para(
+    "Added a 'Targeted Lead Profiles' section to Nidaa-Outreach-Targets.docx and a matching 'Targeted Lead Profiles' "
+    "table to OUTREACH-LEDGER.md (L1–L3). Each profile maps to specific assumptions and failure modes: L1 Field "
+    "Ops Coordinator (MSF/IRC, Gaza) tests A1/A3/A5 + F1/F2; L2 Cross-Border Ops Manager (DRC/Goal, Gaziantep) tests "
+    "A4/A6 + F3/F5; L3 IMO Cash&Voucher (CCD/WFP CWG) tests A1/A6 + F1/F3."
+)
+add_bullets([
+    "Channels VERIFIED LIVE this session: IRC donorservices@rescue.org (200); ReliefWeb/humanitarianresponse.info "
+    "submit@reliefweb.int (200, legitimate cluster/WG route to CWG/ICCG). MSF contact 403 (bot-blocked); DRC 200 "
+    "no email scraped; GOAL 404 (structure changed); Cash Learning 000 (excluded pending human verification).",
+    "HONESTY BAR: named individuals (former MSF/IRC field coordinators etc.) are NOT fabricated — exact LinkedIn "
+    "search strings provided and flagged MANUAL. No guessed personal emails.",
+    "Status for all three: Not Sent. Org channels verified where reachable; named individuals + unreachable orgs "
+    "require manual confirmation before outreach.",
+])
+add_para(
+    "These are the highest-value org-level leads yet because they hit the coordinator-led hypothesis directly and "
+    "can falsify F1/F2/F3/F5 with behavioral evidence. Still waiting on the first reply to run the evidence pipeline."
+)
+
 # ===== footer note =====
 doc.add_paragraph()
 fn = doc.add_paragraph()

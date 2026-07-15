@@ -101,5 +101,24 @@ as bandwidth allows, after current pending replies land.)
 
 ---
 
-Last updated: 2026-07-14 (evening). This ledger is maintained; the candidate
+## Targeted Lead Profiles (added 2026-07-15)
+
+High-value org-level profiles, each mapped to specific assumptions + failure modes.
+Org channels verified live this session; NAMED-INDIVIDUAL LinkedIn outreach is
+MANUAL (exact search strings in Nidaa-Outreach-Targets.docx). Per honesty bar, no
+personal emails are fabricated; manual search only.
+
+| # | Profile | Org(s) | Region | Tests (A/F) | Channel status |
+|---|---------|--------|--------|-------------|----------------|
+| L1 | Field Operations Coordinator | MSF / IRC | Gaza (Rafah / Central) | A1, A3, A5 / F1, F2 | IRC verified (donorservices@rescue.org, 200); MSF contact 403 (bot-block) → manual LinkedIn; named individuals = manual |
+| L2 | Cross-Border Ops & Hub Manager | DRC / Goal Global | Syria / Gaziantep hub | A4, A6 / F3, F5 | DRC drc.ngo/contact 200 (no email scraped → manual confirm); GOAL 404 (structure changed → manual); ReliefWeb portal verified (submit@reliefweb.int) |
+| L3 | IMO — Cash & Voucher Assistance | CCD / WFP Cash WG | Syria / Gaza hub | A1, A6 / F1, F3 | Cash Learning (cashlearning.org) 000 this session → EXCLUDED pending human verification; cluster/WG portal verified (submit@reliefweb.int = CWG/ICCG route) |
+
+MANUAL LinkedIn search strings + per-lead detail: see Nidaa-Outreach-Targets.docx →
+"Targeted Lead Profiles" section. Status for all three: Not Sent (org channel
+verified where reachable; named individuals + unreachable orgs = manual).
+
+---
+
+Last updated: 2026-07-15 (midday). This ledger is maintained; the candidate
 list is NOT expanded proactively.
