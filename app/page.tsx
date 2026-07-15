@@ -145,6 +145,9 @@ export default function Page() {
       clientId,
       id: clientId,
       verified: false, // local posts start unverified
+      // Safe default: user posts are neighborhood-precise unless the author
+      // opts in to exact coordinates. Reduces targeting risk in active conflict.
+      precision: "neighborhood",
       createdAt: new Date().toISOString(),
       syncedAt: null, // pending
     } as QueuedEntry;
@@ -163,7 +166,7 @@ export default function Page() {
         <p>
           {t(
             "لوحة احتياجات وخدمات المجتمع — تعمل بدون إنترنت. البيانات مصدرها HDX / HOT OSM (موثّقة) لغزة والضفة الغربية وسوريا.",
-            "Community needs & services board — works without internet. Facility data is from HDX / HOT OSM (verified) for Gaza, the West Bank, and Syria."
+            "Community needs & services board — works without internet. Facility data is sourced from HDX / HOT OSM (reference data, not human-verified) for Gaza, the West Bank, and Syria."
           )}
         </p>
       </header>
@@ -190,7 +193,7 @@ export default function Page() {
       <div className="notice">
         {t(
           "يعمل التطبيق حتى بدون إنترنت: أي منشور جديد يُحفظ على جهازك ويرسل تلقائياً عند توفر الاتصال. بيانات المرافق مصدرها HDX / HOT OSM (موثّقة). الخريطة تخزّن البلاطات محلياً للعمل دون اتصال.",
-          "Works offline: new posts save on your device and sync when a connection appears. Facility data is from HDX / HOT OSM (verified). Map tiles are cached locally for offline use."
+          "Works offline: new posts save on your device and sync when a connection appears. Facility data is sourced from HDX / HOT OSM (reference data — shown with source + capture date, not human-verified). Map tiles are cached locally for offline use."
         )}
       </div>
 
@@ -244,9 +247,16 @@ export default function Page() {
                 <div>
                   <span className={"tag " + e.type}>{t(e.type === "need" ? "احتياج" : "عرض", e.type === "need" ? "NEED" : "OFFER")}</span>{" "}
                   <span className="tag cat">{e.category}</span>{" "}
-                  <span className={"tag " + (e.verified ? "verified" : "unverified")}>
-                    {e.verified ? t("موثّق", "Verified") : t("غير موثّق", "Unverified")}
-                  </span>
+                  {e.source ? (
+                    <span className="tag provenance">
+                      {t("مصدر: " + e.source.replace(/^hdx:/, "HDX/"), "Source: " + e.source.replace(/^hdx:/, "HDX/"))}
+                      {e.sourceDate ? " · " + e.sourceDate : ""}
+                    </span>
+                  ) : (
+                    <span className={"tag " + (e.verified ? "verified" : "unverified")}>
+                      {e.verified ? t("موثّق", "Verified") : t("غير موثّق", "Unverified")}
+                    </span>
+                  )}
                 </div>
                 {!e.syncedAt && <span className="tag unverified">{t("بانتظار المزامنة", "Pending")}</span>}
               </div>
@@ -265,7 +275,7 @@ export default function Page() {
       <footer className="foot">
         {t(
           "نداء نموذج أولي — بيانات المرافق مصدرها HDX / HOT OSM (موثّقة). يجب تأمين التحقق بصلاحيات في الإصدار الإنتاجي.",
-          "Nidaa is a prototype — facility data is from HDX / HOT OSM (verified). Verification must be auth-gated in production."
+          "Nidaa is a prototype — facility data is sourced from HDX / HOT OSM (reference data, shown with source + capture date, not human-verified). Verification must be auth-gated in production."
         )}
       </footer>
     </div>

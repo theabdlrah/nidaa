@@ -25,10 +25,17 @@ responses.
 - What specifically breaks — and when (always, or only under load / disconnection)?
 - What have you tried and abandoned, and why?
 
+## 3b. The publishing step (the assumption most likely to kill adoption)
+- Who is actually responsible for POSTING coordination / aid information today — a specific role, a rotating volunteer, nobody in particular?
+- When new information appears (a distribution point opens, a road closes), how does it get from the person who knows to the people who need it?
+- Is there ever a gap where valid information exists but no one posts it? What fills that gap?
+- Would a NEW tool actually get used IF someone had to remember to post into it first — or does the info need to arrive where people already are (WhatsApp, etc.)?
+
 ## 4. Connectivity
 - When the internet drops, what breaks first, and for how long?
 - Can your team still post and read needs/offers with NO internet for days? How do you manage that now?
 - Is "works offline" a deciding factor, or a nice-to-have you'd trade for something else?
+- When connectivity returns after an outage, how do you find out what you missed — and what actually happened to coordination while the network was down?
 
 ## 5. Trust & verification
 - When someone posts "we need X at location Y," how do you decide whether to believe it today?

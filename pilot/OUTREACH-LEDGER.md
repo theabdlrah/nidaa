@@ -70,6 +70,9 @@ is there. Do NOT proactively expand beyond that list unless the pipeline dries u
 | 6 | Al-Haq | Palestine/West Bank | VERIFIED (contact + social) | Field documentation / trust angle |
 | 7 | SAMS (Syrian American Medical Society) | Syria | VERIFIED (social) | Field medical coordination |
 | 8 | Tech for Palestine | diaspora | VERIFIED (social) | Technical validator + referral to ground orgs |
+| 9 | Syria Civil Defense (White Helmets) | Syria | VERIFIED (social) | Next-wave Message 5 draft ready |
+| 10 | Sudan Relief Fund | Sudan | VERIFIED (info@) | Next-wave Message 6 draft ready |
+| 11 | Emergency Response Rooms (Sudan) | Sudan | MANUAL (confirm channel) | Next-wave Message 7 draft ready (do NOT send until contact confirmed) |
 
 (The remaining ~26 candidates from the Grassroots section remain parked; promote
 as bandwidth allows, after current pending replies land.)

@@ -1036,6 +1036,39 @@ add_para(
     "stays quiet and collects evidence rather than building."
 )
 
+add_heading("14.11 — 2026-07-15: Credibility fixes + validation-readiness (pre-pilot, not features)", 2)
+add_para(
+    "The review of prior sessions concluded the next bottleneck is EXTERNAL VALIDATION, not features. Two credibility "
+    "risks were closed before any org sees the board, and the interview instruments were sharpened to test the most "
+    "dangerous adoption assumption."
+)
+add_bullets([
+    "CREDIBILITY FIX (import-hdx.mjs + types.ts): imported HDX/HOT OSM facility data no longer carries "
+    "verified:true. It is provenance-bearing reference data — tagged source + sourceDate, shown as a purple "
+    "'Source: HDX/… · <date>' badge (list + map popup), never a '✓ verified' tick. Header/notice/footer copy "
+    "changed from '(verified)' to '(reference data, not human-verified)'. This removes the red-team-flagged "
+    "false-verification hazard.",
+    "SAFE DEFAULT PRECISION (page.tsx): user posts now default to precision:'neighborhood' (city/area shown, exact "
+    "coordinates withheld) to reduce targeting risk in active conflict; imported dataset features stay 'exact'. The "
+    "red-team's primary ethical risk (geolocated needs board as targeting list) is now mitigated by default.",
+    "INTERVIEW GUIDE SHARPENED (STAKEHOLDER-QUESTIONNAIRE.md + first-touch-messages.md): added the PUBLISHING-STEP "
+    "block — who actually posts coordination info today, how it flows from knower to needer, and whether a new tool "
+    "gets used only if someone remembers to post into it first. This directly tests A7/A3 and the thesis that 'Nidaa "
+    "only helps during an outage IF info was posted into it first.'",
+    "NEXT-WAVE OUTREACH DRAFTS (first-touch-messages.md): Messages 5–7 for White Helmets (Syria), Sudan Relief Fund, "
+    "and Emergency Response Rooms (Sudan) — extending coverage to A1/A4/A6 and a SECOND conflict region to test "
+    "generalizability, not just Gaza. ERRs is [MANUAL] (confirm channel before send).",
+])
+add_para(
+    "Scope discipline maintained: no mesh/CRDT/AI/federation work; no new feature logic; all changes are honesty + "
+    "safety + evidence-collection. Build green (npm run build exit 0); importer confirmed to leave verified=false."
+)
+add_para(
+    "Open decision recorded: the implementation gate ('no code until Conversation #1 updates the tracker') is now "
+    "satisfied, and these credibility fixes are UNBLOCKED. The binding constraint remains replies (7 sent, 0 replied) "
+    "— the next artifact is Conversation #2, not more code."
+)
+
 # ===== footer note =====
 doc.add_paragraph()
 fn = doc.add_paragraph()

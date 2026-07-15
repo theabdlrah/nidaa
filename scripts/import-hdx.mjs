@@ -175,6 +175,11 @@ async function importDataset(ds) {
     const clientId = `${ds.key}:${osmId}`;
     const city = tags["addr:city"] || tags.province || tags.region || "";
     const type = tags.amenity || tags.healthcare || tags.building || "facility";
+    // Credibility rule: imported facility data is NOT human-verified. It is
+    // provenance-bearing reference data. We tag it via source + sourceDate and
+    // leave verified=false so the board never implies a human check that did
+    // not happen. The map shows a provenance badge, not a "✓ verified" tick.
+    const today = new Date().toISOString().slice(0, 10);
     entries.push({
       id: clientId, // server will reassign on first sync; deterministic here
       clientId,
@@ -182,14 +187,16 @@ async function importDataset(ds) {
       category: cat,
       titleAr,
       titleEn,
-      bodyAr: `منشأة موثّقة من HOT OSM / HDX — ${type}`,
-      bodyEn: `Facility from HOT OSM / HDX — ${type}`,
+      bodyAr: `منشأة من HOT OSM / HDX — ${type} (تاريخ المصدر: ${today})`,
+      bodyEn: `Facility from HOT OSM / HDX — ${type} (source date: ${today})`,
       city,
       lat,
       lng,
       authorRole: "ngo",
-      verified: true,
+      verified: false,
       source: `hdx:${ds.key}`,
+      sourceDate: today,
+      precision: "exact",
       region: resolveRegion(ds.region, lat, lng),
       createdAt: new Date().toISOString(),
       syncedAt: null,

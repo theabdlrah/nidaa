@@ -156,6 +156,14 @@ PRINCIPLES
 10. What works about them that you'd never give up?
 11. What specifically breaks — and when (always, or only under load / disconnection)?
 12. You've presumably tried other things. What did you try and abandon, and why?
+13. (THE PUBLISHING STEP — the assumption most likely to kill adoption)
+    Who is actually responsible for POSTING coordination/aid info today — a
+    named role, a rotating volunteer, or nobody in particular? When a
+    distribution point opens or a road closes, how does that fact get from the
+    person who knows to the people who need it? Is there ever a gap where the
+    info exists but no one posts it? Would a new tool get used IF someone had to
+    remember to post into it first — or does the info have to arrive where
+    people already are (WhatsApp, etc.)?
 
 ────────── TRUST & VERIFICATION (5 min) ──────────
 13. When someone posts "we need X at location Y," how do you decide whether to
@@ -203,6 +211,80 @@ THE 7 ASSUMPTIONS WE ARE TESTING
    real-world incident? (Q20)
 6. Who would organizations trust as verifiers? (Q14–Q15)
 7. What would make a new coordination tool worth adopting? (Q21)
+8. THE PUBLISHING STEP — does someone already own "post the coordination info"?
+   If nobody does, the tool only helps during an outage IF info was posted into
+   it first. This is the adoption assumption most likely to fail. (Q13)
 
 If conversations 1–5 falsify assumptions 1, 2, or 5, that is a win — it tells
 us to stop or redirect before building further.
+
+════════════════════════════════════
+NEXT-WAVE MESSAGES (drafts, not yet sent)
+════════════════════════════════════
+Purpose: cover the untested assumptions (A1 coordination-priority, A4 verification,
+A6 verifier-trust) and a SECOND conflict region (Sudan) to test generalizability —
+not just Gaza. Channels marked [VERIFIED] in OUTREACH-CONTACTS.md; ERRs is [MANUAL]
+(confirm contact before sending). Same no-pitch / falsify-my-assumptions framing.
+
+────────────────────────────────────────
+MESSAGE 5 — Syria Civil Defense (White Helmets)  [VERIFIED: social]
+────────────────────────────────────────
+Subject: Coordination + verification under fire — 20 min of your frontline perspective?
+
+Hi,
+
+I'm Abdul Rahman, a student researching how frontline civil-defense and aid groups
+coordinate when connectivity is unreliable or cut. Your work is the closest real
+example I know of grassroots coordination + verification under fire, so I'd rather
+learn from you than keep guessing.
+
+I'm NOT pitching a tool. I'm trying to falsify my own assumptions — specifically:
+is "coordination" actually a priority problem versus supply/access/security, who
+do communities actually trust to confirm something is real, and what breaks first
+when the network drops. If what I've built is solving the wrong problem, I'd rather
+hear that now.
+
+Could I get 20 minutes of your perspective? No commitment. Just a conversation.
+
+────────────────────────────────────────
+MESSAGE 6 — Sudan Relief Fund  [VERIFIED: info@sudanreliefund.com]
+────────────────────────────────────────
+Subject: Researching aid coordination in connectivity-stressed settings — your take?
+
+Hi,
+
+I'm Abdul Rahman, researching how community-led relief groups coordinate needs and
+offers when the internet is unreliable — and I keep finding my assumptions about
+what's hard don't match reality on the ground. I'd rather learn from groups doing
+the work than keep guessing.
+
+I'm specifically trying to find out: is coordination a priority problem for you or
+dwarfed by other constraints, who posts coordination info today and what happens
+to that flow during an outage, and how do you decide what to trust. I'm wide open to
+being told the thing I've been building is solving the wrong problem.
+
+No pitch, no ask beyond a 20-minute conversation. Worth a short call?
+
+────────────────────────────────────────
+MESSAGE 7 — Emergency Response Rooms (Sudan)  [MANUAL: confirm channel]
+────────────────────────────────────────
+NOTE: emergencyresponseports.org fetch returned no public email. Confirm a real
+contact (site visit / DM the verified socials / referral) BEFORE sending — do not
+guess an address. Same framing as Message 6, tailored to neighborhood ERRs:
+
+Subject: How do neighborhood response rooms coordinate when the network is down?
+
+Hi,
+
+I'm Abdul Rahman, researching how community-led response rooms coordinate local
+aid and information when connectivity is unreliable. The ERR model (neighborhood
+committees coordinating directly) is one of the clearest examples I've seen of
+grassroots coordination + trust, so I'd value your perspective.
+
+I'm not proposing anything — I'm trying to falsify my own assumptions about what
+breaks in coordination, who communities trust to verify information, and what
+happens to the flow of coordination info during an outage. If I've got the problem
+wrong, I'd rather know now.
+
+Could I get 20 minutes? No commitment beyond a conversation.
+

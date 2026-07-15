@@ -57,10 +57,17 @@ export default function BoardMap({
           weight: 1,
         });
         const title = lang === "ar" ? e.titleAr : e.titleEn;
+        const badge = e.source
+          ? `source: ${e.source.replace(/^hdx:/, "HDX/")}${
+              e.sourceDate ? " · " + e.sourceDate : ""
+            }`
+          : e.verified
+          ? "✓ verified"
+          : "unverified";
         marker.bindPopup(
-          `<strong>${title}</strong><br/>${e.category} · ${
-            e.verified ? "✓ verified" : "unverified"
-          }${e.city ? "<br/>" + e.city : ""}`
+          `<strong>${title}</strong><br/>${e.category} · ${badge}${
+            e.city ? "<br/>" + e.city : ""
+          }`
         );
         marker.addTo(layerRef.current);
         bounds.push([e.lat!, e.lng!]);
