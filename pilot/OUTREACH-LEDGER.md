@@ -73,6 +73,20 @@ is there. Do NOT proactively expand beyond that list unless the pipeline dries u
 | 9 | Syria Civil Defense (White Helmets) | Syria | VERIFIED (social) | Next-wave Message 5 draft ready |
 | 10 | Sudan Relief Fund | Sudan | VERIFIED (info@) | Next-wave Message 6 draft ready |
 | 11 | Emergency Response Rooms (Sudan) | Sudan | MANUAL (confirm channel) | Next-wave Message 7 draft ready (do NOT send until contact confirmed) |
+| 12 | REACH Initiative | Intl (MEAL/assessment) | VERIFIED (webmaster@impact-initiatives.org) | MEAL/coordination angle (A2/A4) |
+| 13 | iMMAP | Intl (IM/MEAL) | VERIFIED (contact@immap.org) | Info-management + verification (A4/A2) |
+| 14 | Ground Truth Solutions | Intl (accountability) | VERIFIED (info@groundtruthsolutions.org) | Community feedback / "who is heard" (A7/adopt) |
+| 15 | Bonyan | Syria local NGO | VERIFIED (site 200, no email) | MANUAL — confirm contact; local aid coord |
+| 16 | Tech for Palestine | diaspora tech | VERIFIED (social) | Technical validator + referral to ground orgs |
+| 17 | Medical Aid for Palestinians (MAP) | UK/Palestine medical | VERIFIED (social) | Trust/verification (A4/A6); confirm email |
+| 18 | Islamic Relief USA | INGO (referral) | VERIFIED (social) | Referral only; large org |
+| 19 | We Are Not Numbers | Gaza youth/voice | VERIFIED (social) | Community/info network; beneficiary-adjacent |
+| 20 | ACAPS | Intl (analysis) | VERIFIED (social) | Coordination analysis; secondary |
+
+Note: PCRF, Al-Haq, Syria Direct, SAMS, Taawon, USCPR, Hurras, Molham, Sudan Emergency,
+Darfur Women, SAPAM, Voices of Return were considered; some are already in the earlier
+candidate list, others were UNREACHABLE from this session (HTTP 000/404 with no channel)
+and are NOT added as new contacts until a channel is confirmed by a human.
 
 (The remaining ~26 candidates from the Grassroots section remain parked; promote
 as bandwidth allows, after current pending replies land.)

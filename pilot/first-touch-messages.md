@@ -288,3 +288,70 @@ wrong, I'd rather know now.
 
 Could I get 20 minutes? No commitment beyond a conversation.
 
+════════════════════════════════════
+NEXT-WAVE MESSAGES — BATCH 2 (verified this session)
+════════════════════════════════════
+Channels verified live 2026-07-15 (see OUTREACH-LEDGER.md #12–#20). Same no-pitch /
+falsify-my-assumptions framing. These cover the MEAL/PMER/info-management voices that
+test A2/A4/A7 most directly.
+
+────────────────────────────────────────
+MESSAGE 8 — REACH Initiative  [VERIFIED: webmaster@impact-initiatives.org]
+────────────────────────────────────────
+Subject: How do you measure whether affected communities get the right info?
+
+Hi,
+
+I'm Abdul Rahman, researching coordination in connectivity-stressed crises. Your MEAL
+work is exactly the lens I'm missing: you see whether information actually reaches the
+people who need it. I'm trying to falsify my assumption that "information/matching is a
+real bottleneck" versus supply/access dominating.
+
+I'm not pitching anything — just after your perspective on where coordination breaks,
+who posts coordination info in the responses you assess, and what happens to that flow
+during an outage. If I've got the problem wrong, I'd rather hear it now.
+
+20 minutes? No commitment beyond a conversation.
+
+────────────────────────────────────────
+MESSAGE 9 — iMMAP  [VERIFIED: contact@immap.org]
+────────────────────────────────────────
+Subject: Information management under connectivity stress — your take?
+
+Hi,
+
+I'm Abdul Rahman, researching how coordination info is managed when connectivity is
+unreliable. Your information-management work is the closest real example I know of
+"who curates and verifies what," so I'd value your perspective.
+
+I'm trying to falsify my own assumptions — specifically whether verification of
+coordination info actually matters on the ground, and who organizations trust to
+confirm something is real. Not a pitch; if the thing I've built is solving the wrong
+problem, tell me.
+
+Worth 20 minutes?
+
+────────────────────────────────────────
+MESSAGE 10 — Ground Truth Solutions  [VERIFIED: info@groundtruthsolutions.org]
+────────────────────────────────────────
+Subject: Who actually gets heard in aid coordination? — 20 min?
+
+Hi,
+
+I'm Abdul Rahman, researching coordination in crises. Your accountability work asks the
+question I keep circling: whose voice actually shapes coordination, and who gets left
+out. I suspect my prototype (an offline coordination board) accidentally assumes
+"someone posts the info" — and I want to test whether that role even exists in the
+settings I care about.
+
+No pitch. I'd value 20 minutes on who posts, who's heard, and what breaks during
+outages. If I'm solving the wrong problem, say so.
+
+────────────────────────────────────────
+MESSAGE 11 — Gaza/Sudan community voices  [VERIFIED social: We Are Not Numbers, MAP,
+Tech for Palestine, Bonyan (confirm), Sudan Relief Fund]
+────────────────────────────────────────
+Same framing as Messages 5–7, tailored per handle. Lead with: "researching coordination
+when the network is cut — trying to be wrong in front of people who know, not in private."
+Offer the written questionnaire (STAKEHOLDER-QUESTIONNAIRE.md) as the low-friction path.
+
