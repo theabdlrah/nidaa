@@ -1096,6 +1096,27 @@ add_para(
     "and a concrete read on existing workflows. No code changed; no new feature logic. Repo stays evidence-collection."
 )
 
+add_heading("14.13 — 2026-07-15 (midday): Thesis shift — A7 splits into A7a/A7b", 2)
+add_para(
+    "The morning's tool research produced a real thesis refinement, not just more pipeline. The dangerous assumption was "
+    "never 'will beneficiaries post?' — it is 'does the partner org already have someone who OWNS information flow?' Every "
+    "mature system has an owner: Ushahidi→deployment owner, HOTOSM→validators, ReliefWeb→OCHA editors, HDX→org data managers."
+)
+add_bullets([
+    "A7 split into A7a (coordinators/info officers will publish — now LESS risky; we fit an existing role) and A7b "
+    "(beneficiaries open/use the info — still largely untested). Recorded in ASSUMPTION-NEXT-TESTER.md.",
+    "PILOT DESIGN implication: target the coordinator/info-officer as primary user; build a bridge (coordinator forwards "
+    "from WhatsApp) for communities without a formal focal point. Do NOT design for the lone beneficiary posting.",
+    "AFTERNOON-SEND-PACKAGE.md created: one fire-ready list (Tier 0 follow-ups → Batch 1 → Batch 2, verified channels, "
+    "reply protocol, thesis-to-test). Solves the 'which draft / which channel / what order' retrieval problem for sending.",
+    "Discipline note: infrastructure is now sufficient (ledger, assumption table, tool research, reply prep, journal, "
+    "tracker, learning plan, pilot readiness, research backlog). No further framework work authorized — next gain is a reply.",
+])
+add_para(
+    "State: waiting. Highest-value event is no longer a commit — it is a reply from ops/coordination/PMER/IM/community-"
+    "response. Afternoon objective: send Batch 1 + Batch 2 and secure Conversation #2."
+)
+
 # ===== footer note =====
 doc.add_paragraph()
 fn = doc.add_paragraph()

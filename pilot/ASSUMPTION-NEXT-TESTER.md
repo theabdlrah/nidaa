@@ -15,7 +15,31 @@ Confidence: `High` · `Medium` · `Low`
 | A4 | Verification materially matters | None yet. | Low | **MEAL / verification lead** (iMMAP, REACH, MAP, Al-Haq) — who confirms "this is real" today, and does a mark change behavior? |
 | A5 | Existing tools insufficient for some communities | Adam (resident): WhatsApp/Telegram/FB work only with connectivity; fail during outages. | Medium (1 resident) | **Community-led groups** (White Helmets, ERRs, mutual-aid) — are current tools "good enough" or is there a real gap? |
 | A6 | Organizations would trust designated verifiers | None yet. | Low | **Org with a hierarchy** (MAP, Al-Haq, PCRF, White Helmets) — name a person/body they'd accept as verifier, or reject the concept. |
-| A7 | Communities would adopt a new workflow | None yet. Adam raised the publishing-step doubt (Nidaa only helps if info is posted in first). | Low | **Anyone with a publishing role** — does someone already OWN "post the coordination info"? If nobody does, adoption model must change. |
+| A7 | Communities would adopt a new workflow | None yet. Adam raised the publishing-step doubt (Nidaa only helps if info is posted in first). | Low | Split into A7a/A7b below. |
+
+### A7 split — the morning's key thesis shift
+
+Research into mature tools (see COORDINATION-TOOLS-RESEARCH.md) reframed A7. The
+dangerous question was never "will beneficiaries post?" — it was "does the partner
+org already have someone who OWNS information flow?" Every mature system has an owner:
+
+- Ushahidi → deployment owner
+- HOTOSM → validators
+- ReliefWeb → OCHA editors
+- HDX → org data managers
+
+So A7 splits:
+
+| # | Assumption | Evidence so far | Confidence | Next tester |
+|---|------------|----------------|------------|-------------|
+| A7a | Coordinators / info officers will publish into Nidaa | None yet, but tool research says orgs ALREADY staff this role (editor/validator/focal point). Fitting into an existing role is far more plausible than creating new behavior. | Medium→Low (plausible by analogy) | **Any partner with an info focal point** (Sameer, REACH, iMMAP, White Helmets, ERRs) — "who owns posting today?" |
+| A7b | Beneficiaries will open / use the information | None yet. Still largely untested. | Low | **Beneficiary-adjacent voice** (We Are Not Numbers, a resident referral) — do people actually open coordination info, or rely on push (WhatsApp)? |
+
+**Implication:** A7a is now LESS risky than it looked this morning — we are fitting into
+an existing role, not inventing one. The real unknown is A7b (demand-side). Pilot design
+should target the *coordinator/info-officer* as the primary user, with a bridge (a
+coordinator who forwards from WhatsApp) for communities without a formal focal point.
+Do NOT design for the lone beneficiary posting.
 
 ## The "who posts?" sub-question (most dangerous assumption)
 
