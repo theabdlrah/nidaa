@@ -1249,6 +1249,41 @@ add_para(
     "interview. No design work until A1 resolves."
 )
 
+# ===== 14.19 — 2026-07-15 (evening): A1 Resolution Campaign — first-hand AAR retrieved =====
+add_heading("14.19 — 2026-07-15: A1 Resolution Campaign — first-hand after-action review retrieved", 2)
+add_para(
+    "Single A1-focused mission. No new contacts, no design, no architecture, no pilots. Goal: move A1 from "
+    "Weak to Emerging Convergence or Falsified via one real after-action review."
+)
+add_bullets([
+    "RETRIEVED ONE REAL AAR: 'Afghanistan — After Action Review: Eastern Region Earthquake Response (31 Aug "
+    "2025, Nangarhar/Kunar)', by the Inter-Cluster Coordination Team (ICCT), published by UN OCHA on ReliefWeb "
+    "(21 May 2026). URL verified HTTP 200. Method: document review, operational data, KIIs, focus groups, field "
+    "consultations with actors + de facto authorities + affected communities.",
+    "KEY FINDING (first-hand, primary-field): the AAR's single 'most significant early constraint was NOT a lack "
+    "of humanitarian capacity, but limited operational readiness of first 72-hour activation and sequencing "
+    "arrangements... contributing to avoidable delays.' A second failure: early Damage Impact Model figures were "
+    "constrained by outdated shelter typology + inaccurate intensity data, limiting confidence in damage "
+    "estimates. Both are coordination / information-management failures, not capacity failures.",
+    "A1 IMPACT: this is direct support for A1 ('when operations fail, coordination is frequently a binding "
+    "constraint'). Coordination was the NAMED binding early constraint. It does NOT falsify A1; it strengthens it. "
+    "One source only -> not yet convergence (project rule: 3 independent sources = strong). A1 moves Weak -> "
+    "Emerging (not yet crossed).",
+    "NEW FILE pilot/A1-AFTER-ACTION-ANALYSIS.md — full structure: context, operational failure, root cause, "
+    "was coordination involved (yes), primary/secondary/irrelevant (PRIMARY for early constraint), supporting "
+    "quotes, impact on A1, comparison vs Adam interview + Abdelrahman reply + existing public evidence. Verdict: "
+    "A1 Strengthened (single source; needs 1-2 more independent accounts for convergence).",
+    "UPDATED: A1-EVIDENCE-CAMPAIGN.md (added AAR to supporting evidence; status Weak -> Emerging) and "
+    "EVIDENCE-CONVERGENCE-SCOREBOARD.md (A1 First-Hand 0 -> 1; status Weak -> 'Weak to Emerging'). Adam's "
+    "resident view is complementary (info-to-people layer), not contradictory (coordinator layer).",
+    "DISCIPLINE HELD: one real source; no invented convergence; no design work triggered. Gate remains: no "
+    "architecture/solution work until A1 reaches Emerging Convergence or is Falsified. Next: 1-2 more independent "
+    "coordinator-level accounts or AARs.",
+])
+add_para(
+    "Verdict recorded in A1-AFTER-ACTION-ANALYSIS.md: Based on current evidence, A1 is Strengthened."
+)
+
 # ===== footer note =====
 doc.add_paragraph()
 fn = doc.add_paragraph()

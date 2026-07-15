@@ -20,9 +20,13 @@ brief for it. Challenge your own conclusion; do not validate it.
 | HDX HAPI — Organisations | Many actors per response → coordination is necessary by structure. | Public (structural) | Moderate |
 | HDX HAPI — Funding | Resource coordination across actors is a managed function. | Public (structural) | Moderate |
 | OCHA — Global Coordination Groups (Clusters) | The cluster system is the *canonical* coordination mechanism globally. | Public (structural) | Strong |
+| Afghanistan Eastern Region Earthquake AAR (ICCT/OCHA, 2026) | First-hand AAR: the single most significant early constraint was *limited operational readiness of 72-hour activation/sequencing* — a coordination failure, not capacity. | First-Hand (published AAR) | Strong |
 
-> Honest read: these show coordination **exists as a recognized, required function** —
-> not that its **failures are a primary pain point**. Support is conceptual/structural only.
+> Honest read: the first four rows show coordination **exists as a recognized, required
+> function** — not that its failures are a primary pain point (conceptual/structural only).
+> The fifth row (Afghanistan AAR) is different: it is first-hand evidence that coordination
+> failure was the *named binding early constraint* in a real response. That is the qualitative
+> step from "coordination exists" to "coordination failure hurts."
 
 ## 2. Current evidence CHALLENGING A1
 
@@ -96,8 +100,8 @@ Consequence if falsified:
 ## Campaign status
 
 - **Public (structural) sources retrieved for A1:** 4 (HDX HAPI ×3, OCHA Clusters).
-- **First-hand public accounts:** 0. **Direct interviews bearing on A1:** 0.
-- **Convergence status:** Weak (structural public only; no pain evidence; no interview).
+- **First-hand public accounts:** 1 (Afghanistan Eastern Region Earthquake AAR, ICCT/OCHA, 2026). **Direct interviews bearing on A1:** 0.
+- **Convergence status:** Weak → moving toward Emerging Convergence (one first-hand AAR names coordination as the binding early constraint; needs 1–2 more independent accounts to cross the 3-source bar).
 - **Next action:** retrieve §4 public sources AND schedule §5 coordinator interviews.
   The single highest-leverage move is one real coordinator conversation.
 

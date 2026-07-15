@@ -23,7 +23,7 @@ beats any single report or interview. Update this board after every evidence eve
 
 | Assumption | Public | First-Hand | Interview | Convergence Status |
 |------------|:------:|:----------:|:---------:|--------------------|
-| A1 — coordination is a priority problem | 4 | 0 | 0 | Weak (structural only; no pain evidence) |
+| A1 — coordination is a priority problem | 4 | 1 | 0 | Weak → Emerging (AAR names coordination as binding early constraint) |
 | A2 — info/matching is a bottleneck | 0 | 0 | 1 | Weak (single interview: Adam) |
 | A3 — offline capability matters | 2 | 0 | 2 | Emerging Convergence |
 | A4 — verification matters | 3 | 0 | 0 | Weak (conceptual only; no first-hand pain) |
