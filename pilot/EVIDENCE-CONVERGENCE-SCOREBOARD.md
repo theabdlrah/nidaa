@@ -37,16 +37,17 @@ beats any single report or interview. Update this board after every evidence eve
 | A3 — offline capability matters | 2 | 0 | 2 | Emerging Convergence |
 | A4 — verification matters | 3 | 0 | 0 | Weak (conceptual only; no first-hand pain) |
 | A5 — existing tools insufficient | 0 | 0 | 1 | Weak (single interview: Adam) |
-| A6 — coordinators maintain structured info | 6 | 0 | 0 | Early Support (formal orgs) / Unproven-Weak (grassroots — the Nidaa user) |
+| A6a — formal orgs maintain structured info | 6 | 0 | 0 | Early Support (SARC/MapAction/WFP/HOTOSM/ReliefWeb/Ushahidi) |
+| A6b — grassroots coordinators maintain structured info | 0 | 0 | 0 | Weak / Unproven (ERRs Sudan: chat/committee-based; documentation a gap, not a habit) |
 | A7 — communities adopt workflow | 0 | 0 | 0 | Untested |
 
 ## Reading the board (2026-07-15)
 
-- **A6 is now the highest-priority campaign** (replaces A1 as the active gate). 6 real/established
-  IM sources (SARC, MapAction, Ushahidi→HDX, WFP, HOTOSM, ReliefWeb) all show coordinators/orgs
-  DO maintain structured information — but only with a designated owner + low burden. The live risk
-  is burden + ownership, not willingness. Grassroots/small-coordinator case + contradiction hunt
-  (maintenance collapse under surge) still pending. See A6-EVIDENCE-CAMPAIGN.md.
+- **A6 has split into two assumptions** (2026-07-15, user direction): A6a = formal orgs maintain
+  structured info (Early Support); A6b = grassroots coordinators maintain structured info (Weak /
+  Unproven — the Nidaa user). A6b is the existential one. Public-source expansion for A6 is PAUSED;
+  the remaining gap is a real coordinator. Every incoming coordinator conversation is processed
+  through the Six A6 Questions (see A6-GRASSROOTS-HUNT.md) and logged to A6-FIELD-LOG.md.
 - **A1 is PAUSED at its bounded conclusion** (see contradiction hunt note above) — not abandoned.
 - **A2 / A5** rest on a single interview each (Adam) — Strengthened but not convergent.
 - **A4** has 3 conceptual public sources (INFORM indexes, Ethiopia Access) but no

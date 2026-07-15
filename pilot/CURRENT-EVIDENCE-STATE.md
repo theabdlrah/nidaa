@@ -83,7 +83,7 @@ Ranked by expected evidence value (which assumptions they can move / falsify):
 
 | Risk | Status |
 |------|--------|
-| A6 — Coordinator bandwidth (will they maintain structured info?) | 🔴 Highest (active campaign) |
+| A6b — Grassroots coordinator bandwidth (will THEY maintain structured info?) | 🔴 Highest (active gap; field validation pending) |
 | A1 — Coordination importance | 🟡 Paused at bounded conclusion |
 | A4 — Verification / trust | 🟠 Significant |
 | A7 — Coordinator-led model | 🟠 Significant |
@@ -100,7 +100,8 @@ Ranked by expected evidence value (which assumptions they can move / falsify):
 | A3 — offline capability matters | 2 | 0 | 2 | Emerging Convergence |
 | A4 — verification matters | 3 | 0 | 0 | Weak (conceptual only; no first-hand pain) |
 | A5 — existing tools insufficient | 0 | 0 | 1 | Weak (single interview: Adam) |
-| A6 — coordinators maintain structured info | 6 | 0 | 0 | Early Support (active campaign) |
+| A6a — formal orgs maintain structured info | 6 | 0 | 0 | Early Support |
+| A6b — grassroots coordinators maintain structured info | 0 | 0 | 0 | Weak / Unproven (active gap) |
 | A7 — communities adopt workflow | 0 | 0 | 0 | Untested |
 
 A3 is the only Emerging Convergence. **A6 is now the highest-priority campaign** (it is

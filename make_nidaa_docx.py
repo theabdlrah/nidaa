@@ -1391,6 +1391,33 @@ add_para(
     "maintained?' but 'can the kind of coordinator Nidaa depends on maintain it?'"
 )
 
+# ===== 14.23 — 2026-07-15 (evening): A6 split A6a/A6b; pause public expansion; field validation =====
+add_heading("14.23 — 2026-07-15: A6 split into A6a/A6b; public expansion paused; A6b field validation", 2)
+add_para(
+    "Milestone finding recorded. The most important result of the project so far is NOT A1/A3 — it is that "
+    "grassroots coordinator structured-maintenance is unproven/weak. Public evidence now has diminishing "
+    "returns for A6b; the remaining gap is a real coordinator. No design/solution work."
+)
+add_bullets([
+    "ASSUMPTION SPLIT (user direction): A6 -> A6a (formal orgs maintain structured info = Early Support) and "
+    "A6b (grassroots coordinators maintain structured info = Weak/Unproven, the Nidaa user). A6b is the "
+    "existential one. Scoreboard + CURRENT-EVIDENCE-STATE.md updated to show both.",
+    "DEFINING FINDING locked in: 'They do coordinate, but via chats and committees, and structured/verified "
+    "documentation is a gap, not a habit.' To be tested against real coordinators — if it survives, it changes "
+    "what problem Nidaa must solve.",
+    "PUBLIC-SOURCE EXPANSION FOR A6 PAUSED. No more reports/contradictions until a field response arrives.",
+    "NEW FILE pilot/A6-FIELD-LOG.md — the home for the next milestone: ONE real coordinator workflow. Contains "
+    "the Six A6 Questions as a standing processing rule: every incoming coordinator conversation (Omar, Shaima, "
+    "Abdelrahman, White Helmets, ERRs, Sameer, iMMAP/referrals) is routed through the 6 questions and logged. "
+    "Watch-list pre-loaded with pending conversations; success criterion = one six-answer coordinator story.",
+    "NO DESIGN WORK. A1 preserved at bounded conclusion. A6b is now the highest-risk row and the active gate; "
+    "its resolution depends on field evidence, not documents.",
+])
+add_para(
+    "Next milestone is not another report. Next milestone is one real coordinator workflow, processed through "
+    "the Six A6 Questions in A6-FIELD-LOG.md."
+)
+
 # ===== footer note =====
 doc.add_paragraph()
 fn = doc.add_paragraph()
