@@ -36,13 +36,32 @@ brief for it. Challenge your own conclusion; do not validate it.
 | Existence of mature coordination infra (clusters, HAPI) | Could argue coordination is *solved*, not a gap — i.e. Nidaa may address a non-problem. | Inference from §1 | Moderate (challenge) |
 | F2 failure mode (coordinator overload / not a priority) | Zero direct evidence either way — the risk that coordination isn't a top pain is live and untested. | Tracker F2 | Weak (gap-as-challenge) |
 
+## 2b. Evidence AGAINST A1 (deliberate contradiction hunt)
+
+Per the 2026-07-15 instruction, supportive sourcing is paused until a serious contradictory
+source is reviewed. The hunt succeeded — one real response where operations failed,
+coordination existed, and the primary bottleneck was NOT coordination.
+
+| Source | What it shows | Type | Strength vs A1 |
+|--------|---------------|------|----------------|
+| IFRC RTE — Myanmar Earthquake Response (2025) | Response failed to operate at pace; binding constraints were "longstanding limits on humanitarian access and international presence," "widespread infrastructure damage," "continued aftershocks," and "political constraints." Coordination (MRCS/IFRC) was present and reinforced — not the bottleneck. | First-Hand (published RTE) | Strong (against universality of A1) |
+
+Detailed analysis: A1-CONTRADICTORY-EVIDENCE.md. Net effect: A1 is NOT falsified (it says
+*frequently*, not *always*) but is now correctly **bounded** — coordination is the binding
+constraint where capacity + access exist but mobilization/sequencing fails (Afghanistan), and
+a secondary constraint where access/infrastructure/security themselves are the wall (Myanmar).
+The disciplined hunt raised confidence by scoping A1 rather than over-generalizing it.
+
 ## 3. Evidence gaps
 
-- No **first-hand published account** of a coordination failure with visible cost.
+- No **first-hand published account** of a coordination failure with visible cost *in a
+  capacity-present context beyond Afghanistan* (Afghanistan AAR now fills the supporting side).
 - No **interview with a coordinator/ops lead** who can rank coordination vs fuel/access/security.
 - No data linking a coordination failure to a specific bad outcome.
-- The distinction *"coordination exists"* vs *"coordination is a pain"* is entirely untested.
-- Zero first-hand public accounts and zero direct interviews currently bear on A1.
+- The distinction *"coordination exists"* vs *"coordination is a pain"* is now partially tested
+  (Afghanistan supports; Myanmar bounds). Still wants a 2nd independent account on each side to
+  cross the 3-source convergence bar.
+- First-hand public accounts retrieved: 2 (Afghanistan AAR supporting; Myanmar RTE contradictory). Direct interviews bearing on A1: 0.
 
 ## 4. Highest-value PUBLIC sources still to retrieve (Tier 1)
 
@@ -100,9 +119,15 @@ Consequence if falsified:
 ## Campaign status
 
 - **Public (structural) sources retrieved for A1:** 4 (HDX HAPI ×3, OCHA Clusters).
-- **First-hand public accounts:** 1 (Afghanistan Eastern Region Earthquake AAR, ICCT/OCHA, 2026). **Direct interviews bearing on A1:** 0.
-- **Convergence status:** Weak → moving toward Emerging Convergence (one first-hand AAR names coordination as the binding early constraint; needs 1–2 more independent accounts to cross the 3-source bar).
-- **Next action:** retrieve §4 public sources AND schedule §5 coordinator interviews.
+- **First-hand public accounts:** 2 (Afghanistan AAR supporting; Myanmar RTE contradictory). **Direct interviews bearing on A1:** 0.
+- **Convergence status:** Emerging (one supporting first-hand AAR + one contradictory first-hand
+  RTE reviewed). A1 is now *bounded*, not universal. Supportive sourcing paused per the
+  contradiction-hunt rule until the contradiction is absorbed; a 2nd independent account on each
+  side is needed to cross the 3-source convergence bar.
+- **Next action:** absorb the Myanmar contradiction; seek one more independent account on EACH
+  side (a coordinator interview OR a 2nd supportive AAR; and a 2nd contradictory case) before
+  declaring convergence or falsification. Highest-leverage remaining gap: a coordinator/ops-lead
+  interview (§5) that ranks coordination vs fuel/access/security.
   The single highest-leverage move is one real coordinator conversation.
 
 Last updated: 2026-07-15 (evening).

@@ -1284,6 +1284,39 @@ add_para(
     "Verdict recorded in A1-AFTER-ACTION-ANALYSIS.md: Based on current evidence, A1 is Strengthened."
 )
 
+# ===== 14.20 — 2026-07-15 (evening): A1 Contradiction Hunt — falsification discipline =====
+add_heading("14.20 — 2026-07-15: A1 Contradiction Hunt — deliberate attempt to weaken A1", 2)
+add_para(
+    "Disciplined falsification step. Supportive sourcing paused; the task was to find the strongest credible "
+    "case where operations failed primarily due to physical/political/security constraints, not coordination."
+)
+add_bullets([
+    "RETRIEVED ONE REAL CONTRADICTORY SOURCE: IFRC Real-Time Evaluation (RTE) of the Myanmar Earthquake "
+    "Response (28 Mar 2025, central Myanmar). URL verified HTTP 200. Formal RTE covering first 3 months; "
+    "response led by Myanmar Red Cross (MRCS) + IFRC — coordination was present and reinforced, not absent.",
+    "WHY IT BOUNDS A1: the RTE names the binding constraints as 'longstanding limits on humanitarian access "
+    "and international presence,' 'widespread infrastructure damage,' 'continued aftershocks,' and 'political "
+    "constraints.' 'Coordination' appears only in OCHA/ReliefWeb footer boilerplate, never as a bottleneck. "
+    "You cannot coordinate past a restricted operating environment or destroyed infrastructure.",
+    "NEW FILE pilot/A1-CONTRADICTORY-EVIDENCE.md — context / failure / root cause / why coordination was not "
+    "decisive / impact on A1. Verdict: does NOT falsify A1 (A1 says 'frequently', not 'always') but correctly "
+    "BOUNDS it — coordination is binding where capacity+access exist but mobilization/sequencing fails "
+    "(Afghanistan); secondary where access/infra/security are themselves the wall (Myanmar).",
+    "UPDATED A1-EVIDENCE-CAMPAIGN.md with a dedicated 'Evidence AGAINST A1' (2b) section; scoreboard A1 note "
+    "records the contradiction hunt. First-hand accounts now 2 (1 supporting AAR, 1 contradictory RTE). "
+    "Supportive sourcing explicitly paused until the contradiction is absorbed.",
+    "CONFIDENCE OUTCOME: the strongest evidence against A1 still leaves A1 standing -> confidence INCREASES "
+    "(but A1 is now scoped, not sweeping). This is the project's first deliberate self-falsification attempt "
+    "and it did its job: it prevented over-generalizing from a single supporting AAR.",
+    "NO DESIGN WORK. Gate unchanged: no architecture/solution/pilot until A1 reaches convergence or is "
+    "Falsified. Next: one more independent account on EACH side (esp. a coordinator/ops-lead interview ranking "
+    "coordination vs fuel/access/security) before declaring convergence.",
+])
+add_para(
+    "A1 verdict after contradiction hunt: Strengthened and bounded (not universal). Project survives its own "
+    "attempt to disprove itself."
+)
+
 # ===== footer note =====
 doc.add_paragraph()
 fn = doc.add_paragraph()

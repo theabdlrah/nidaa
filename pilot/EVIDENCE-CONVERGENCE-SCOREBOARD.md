@@ -24,6 +24,15 @@ beats any single report or interview. Update this board after every evidence eve
 | Assumption | Public | First-Hand | Interview | Convergence Status |
 |------------|:------:|:----------:|:---------:|--------------------|
 | A1 — coordination is a priority problem | 4 | 1 | 0 | Weak → Emerging (AAR names coordination as binding early constraint) |
+
+> **Contradiction hunt (2026-07-15):** one real RTE (Myanmar 2025 earthquake, IFRC) shows
+> operations failed with coordination *present*; primary bottleneck was access / infrastructure
+> / political-security, not coordination. A1 is NOT falsified (it says *frequently*, not
+> *always*) but is now **bounded**: coordination is the binding constraint where capacity+access
+> exist but mobilization/sequencing fails (Afghanistan); secondary where access/infra/security
+> are themselves the wall (Myanmar). First-hand accounts now 2 (1 supporting, 1 contradictory).
+> Supportive sourcing paused until the contradiction is absorbed. Full analysis:
+> A1-CONTRADICTORY-EVIDENCE.md.
 | A2 — info/matching is a bottleneck | 0 | 0 | 1 | Weak (single interview: Adam) |
 | A3 — offline capability matters | 2 | 0 | 2 | Emerging Convergence |
 | A4 — verification matters | 3 | 0 | 0 | Weak (conceptual only; no first-hand pain) |
