@@ -116,3 +116,76 @@ After pasting the template and filling the Evidence Ledger:
 (A1/A2/A5 = status of those assumptions after the call: S=Strengthened,
 W=Weakened, F=Falsified, U=Untested. "Pivot triggered?" = yes only if the Pivot
 Rule fired.)
+
+---
+
+## Working Hypothesis (NOT a conclusion)
+
+**New hypothesis (2026-07-15, post red-team + tool research):** Nidaa may be a
+*coordinator-led information-management and coordination tool* rather than a
+*civilian-first platform*. The morning's tool research (Ushahidi→deployment owner,
+HOTOSM→validators, ReliefWeb→OCHA editors, HDX→org data managers) showed mature
+systems always have an owner. A7 split into A7a (coordinators publish — now less
+risky) and A7b (beneficiaries use — still untested). This points the primary user at
+the coordinator / info officer, not the lone beneficiary.
+
+Treat this strictly as a hypothesis. It is falsifiable by the conversations below, not
+settled by the research. Reality still gets the vote.
+
+---
+
+## Potential Failure Modes
+
+| # | Failure mode | Current evidence | Confidence | Next person/org to test | Strengthens if… | Falsifies if… |
+|---|--------------|------------------|------------|-------------------------|-----------------|---------------|
+| F1 | Coordinator overload / lack of administrative bandwidth | None direct. Adam (resident) noted aid info is pushed to phones, implying someone already pushes — but no org-side bandwidth data yet. | Low | Ops/coordination leads at Sameer, White Helmets, ERRs, REACH | A coordinator says "yes we'd post, but we have no one free to maintain it" or describes an existing system collapsing under admin load | A coordinator says maintaining the board is trivial vs their current load, or already staffs an info focal point with spare capacity |
+| F2 | Coordination is not actually a top-priority operational problem | None. Adam did NOT raise coordination as a top pain — he described info-access during outages (A2/A3). A1 still Untested. | Low | Field/ops coordinators; ask "is coordination even a priority vs fuel/access/security?" | Orgs rank coordination below supply/access/security consistently; "coordination is fine, X is the real problem" | Orgs name coordination as a top-3 pain; recent incident where coordination failure had visible cost |
+| F3 | Organizations reject decentralized information (verification / liability / governance) | None direct. HOTOSM validates mapping work (suggests orgs accept designated verifiers), but aid-info truth/liability is different. | Low | MAP, Al-Haq, PCRF, White Helmets (orgs with hierarchy + liability exposure) | Org refuses to post into a shared board citing liability, false-info harm, or "we control our own comms" | Org already shares unvetted info openly and welcomes a verifier role |
+| F4 | Civilians do not access or trust the resulting information | None. A7b entirely untested. Adam used WhatsApp/Telegram push — suggests civilians expect info pushed, not pulled from a board. | Low | Beneficiary-adjacent voices (We Are Not Numbers, resident referrals); observe actual info-seeking behavior | Beneficiaries say they never open such boards / rely solely on WhatsApp forwards / distrust unknown sources | Beneficiaries already use a similar board or actively seek centralized info |
+| F5 | Structured workflows (Requested → Claimed → Fulfilled) do not match real field behavior | None. This workflow is an untested design assumption, not observed behavior. | Low | Ops coordinators who run aid matching today (Sameer, ERRs, mutual-aid) | Coordinator says "we don't work in request/claim/fulfil stages, it's X" or the stages don't map to how aid is actually allocated | Coordinator says "yes, that's exactly our pipeline" or already uses a near-identical staged workflow |
+
+---
+
+## Interview Objective Shift
+
+Do **not** use future conversations to validate Nidaa. Use them to **falsify** these
+assumptions (and A1/A6/A7). The goal is to discover whether the thesis survives
+contact with reality — not to confirm it.
+
+For Omar, Shaima, and future contacts, prioritize **behavioral evidence over opinions**.
+
+Prefer:
+- "Tell me about the last time…"
+- "What actually happened?"
+- "Who did you contact?"
+- "How did information move?"
+- "What did you do when the plan failed?"
+
+Avoid:
+- "Would you use Nidaa?"
+- "Do you like this idea?"
+- Feature discussions.
+
+---
+
+## Highest Priority Unknowns
+
+1. Do coordinators already maintain structured information during operations?
+2. Is coordination / information flow a top-tier operational pain point, or are
+   fuel, access, security, and logistics overwhelmingly dominant?
+3. Who actually owns information in the field today?
+4. What happens during the worst communication breakdowns?
+5. How do organizations currently verify and trust information?
+
+---
+
+## Guidance (frozen scope)
+
+- **Freeze all new architecture discussions** (mesh, LoRa, CRDTs, civilian portals,
+  etc.) until evidence from organization-level conversations arrives.
+- The current bottleneck is **not** technical uncertainty. It is **lack of field
+  evidence**.
+- Success metric unchanged: obtain organization-level evidence that either
+  **strengthens or weakens A1, A6, and A7**.
+- Next conversations aim to falsify, not confirm. The thesis survives only if reality
+  does not kill it.

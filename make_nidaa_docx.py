@@ -1117,6 +1117,29 @@ add_para(
     "response. Afternoon objective: send Batch 1 + Batch 2 and secure Conversation #2."
 )
 
+add_heading("14.14 — 2026-07-15 (strategy): coordinator-led hypothesis + failure-mode register", 2)
+add_para(
+    "Strategic reassessment after the morning sprint and red-team work. New WORKING HYPOTHESIS (explicitly not a "
+    "conclusion): Nidaa may be a coordinator-led information-management/coordination tool, not a civilian-first "
+    "platform. Recorded in ASSUMPTION-TRACKER.md as a falsifiable hypothesis, with a Potential Failure Modes table "
+    "(F1 coordinator overload, F2 coordination not a priority, F3 orgs reject decentralized info, F4 civilians don't "
+    "access/trust, F5 staged workflow mismatch) — each with evidence/confidence/next-tester/strengthen/falsify."
+)
+add_bullets([
+    "INTERVIEW OBJECTIVE SHIFT: future conversations exist to FALSIFY, not validate. Behavioral evidence over "
+    "opinions — prefer 'tell me about the last time…', 'what actually happened?', 'who did you contact?', 'how did "
+    "information move?', 'what did you do when the plan failed?'. Avoid 'would you use Nidaa?' / 'do you like this?'.",
+    "HIGHEST-PRIORITY UNKNOWNS recorded: do coordinators maintain structured info; is coordination a top pain vs "
+    "fuel/access/security; who owns info in the field; what happens in worst breakdowns; how orgs verify/trust.",
+    "GUIDANCE (frozen scope): freeze ALL new architecture discussion (mesh, LoRa, CRDTs, civilian portals) until "
+    "organization-level evidence arrives. Bottleneck is lack of field evidence, not technical uncertainty. Success "
+    "metric unchanged: org-level evidence strengthening or weakening A1, A6, A7.",
+])
+add_para(
+    "This is the last planned strategy artifact. With the hypothesis, failure modes, interview shift, and unknowns "
+    "now canonical, the project is fully in evidence-collection mode and the repository is frozen for features."
+)
+
 # ===== footer note =====
 doc.add_paragraph()
 fn = doc.add_paragraph()
