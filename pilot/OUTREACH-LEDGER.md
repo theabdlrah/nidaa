@@ -46,6 +46,7 @@ allowed — use Queued (not yet contacted) or Contacted (sent, awaiting reply).
 | 8 | Mones (Humanitarian Ops, MSF) | individual | LinkedIn | Contacted | status log |
 | 9 | Israa Z. Zumili | individual | request sent | Queued | status log |
 | 10 | Adam Elijilah | individual (resident) | — | Interviewed | assumption-log/AdamElijilah-2026-07-14.md |
+| 11 | Abdelrahman Saleh (Wa7at Initiative) | individual — community initiative (Gaza) | LinkedIn | Replied | status log (OUTREACH-CONTACTS.md); Active Conversation — structured questionnaire sent 2026-07-15 |
 
 Note: Gaza Soup Kitchen (docx target #3) was **Hold** — it is a distributed
 concept, not one org (see OUTREACH-CONTACTS.md §3). Not sent as a generic blast.
@@ -120,5 +121,5 @@ verified where reachable; named individuals + unreachable orgs = manual).
 
 ---
 
-Last updated: 2026-07-15 (midday). This ledger is maintained; the candidate
+Last updated: 2026-07-15 (evening). One entry added (Abdelrahman Saleh — Wa7at Initiative, Replied). This ledger is maintained; the candidate list is NOT expanded proactively.
 list is NOT expanded proactively.

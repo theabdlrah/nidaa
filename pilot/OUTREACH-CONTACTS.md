@@ -85,9 +85,10 @@ reply).
 | 8 | Saed Al Farra | Individual | Closed | declined (explicit "لا"); no tracker/assumption/interview change |
 | 9 | Israa Z. Zumili | Individual | Queued | request pending access / awaiting reply |
 | 10 | Mones | Individual — Humanitarian Ops (MSF) | Contacted | LinkedIn · 2026-07-14 · Evidence: None yet |
+| 11 | Abdelrahman Saleh (Wa7at Initiative) | Individual — Founder, Gaza community initiative | Replied | LinkedIn · 2026-07-15 · Identified internet/electricity scarcity as major challenges · Structured follow-up questionnaire sent · Awaiting detailed response · Evidence: partial (assumptions A2/A3/A5/A7 touched) |
 
-Contacted: 7 · Queued: 1 · Interviewed: 1 · Replied: 0 · Closed: 1.
-Highest-value awaited: Ali AbuAlatta, Sameer Project, HOTOSM, Shuruq As'ad, any
+Contacted: 7 · Queued: 1 · Interviewed: 1 · Replied: 1 · Closed: 1.
+Highest-value awaited: Ali AbuAlatta, Sameer Project, HOTOSM, Shuruq As'ad, any referral from Adam. Outstanding detailed response: Abdelrahman Saleh (Wa7at Initiative).
 referral from Adam.
 
 ---

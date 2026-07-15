@@ -1161,6 +1161,36 @@ add_para(
     "can falsify F1/F2/F3/F5 with behavioral evidence. Still waiting on the first reply to run the evidence pipeline."
 )
 
+# ===== 14.16 — 2026-07-15 (evening): evidence-ops infrastructure + new reply =====
+add_heading("14.16 — 2026-07-15: Evidence-operations infrastructure + new reply (Abdelrahman Saleh)", 2)
+add_para(
+    "Documentation + record-keeping only. No feature, architecture, mesh, LoRa, UI, or solution work. "
+    "Per the frozen-scope discipline, this session is evidence-collection support while real-world replies land."
+)
+add_bullets([
+    "NEW REPLY LOGGED (not yet an interview): Abdelrahman Saleh — founder of the Wa7at Initiative, a "
+    "Gaza-based software engineer. Replied on LinkedIn and identified internet + electricity scarcity as "
+    "major challenges. Assumptions touched: A2, A3, A5, A7. Structured follow-up questionnaire sent; "
+    "detailed evidence pending. Added to OUTREACH-LEDGER.md (#11, state=Replied) and OUTREACH-CONTACTS.md "
+    "status log (Replied count 0 -> 1).",
+    "NEW FILE pilot/EVIDENCE-INTAKE-TEMPLATE.md — single intake form for every piece of evidence: contact, "
+    "role, date, exact quote/story, information origin/path/consumer, bottleneck, workaround, assumptions "
+    "affected, evidence strength, strengthens/weakens/falsifies. Enforces the no-impressions honesty bar.",
+    "NEW FILE pilot/CONTACT-STATUS.md — live status board for 7 tracked contacts (Omar Ghazal, Shaima Taha, "
+    "Abdelrahman Saleh, Ibrahim Haboush, Naji Al Jafarawi, Fatma Raed, iMMAP) with the five columns "
+    "Contacted / Replied / Evidence received / Follow-up required / Referral received.",
+    "NEW FILE pilot/CURRENT-EVIDENCE-STATE.md — one-pager: tested assumptions (A2/A3/A5 Strengthened), "
+    "untested (A1/A4/A6/A7), evidence gathered so far, evidence still required, and the top-3 highest-value "
+    "pending conversations (Abdelrahman Saleh; Ali AbuAlatta/Sameer/HOTOSM; iMMAP + Adam referral).",
+    "EVIDENCE COUNT as of this entry: 1 full interview (Adam E.) + 1 partial reply (Abdelrahman S.) = 2 "
+    "evidence items. OUTREACH COUNT: Contacted 7, Queued 1, Interviewed 1, Replied 1, Closed 1 (11 total). "
+    "No assumption weakened or falsified; Pivot Rule not triggered.",
+])
+add_para(
+    "Next action remains evidence collection: convert Abdelrahman's pending detailed response into a logged "
+    "entry via the intake template, and pursue the coordinator-level conversations that can move A1/A6/A7."
+)
+
 # ===== footer note =====
 doc.add_paragraph()
 fn = doc.add_paragraph()
