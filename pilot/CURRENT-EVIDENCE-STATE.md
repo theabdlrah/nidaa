@@ -77,6 +77,25 @@ Ranked by expected evidence value (which assumptions they can move / falsify):
 
 ---
 
+---
+
+## Evidence Convergence Scoreboard (live)
+
+| Assumption | Public | First-Hand | Interview | Convergence Status |
+|------------|:------:|:----------:|:---------:|--------------------|
+| A1 — coordination is a priority problem | 4 | 0 | 0 | Weak (structural only; no pain evidence) |
+| A2 — info/matching is a bottleneck | 0 | 0 | 1 | Weak (single interview: Adam) |
+| A3 — offline capability matters | 2 | 0 | 2 | Emerging Convergence |
+| A4 — verification matters | 3 | 0 | 0 | Weak (conceptual only; no first-hand pain) |
+| A5 — existing tools insufficient | 0 | 0 | 1 | Weak (single interview: Adam) |
+| A6 — orgs trust verifiers | 0 | 0 | 0 | Untested |
+| A7 — communities adopt workflow | 0 | 0 | 0 | Untested |
+
+A3 is the only Emerging Convergence. **A1 is the largest unresolved risk** (4 structural
+sources show coordination exists, but 0 show it is a pain). Full board + definitions:
+EVIDENCE-CONVERGENCE-SCOREBOARD.md. A1 campaign plan: A1-EVIDENCE-CAMPAIGN.md.
+Next milestone: does A1 survive convergence? Not a prototype.
+
 Discipline reminder: outreach status is NOT evidence. Likes / read-receipts /
 follows do not count. Only concrete signal logged via EVIDENCE-INTAKE-TEMPLATE.md
 and reflected in ASSUMPTION-TRACKER.md counts.

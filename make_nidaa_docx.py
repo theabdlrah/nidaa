@@ -1220,6 +1220,35 @@ add_para(
     "Next week focus per user direction: EVIDENCE CONVERGENCE, not product design."
 )
 
+# ===== 14.18 — 2026-07-15 (evening): A1 evidence campaign + convergence scoreboard =====
+add_heading("14.18 — 2026-07-15: A1 evidence campaign + Evidence Convergence Scoreboard", 2)
+add_para(
+    "Documentation only. No architecture, no solution design, no feature discussion. The milestone is no "
+    "longer a prototype — it is 'does A1 survive evidence convergence?'"
+)
+add_bullets([
+    "NEW FILE pilot/A1-EVIDENCE-CAMPAIGN.md — the focused case FOR or AGAINST A1. 8 sections: evidence "
+    "supporting (4 structural HDX/OCHA sources), evidence challenging (Adam did not raise coordination as a "
+    "pain; mature infra may mean it is solved), gaps, highest-value public sources to retrieve (OCHA evals, "
+    "ACAPS/Ground Truth, after-action reviews, ALNAP, academic), highest-value contacts (AbuAlatta, Sameer, "
+    "HOTOSM, White Helmets, ERRs, REACH/iMMAP, L1 leads, Adam referral), what strengthens/weakens/falsifies "
+    "A1. Per Pivot Rule, A1 falsified by 3+ coordinator interviews + 2+ evals => pivot/narrow/stop.",
+    "NEW FILE pilot/EVIDENCE-CONVERGENCE-SCOREBOARD.md — per-assumption counts (Public / First-Hand / "
+    "Interview) + Convergence Status. Definitions: Public = structural datasets; First-Hand = published "
+    "primary-field accounts; Interview = direct talks/replies. As of this entry: A3 = Emerging Convergence "
+    "(only one); A1 = Weak (4 structural, 0 pain evidence); A2/A5 = Weak (single interview each); A4 = Weak "
+    "conceptual; A6/A7 = Untested.",
+    "CURRENT-EVIDENCE-STATE.md extended with the live scoreboard table + the A1-risk callout. A3 remains the "
+    "strongest signal; A1 is explicitly the largest unresolved risk and the gating milestone.",
+    "HONESTY BAR HELD: all counts are real (4 A1 public sources = the HDX/OCHA URLs retrieved 14.17; A3 "
+    "interview=2 = Adam + Abdelrahman). No assumed counts, no invented sources. Falsification discipline "
+    "preserved: A1 is the assumption most likely to kill the thesis, so it gets the focused campaign.",
+])
+add_para(
+    "Next action: drive A1 from Weak to Emerging — retrieve first-hand accounts and secure one coordinator "
+    "interview. No design work until A1 resolves."
+)
+
 # ===== footer note =====
 doc.add_paragraph()
 fn = doc.add_paragraph()

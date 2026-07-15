@@ -12,3 +12,7 @@ tsconfig.tsbuildinfo
 
 # research scratch dumps
 .research/
+
+# python build cache
+__pycache__/
+*.pyc
