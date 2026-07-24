@@ -358,3 +358,29 @@ ACTIONS:
 - Hermes audit: PASSED all criteria.
 - Status: M1 marked ✅ Complete in `docs/MILESTONES.md`. Baseline ready for M3 specification authoring.
 
+==================================================================
+## 2026-07-24 — M3 (Ownership & Defined Responsibilities) Implemented, Self-Audited, Independent-Reviewed
+==================================================================
+NOT an evidence event — engineering milestone closure log.
+
+ACTIONS:
+- Spec frozen first (docs/specs/M3-Ownership-Responsibilities.md) per governance.
+- Hermes implemented directly (new role: engineering lead). Code: `owner`+`assignedTo`
+  on NidaaEntry; privileged `app/api/assign` (role-gated, mirrors /api/verify) with
+  AssignmentAudit; `setAssignment` in store; client card display + coordinator controls
+  (gated); offline-first.
+- Two self-introduced bugs found and fixed before first push: (a) `Bearer ` token
+  header corrupted by a redaction layer → rebuilt via string concat; (b) dropped
+  `id: clientId` in submit → restored. Lint+build re-passed.
+- SELF-AUDIT: PASS vs frozen spec (disclosed as self-review, weaker than independent).
+- INDEPENDENT REVIEW (you, post-push): 4/5 areas solid; **DEFECT found in merge rule
+  (#1)** — it kept local whenever local≠server, risking a coordinator's server
+  assignment being clobbered by a stale local default. This did NOT mirror T2's actual
+  fix (server-wins-if-set). FIXED: owner/assignedTo now follow the exact T2 rule
+  (server wins if set, else local). Commit 14a5665. Re-ran lint+build (pass).
+- Workflow correction adopted: governance Development Cycle now inserts an
+  INDEPENDENT REVIEW gate between self-audit and merge (self-audit alone no longer
+  closes a milestone).
+- Status: M3 marked ✅ Complete in docs/MILESTONES.md. A6b mechanism gap closed at the
+  implementation level; hypothesis confidence unchanged (still Medium-High until M5).
+
