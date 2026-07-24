@@ -14,8 +14,16 @@ Objective: **verify that the project's recorded state matches the repository's
 actual state.** ("Is the project recorded correctly?")
 
 Checks: git status / push state / remote verification; tracker ↔ repo consistency;
-journal ↔ repo consistency; frozen specs + governance consistency; chat-only
-decisions; documentation drift; stale tracker or journal entries.
+journal ↔ repo consistency — where "journal" means BOTH the repo Evidence Journal
+(`pilot/EVIDENCE-JOURNAL.md`) AND the narrative journal
+(`C:\Users\theab\Desktop\Nidaa-Journal.docx`); frozen specs + governance consistency;
+chat-only decisions; documentation drift; stale tracker or journal entries.
+
+NOTE (2026-07-25, Day 13): the narrative `.docx` journal was added to scope on this
+date per a standing Day-Close reminder. It had previously been **silently excluded**
+from the review — a scope omission (the review's "journal" implicitly meant only the
+repo Evidence Journal), not a rule violation. That omission is itself now a checklist
+item so it cannot recur.
 
 Pass: "Project state verified. Safe to begin Day X."
 Fail: list the inconsistencies; resolve them before today's objective begins.
