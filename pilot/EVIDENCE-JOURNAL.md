@@ -388,3 +388,31 @@ ACTIONS:
   A6b mechanism gap closed at implementation level; hypothesis confidence unchanged
   (still Medium-High until M5).
 
+==================================================================
+## 2026-07-24 — Day 14 — Engineering Discipline Chapter Closed
+==================================================================
+NOT an evidence event — chapter-closure log (mission: complete the transition from
+evidence-first research to disciplined engineering without weakening methodology).
+
+OUTCOMES:
+- M3 implemented; independent review uncovered a merge-rule defect; fixed via
+  follow-up commit (14a5665); fresh lint/build after final fix; git state verified
+  against remote; external memory update verified by read-back.
+- Risk-based review adopted as PRACTICE (not governance): high-risk (sync/conflict,
+  authz, security, data-model merge) = independent review before push; medium =
+  self-review with voluntary escalation; low = normal flow. Risk judged from the
+  frozen spec's actual change surface, not the milestone label.
+- Governance held stable; retrospective lessons recorded here instead.
+
+KEY PRINCIPLE ESTABLISHED — "Don't trust writes; verify resulting state":
+  code→build/tests; git→remote verification; external state→read-back;
+  research→operational validation (M5) before hypothesis confidence rises.
+  (Verification M1–M4 is distinct from validation M5 — same discipline, two scales.)
+
+STATE AT CLOSE: M0 ✅ · M1 ✅ · M2 ✅ · M3 ✅ (implementation complete and
+independently reviewed under current test coverage) · M4 ⏸ next · M5 ⏸ gate.
+
+NEXT (Day 15): author frozen M4 spec (institutional linkage — final unbuilt A6b
+mechanism); classify technical risk from what it actually changes; implement under
+the Day-14 practices.
+
