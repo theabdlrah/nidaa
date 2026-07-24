@@ -303,7 +303,7 @@ Synthesis" block). Key points:
   independent community practitioner confirms/challenges the mechanisms.
 
 ==================================================================
-## 2026-07-24 — Day 13 Engineering Baseline Locked to GitHub (research→governance→implementation transition)
+## 2026-07-24 — Day 12 Engineering Baseline Locked to GitHub (research→governance→implementation transition)
 ==================================================================
 NOT an evidence event — an engineering/governance milestone. Logged per PR-2
 ("journal → commit") so the repo history and the journal stay reconcilable.
@@ -389,7 +389,7 @@ ACTIONS:
   (still Medium-High until M5).
 
 ==================================================================
-## 2026-07-24 — Day 14 — Engineering Discipline Chapter Closed
+## 2026-07-24 — Day 12 — Engineering Discipline Chapter Closed
 ==================================================================
 NOT an evidence event — chapter-closure log (mission: complete the transition from
 evidence-first research to disciplined engineering without weakening methodology).
@@ -412,7 +412,7 @@ KEY PRINCIPLE ESTABLISHED — "Don't trust writes; verify resulting state":
 STATE AT CLOSE: M0 ✅ · M1 ✅ · M2 ✅ · M3 ✅ (implementation complete and
 independently reviewed under current test coverage) · M4 ⏸ next · M5 ⏸ gate.
 
-NEXT (Day 15): author frozen M4 spec (institutional linkage — final unbuilt A6b
+NEXT (Day 13): author frozen M4 spec (institutional linkage — final unbuilt A6b
 mechanism); classify technical risk from what it actually changes; implement under
-the Day-14 practices.
+the Day-12 practices.
 
