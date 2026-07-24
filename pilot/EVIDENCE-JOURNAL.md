@@ -416,3 +416,10 @@ NEXT (Day 13): author frozen M4 spec (institutional linkage — final unbuilt A6
 mechanism); classify technical risk from what it actually changes; implement under
 the Day-12 practices.
 
+POST-CLOSURE ADDENDUM (same day): adopted the Dual Independent Pre-Day Review as a
+standing practice — Hermes runs an Operational Integrity Review ("is the project
+recorded correctly?"), lead + external reviewer run an Epistemic Review ("is the
+project thinking correctly?"); a day begins only when both pass. Full definition:
+docs/PRE-DAY-REVIEW.md (practice, not governance). Also encoded in the nidaa-load
+skill so it executes at every day-open.
+
