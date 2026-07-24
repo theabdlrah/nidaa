@@ -248,13 +248,13 @@ export default function Page() {
     for (const l of local) {
       const s = server.find((serv) => serv.clientId === l.clientId);
       const verified = s?.verified ? true : l.verified;
-      // M3 — privileged fields (owner/assignedTo) follow the T2 rule: take the
-      // server value if set, unless the client explicitly changed it this session.
-      const owner = s?.owner && s.owner !== l.owner ? s.owner : l.owner;
+      // M3 — privileged fields (owner/assignedTo) follow the T2 rule EXACTLY like
+      // verified: the server's value wins if it is set (coordinator is authoritative),
+      // otherwise fall back to the local value. This prevents a stale local default
+      // from clobbering a coordinator's server-side assignment during sync.
+      const owner = s?.owner ? s.owner : l.owner;
       const assignedTo =
-        s?.assignedTo && JSON.stringify(s.assignedTo) !== JSON.stringify(l.assignedTo)
-          ? s.assignedTo
-          : l.assignedTo;
+        s?.assignedTo && s.assignedTo.length > 0 ? s.assignedTo : l.assignedTo;
       map.set(l.clientId, { ...l, verified, owner, assignedTo }); // local wins (may be newer / pending)
     }
     let arr = Array.from(map.values());
