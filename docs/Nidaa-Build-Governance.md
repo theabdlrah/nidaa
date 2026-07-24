@@ -11,23 +11,32 @@ disciplined and aligned with the evidence base, even as the code evolves rapidly
 
 ## Roles
 
-- **Hermes** — architecture, evidence alignment, protocol/BT-mesh decisions,
-  code review. Owns the confidence framework; audits every implementation against
-  the evidence.
-- **Antigravity** — implementation, test generation, refactoring, bug fixes.
-  Executes within a spec defined by Hermes. No autonomous scope expansion.
-- **You (project lead)** — final decision-maker and integrator. Hands specs to
-  Antigravity, reviews its output, approves merges, and resolves disagreements
-  between the two.
+- **Hermes (engineering lead, default owner of direction)** — research interpretation,
+  architecture, evidence alignment, protocol/sync/security decisions, milestone
+  *specification*, and *implementation of small/medium features directly* (data-model
+  changes, sync logic, gated endpoints, audits). Owns the confidence framework and
+  the audit gate. Self-reviews its own implementations and discloses that a self-audit
+  is weaker than an independent one.
+- **Antigravity (implementation specialist, opt-in)** — brought in for large/repetitive
+  coding: big code transformations, boilerplate, tedious refactors, UI polishing,
+  performance optimization. Executes within a spec defined by Hermes. No autonomous
+  scope expansion. Used when the coding volume exceeds what Hermes should hand-write,
+  not by default.
+- **You (project lead)** — final decision-maker and integrator. Approve merges and
+  resolve disagreements. For Nidaa, Hermes implements most milestones directly; you
+  still review and approve before a feature is marked complete.
 
 ## Development Cycle
 
 1. **Define milestone / spec** — Hermes produces a tight, evidence-cited milestone
    spec. (Lives in a separate spec doc, not here.)
-2. **Implement** — Antigravity builds to the spec.
-3. **Review** — you inspect the code.
-4. **Audit against evidence** — Hermes audits for correctness, architecture, and
-   alignment with the evidence/guardrails.
+2. **Implement** — Hermes implements small/medium features directly; Antigravity is
+   engaged only for large/repetitive lifts, against the same frozen spec.
+3. **Self-review + audit** — Hermes reviews the implementation against the spec and
+   the evidence guardrails, and reports PASS or FAIL-with-deviations. When Antigravity
+   implemented, Hermes audits independently (stronger); when Hermes implemented, the
+   audit is self-audit (disclosed as such).
+4. **Integrator review** — you inspect and approve.
 5. **Merge only after passing review** — no code lands without steps 3–4 complete.
 
 ## Evidence Guardrails
