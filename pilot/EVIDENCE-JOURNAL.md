@@ -378,9 +378,13 @@ ACTIONS:
   assignment being clobbered by a stale local default. This did NOT mirror T2's actual
   fix (server-wins-if-set). FIXED: owner/assignedTo now follow the exact T2 rule
   (server wins if set, else local). Commit 14a5665. Re-ran lint+build (pass).
-- Workflow correction adopted: governance Development Cycle now inserts an
-  INDEPENDENT REVIEW gate between self-audit and merge (self-audit alone no longer
-  closes a milestone).
-- Status: M3 marked ✅ Complete in docs/MILESTONES.md. A6b mechanism gap closed at the
-  implementation level; hypothesis confidence unchanged (still Medium-High until M5).
+- RETROSPECTIVE LESSON (one-off, NOT a governance change): self-audit alone proved
+  insufficient to catch a sync-logic defect; an independent review caught it. Adopt
+  the practice of an independent review before closing a milestone going forward, but
+  hold governance doc stable until the pattern recurs. (Governance Development Cycle
+  left unchanged on purpose.)
+- Status: M3 **implementation is complete and independently reviewed under the current
+  test coverage** (lint + build + spec review; no automated sync/conflict test yet).
+  A6b mechanism gap closed at implementation level; hypothesis confidence unchanged
+  (still Medium-High until M5).
 

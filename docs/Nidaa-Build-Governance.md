@@ -36,13 +36,8 @@ disciplined and aligned with the evidence base, even as the code evolves rapidly
    the evidence guardrails, and reports PASS or FAIL-with-deviations. When Antigravity
    implemented, Hermes audits independently (stronger); when Hermes implemented, the
    audit is self-audit (disclosed as such).
-4. **Independent review** — a reviewer who did NOT write the code (you, or another
-   assistant) checks the implementation against the frozen spec, focusing on sync/
-   conflict logic, authorization on every mutating path, and backward compatibility.
-   This gate sits BETWEEN self-audit and merge; defects found here are fixed and
-   re-verified before closing. Self-audit is NOT sufficient to close a milestone.
-5. **Integrator review** — you inspect and approve.
-6. **Merge only after passing review** — no code lands without steps 3–5 complete.
+4. **Integrator review** — you inspect and approve.
+5. **Merge only after passing review** — no code lands without steps 3–4 complete.
 
 ## Evidence Guardrails
 
