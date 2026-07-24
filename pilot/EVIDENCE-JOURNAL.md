@@ -301,3 +301,46 @@ Synthesis" block). Key points:
   explanatory model, still below validation.
 - Stance carried: STRONG EVIDENCE, CAUTIOUS CLAIMS, until a case study or second
   independent community practitioner confirms/challenges the mechanisms.
+
+==================================================================
+## 2026-07-24 — Day 13 Engineering Baseline Locked to GitHub (research→governance→implementation transition)
+==================================================================
+NOT an evidence event — an engineering/governance milestone. Logged per PR-2
+("journal → commit") so the repo history and the journal stay reconcilable.
+
+TRIGGER: the project is transitioning from the research phase into the engineering
+phase. A clean baseline was committed and pushed before any implementation changes.
+
+ACTIONS (Hermes, same session):
+- Gap analysis: read the full app repo (C:\Users\theab\nidaa) and compared it against
+  the validated research. Surprising result: M1 (offline core) and M2 (verification
+  model) were ALREADY substantially built; the first genuinely unbuilt A6b mechanism
+  is defined responsibilities / clear ownership (→ M3), not offline support.
+- Wrote docs/specs/M0-Evidence-Impl-Gap.md (FROZEN) and docs/specs/M1-Offline-Core.md
+  (FROZEN, T1 persist lastSync + T2 verification survives sync). Milestone specs are
+  kept separate from docs/Nidaa-Build-Governance.md (process-only, stable).
+- SECURITY FIX (critical): .env.local (verifier/admin tokens) was tracked and
+  committed locally in 9494569 but had NOT been pushed. To prevent leaking on push:
+  (a) added .env.local / .env*.local to .gitignore; (b) git rm --cached it; (c) ran
+  git filter-branch to REMOVE it from ALL history (incl. the 9494569 ancestor);
+  (d) pruned refs/original + gc --prune=now. Verified: `git log --all -- .env.local`
+  empty; no .env.local object remains. Token never reached GitHub.
+- Commits (Option-3 split per integrator): Commit A = governance + evidence freeze +
+  gap analysis + M1 spec + .gitignore fix (1766769). Commit B = pre-existing,
+  uncommitted M2 client-UI edits: app/page.tsx (+119), app/api/verify/route.ts,
+  app/globals.css (5e01d1b). App implementation deliberately excluded from Commit A.
+- Pushed to origin/master (78e6e24..5e01d1b). Local 0 ahead / 0 behind after push.
+- Build verification: `npm run lint` passed (1 pre-existing warning in M2 page.tsx,
+  unrelated to this work); `npm run build` passed (4/4 routes, no type errors).
+- Credential persistence: the GitHub PAT was stored in Windows Git Credential
+  Manager (GCM) scoped to github.com, so future push/pull need no re-paste. Token is
+  NOT in .git/config, not in remote URL, not in shell history.
+
+CAVEAT (honesty): the PAT was pasted into chat, so it is technically exposed. Stored
+locally for convenience; a one-time rotation (revoke chat-exposed PAT, mint one new
+fine-grained PAT, re-store) is recommended but not yet done.
+
+NEXT: hand M1-Offline-Core.md to the implementation agent (Antigravity); implement
+T1+T2 only; integrator tests acceptance criteria; Hermes audits before merge. M3
+(ownership/defined responsibilities) authored only after M1 passes audit. Repo kept
+PRIVATE until at least M3.
