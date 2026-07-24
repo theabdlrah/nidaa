@@ -1,0 +1,325 @@
+=== A6-TRUST PACED DISCOVERY 22:52:12 ===
+[1] ERR community endorsement made aid information credible :: TimeoutError('timed out')
+########## [2/10] Q: technically correct information ignored because of source distrust
+Ask
+All
+Images
+News
+Videos
+Maps
+Goggles
+arXiv
+arxiv.org › pdf › 1911.05825
+PDF
+Trustworthy misinformation mitigation with soft information nudging
+A deeper problem that is left unaddressed in the technical · research threads is what to do when information corrections, whether done by an algorithm or journalist, do not work. Even if information is correctly discredited, consumers may · choose to ignore the correct information, due to distrust in the
+PubMed Central
+pmc.ncbi.nlm.nih.gov › articles › PMC11345350
+Don’t believe them! Reducing misinformation influence through source discreditation - PMC
+In the misinformation condition, the article included information deemed false, which was not challenged (e.g., a health researcher claiming that “a drug called Cendexyl, initially developed to treat low blood pressure, has also been found to be an effective treatment for menopause symptoms”). The correction condition included the misinformation plus a statement from a seemingly knowledgeable source correcting it (e.g., a gynecologist stating that it is incorrect that Cendexyl is an effective treatment for menopause symptoms and that “based on the overall evidence available, this is just
+PubMed Central
+pmc.ncbi.nlm.nih.gov › articles › PMC10182088
+The intentions of information sources can affect what information people think qualifies as true - PMC
+In contrast to Study 1, in which all of the reports participants classified were technically true given the supplied ground truth, all of the reports in Study 2 were technically false. All 24 stimuli are displayed in Supplementary Table S5. After each stimulus, participants responded to four measures. The truth-classification measure asked, “Would you consider the information reported by [information source] to be true or false?” (1 
+-- pause 13.8s --
+
+########## [3/10] Q: repeated accuracy built trust coordination updates
+Ask
+All
+Images
+News
+Videos
+Maps
+Goggles
+Express Computer
+expresscomputer.in › home › guest blogs › continuous adaptive trust: sustaining trust in the age of continuous risk
+Continuous adaptive trust: Sustaining trust in the age of continuous risk - Express Computer
+May 20, 2026 - Continuous adaptive trust addresses this absence by treating trust as a dynamic condition rather than a one-time outcome. It establishes a unified model in which authentication signals, entitlement posture, behavioural analytics, and access sensitivity are assessed collectively, with enforcement adjusting as conditions change. As identity expands across hybrid cloud, automation frameworks, and AI-driven systems, this coordinated recalculation becomes essential.
+arXiv
+arxiv.org › html › 2411.01866
+Improving Trust Estimation in Human-Robot Collaboration Using Beta Reputation at Fine-grained Timescales
+July 8, 2025 - To achieve granularity in beta reputation, we utilize continuous reward values to update trust estimates at each timestep of a task. We construct a continuous reward function using maximum entropy optimization to eliminate the need for the laborious specification of a performance indicator. The proposed framework improves trust estimations by increasing accuracy, eliminating the need to manually craft a reward function, and advancing toward the development of more intelligent robots.
+Videos
+02:56
+YouTube
+Gartner’s CARTA Framework | Continuous Adaptive Risk and Trust ...
+December 13, 2020
+36:31
+YouTube
+Rethinking Data Security - A Risk Adaptive Approach - YouTube
+December 13, 2018
+289
+03:19
+YouTube
+Transmit Security's Continuous Adaptive Risk and Trust Assessments ...
+October 23, 2019
+556
+View all
+arXiv
+arxiv.org › html › 2509.04143v2
+The evolution of trust as a cognitive shortcut in r
+-- pause 23.3s --
+
+########## [4/10] Q: humanitarian rumor management trusted intermediary verification workflow
+Ask
+All
+Images
+News
+Videos
+Maps
+Goggles
+UNHCR
+unhcr.org › innovation › wp-content › uploads › 2022 › 02 › Using-Social-Media-in-CBP-Chapter-6-Rumours-and-Misinformation.pdf
+PDF
+UNHCR > USING SOCIAL MEDIA IN COMMUNITY BASED PROTECTION: A GUIDE 127
+rumours and thereby facilitate data analysis; and decision matrices for verifying the rumours. ... While it is important to decide early on how exactly you might collect information about rumors, the actual · collection should not begin until you have all processes in place. Without clearly defined ways to respond · to the information collected, share it efficiently or ensure the rumour tracking system works, your project · will very quickly lose the trust of the community. A workflow for rumor tracking should be a continuous
+Internews
+internews.org › wp-content › uploads › 2021 › 02 › Rumor_Tracking_Mods_1-2_Context-Case-Studies.pdf
+PDF
+Internews Humanitarian Information Services Learning Collection Managing
+Managing Misinformation In A Humanitarian Context ■ Internews Rumour Tracking Methodology ... Trust is key to addressing rumours.
+Thesentinelproject
+thesentinelproject.org › 2020 › 05 › 31 › finding-the-truth-during-conflict-rumour-verification-in-practice
+Finding the Truth During Conflict – Rumour Verification in Practice | The Sentinel Project
+Identifying trusted stakeholders: Upon receiving these reports, our team consults the IVM and sees pre-existing relationships with three key parties – the area chief for Village B, an international development NGO working in the area, and a government security official (the government is assumed to be a positive actor in this case and not a party to any local conflict).
+UN Today
+untoday.org › home › truth, trust and the new risks facing humanitarian action
+Truth, trust and the new 
+-- pause 22.9s --
+
+########## [5/10] Q: informal intermediary trusted more than government during disaster
+Ask
+All
+Images
+News
+Videos
+Maps
+Goggles
+ScienceDirect
+sciencedirect.com › science › article › pii › S2212420925000366
+Trusted intermediaries? The role of diasporas in humanitarian assistance - ScienceDirect
+January 15, 2025 - Participants across the case studies ... outside traditional humanitarian frameworks. Direct access and trusted networks. Diaspora members often serve as trusted intermediaries between crisis-affected communities and external ...
+PubMed Central
+pmc.ncbi.nlm.nih.gov › articles › PMC10815059
+The Role of Trust in Disaster Risk Reduction: A Critical Review
+Checking your browser before accessing pmc.ncbi.nlm.nih.gov · Click here if you are not automatically redirected after 5 seconds
+Discussions
+Gov to Private Sector: Do you miss government work?
+r/EmergencyManagement
+10
+6
+January 27, 2023
+Private Sector Emergency Management
+r/EmergencyManagement
+14
+8
+September 6, 2019
+Business Continuity Vs Emergency Management
+r/EmergencyManagement
+9
+12
+April 12, 2024
+Working for the Public Sector is MUCH better than the Private Sector CMV
+r/changemyview
+1727
+1083
+July 19, 2013
+Show more
+Learn more
+ScienceDirect
+sciencedirect.com › science › article › pii › S2212420925001347
+Interorganizational coordination during emergencies and crises - ScienceDirect
+February 13, 2025 - ICS is useful not as a universal management system for responding to the entire spectrum of disaster-related processes [… but as] an effective set of principles for coordinating the activities of well-trained and integrated communities of first responder organizations in emergencies and in some but not all aspects of disaster response where social and cultural emergence is at a minimum. […] It is not that ICS is the “wrong” system or that it fails only when it is poorly implemented, but that it is a 
+-- pause 17.8s --
+
+########## [6/10] Q: mutual aid group lost trust internal conflict transparency
+Ask
+All
+Images
+News
+Videos
+Maps
+Goggles
+Csf-sudan
+csf-sudan.org › wp-content › uploads › 2025 › 07 › supporting-mutual-aid-in-sudan-conflict-sensitive-approaches-to-risk-and-accountability-.pdf
+PDF
+Supporting Mutual Aid in Sudan: Conflict-Sensitive Approaches to
+Reputational risks: early in the conflict, international donors were wary of and sought to understand the relationship · between ERRs and the politically motivated Resistance Committees. During the conflict, community groups are · perceived to have sustained neutral delivery of humanitarian assistance. Aid fraud and capture: whether relatively unknown groups, many unfamiliar in handling funding, can be trusted ...
+Mytrustbuilder
+mytrustbuilder.com › 8-steps-for-rebuilding-trust-after-a-conflict
+8 Steps for Rebuilding Trust After a Conflict
+June 18, 2026 - You do, however, need to understand and value the interests of others in balance with your own transparent interests. It will require consistent, reliable actions that show a genuine commitment to improvement.
+Discussions
+Advice on starting a fund for a small mutual aid org
+r/nonprofit
+14
+12
+January 24, 2025
+"Mutual aid" is a petty bourgeois time-waster
+r/communism
+83
+162
+September 7, 2023
+Learn more
+Videos
+23:41
+YouTube
+3 Steps To Rebuild Trust After Workplace Conflict - YouTube
+April 22, 2025
+06:32
+YouTube
+How To Rebuild Trust On A Team (When It's Your Fault) - YouTube
+April 14, 2025
+youtube.com
+TRUST in CRISIS: Strategies for Rebuilding Trust in Teams ...
+View all
+Deanspade
+deanspade.net › 2019 › 12 › 04 › mutual-aid-chart
+Mutual Aid Chart – Dean Spade
+December 4, 2019 - The chart only hopes to suggest that an overwhelming presence of qualities in the right-hand column or a drift toward those tendencies and qualities sometimes undermines the potential for mu
+-- pause 14.7s --
+
+########## [7/10] Q: trust in local leaders vs external organizations disaster response
+Ask
+All
+Images
+News
+Videos
+Maps
+Goggles
+PubMed Central
+pmc.ncbi.nlm.nih.gov › articles › PMC3780560
+Community Engagement in Disaster Preparedness and Recovery: A Tale of Two Cities - Los Angeles and New Orleans - PMC
+Efforts to build trust can overcome those issues, but the sacrifice and investment of time is not necessarily commonplace in disaster response. This is why trust must be built before a disaster. The FEMA whole of community planning strategy is to incorporate pre-disaster collaboration between responders and community residents. It may be simpler for a responder agency to provide funding to local agencies to ensure that some services are delivered, as funding agencies may prefer organizations with a solid financial track record, but then the opportunity to build capacity among the most affected agencies which are trusted among the most impacted populations can be lost.
+Frontiers
+frontiersin.org › journals › communication › articles › 10.3389 › fcomm.2023.1100265 › full
+Frontiers | Translating the complexity of disaster resilience with local leaders
+February 28, 2023 - Because the institutions are locally based, this partnership can continually translate the complexity of disaster resilience with local leaders, i.e., bridge the gap between SRUCs, external experts, and state and federal partners to iteratively assess risk; enhance communications and engagement to inform local leaders while building trust; and support knowledge co-production processes that harness local knowledge and data while building shared understanding, buy-in and ownership of potential solutions.
+PubMed Central
+pmc.ncbi.nlm.nih.gov › articles › PMC10815059
+The Role of Trust in Disaster Risk Reduction: A Critical Review
+Checking your browser before accessing pmc.ncbi.nlm.nih.gov · Click he
+-- pause 24.0s --
+
+########## [8/10] Q: what makes humanitarian information credible field study
+Ask
+All
+Images
+News
+Videos
+Maps
+Goggles
+Taylor & Francis Online
+tandfonline.com › home › all journals › politics & international relations › peacebuilding › list of issues › volume 10, issue 1 › what knowledge counts? local humanitaria ....
+Full article: What knowledge counts? Local humanitarian knowledge production in protracted conflicts. A Central African Republic case study
+Firstly, situational and contextual knowledge combine traditional indigenous know-how, locally held data about crises with historical, geographical and cultural factors applied to implement humanitarian projects.
+International Review of the Red Cross
+international-review.icrc.org › articles › the-challenges-of-research-in-the-humanitarian-sector-926
+The challenges of research in the humanitarian sector: An evolving relationship | International Review of the Red Cross
+The ICRC does not necessarily represent or endorse the accuracy or reliability of any advice, opinion, statement or other information provided in this article. The relationship between the humanitarian sector and the world of research is multifaceted. The humanitarian sphere and humanitarian workers can be both objects and producers of research, and they can also serve as catalysts for cooperation between the academic world, civil society and recipients of humanitarian aid. Humanitarian action has been studied by researchers for at least as long as it has existed in its modern, secular form, which began when the International Committee of the Red Cross (ICRC) was created.
+Fogarty International Center
+fic.nih.gov › News › GlobalHealthMatters › january-february-2021 › Pages › conducting-research-in-humanitarian-crises.aspx
+Scientists describe challenges and lessons learned when conducting research in humanitarian crises - Fogarty Inter
+-- pause 17.6s --
+
+########## [9/10] Q: people stopped trusting official updates during crisis misinformation
+Ask
+All
+Images
+News
+Videos
+Maps
+Goggles
+ScienceDirect
+sciencedirect.com › science › article › pii › S0268401224000288
+Social media trust: Fighting misinformation in the time of crisis - ScienceDirect
+March 20, 2024 - This cycle of eroding trust not only complicates crisis management but also amplifies misinformation spread, as users of official channels may seek information from unofficial sources, posing significant barriers to effective crisis response.
+PubMed Central
+pmc.ncbi.nlm.nih.gov › articles › PMC12313155
+The Impact of Misinformation on Social Media in the Context of Natural Disasters: Narrative Review - PMC
+The selected studies revealed ... narratives. The misleading messages disseminated across social media platforms often outpaced official communications, resulting in reduced trust and exacerbating anxiety, stress, and fear among affected populations....
+Discussions
+How the hell do we fight misinformation?
+r/NoStupidQuestions
+146
+37
+January 15, 2025
+What should be the strategy to address misinformation from the right?
+r/AskALiberal
+37
+5
+November 12, 2024
+How do we combat misinformation?
+r/TwoXPreppers
+46
+92
+November 12, 2024
+How do you combat misinformation? : r/AskReddit
+r/AskReddit
+Show more
+Learn more
+Videos
+stockholmresilience.org
+Misinformation and sense making in crisis - Stockholm Resilience ...
+31:25
+YouTube
+COVID-19 Briefing Series: A Crisis of Disinformation - YouTube
+May 22, 2020
+830
+rand.org
+COVID-19 Briefing Series: A Crisis of Disinformation
+View all
+JMIR
+infodemiology.jmir.org › 2025 › 1 › e70413
+JMIR Infodemiology - The Impact of Misinformation on Social Media in the Context of Natural Disasters: Narrative Review
+July 31, 2025 - The misleading messages disseminated across social media platforms often outpaced official communications, resulti
+-- pause 23.8s --
+
+########## [10/10] Q: why communities trust some local coordinators but ignore others disaster
+Ask
+All
+Images
+News
+Videos
+Maps
+Goggles
+Nature
+nature.com › world view › article
+Disaster relief needs community trust — authorities must earn it
+June 3, 2025 - Nature - Governments and institutions must shift from top-down approaches to collaborations with local communities.
+Penn State
+extension.psu.edu › a community approach to disaster preparedness and response
+A Community Approach to Disaster Preparedness and Response
+August 18, 2025 - Local residents and groups can ... Similarly, local communities can provide a sense of connection, and decrease the isolation and abandonment that is often felt among residents in times of disaster....
+Videos
+30:11
+YouTube
+Community Based Disaster Management - YouTube
+August 29, 2025
+16:40
+YouTube
+Coping with Natural Disasters: The role of community - YouTube
+October 9, 2023
+16:59
+YouTube
+Building Community Resilience During and After Natural Disasters ...
+September 27, 2023
+youtube.com
+Nonprofit helps communities prepare for disaster response
+17:07
+YouTube
+Talking With the Experts: Coordinating Natural Disaster Response ...
+October 12, 2023
+youtube.com
+Community Emergency Preparedness & Local Response ...
+View all
+Berkeley
+isg.berkeley.edu › 2023 › 10 › 17 › trustworthy-disaster-response-technology-policy-and-society
+Trustworthy Disaster Response: Technology, Policy, and Society | CSP Berkeley
+October 17, 2023 - They can allocate resources, mobilize personnel, and coordinate evacuation efforts to ensure the safety of their constituents. This mutual trust also aids in the efficient deployment of emergency services, such as firefighters, law enforcement officers, medical teams, and search and rescue ...
+ScienceDirect
+sciencedirect.com › science › article › pii › S095937802300095X
+Collaboration and individual performance during disaster
+-- pause 21.5s --
+
+=== DONE ===

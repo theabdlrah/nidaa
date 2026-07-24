@@ -16,3 +16,7 @@ tsconfig.tsbuildinfo
 # python build cache
 __pycache__/
 *.pyc
+
+# local env / secrets (verifier + admin tokens) — NEVER commit
+.env.local
+.env*.local

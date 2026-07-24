@@ -15,15 +15,49 @@ meeting." Write what the evidence did to each assumption.
 Status vocabulary: `Untested` · `Strengthened` · `Weakened` · `Falsified`
 Confidence: `High` · `Medium` · `Low`
 
+### Two-dimensional confidence rule (governing, 2026-07-24)
+Distinguish two separate dimensions — do NOT conflate them:
+1. **Evidence quality** — how trustworthy THIS piece of evidence is (named? original-language
+   primary source? verbatim archived? audit trail preserved?). A single high-quality source
+   can score High on evidence quality.
+2. **Hypothesis confidence** — how strongly the OVERALL assumption/hypothesis is supported,
+   which depends on the QUANTITY, INDEPENDENCE, and DIVERSITY of evidence, not just one source's
+   quality. Improving one source's quality raises that source's evidence-quality, but does NOT
+   by itself raise hypothesis confidence to the same degree.
+Application (Day 12): Omar Ghazal's transcript = High evidence quality (named + original Arabic
++ verbatim + audit trail). G1/G2 records = High-quality evidence (n=1). A2 = High because it is
+STRONGLY SUPPORTED via MULTIPLE independent sources (Adam E., Abdelrahman S., Omar, + Mones on
+related points) — diversity-based, not a source-quality carry-over. A6b = Medium–High overall:
+strong convergence (Mones formal + Omar community/informal) but rests on a limited number of
+independent practitioners; awaiting broader replication / operational validation. This rule
+prevents auto-promoting a hypothesis when only source quality improved.
+
+### Standard decision process for every new piece of evidence (applies the rule)
+Evaluate each incoming evidence item with this same sequence — do not skip steps:
+1. **Did this improve the quality of an existing source?** If yes → upgrade the
+   EVIDENCE QUALITY of that source/record (e.g., named, original-language, verbatim,
+   audit trail). This does NOT by itself change hypothesis confidence.
+2. **Did this add an independent line of corroboration or contradiction?** If yes →
+   consider whether HYPOTHESIS CONFIDENCE should change (more/independent/diverse
+   corroboration raises it; a practitioner critique or disconfirming case tests it).
+3. **Has operational validation occurred?** If yes → may justify a further increase
+   in hypothesis confidence beyond practitioner testimony alone (e.g., a dated
+   operational case study where the mechanisms clearly succeeded or failed).
+Record which step(s) applied in the evidence journal entry so any future reviewer
+can reproduce WHY a confidence moved (or did not).
+
 | # | Assumption | Evidence For | Evidence Against | Confidence | Status |
 |---|------------|--------------|-----------------|------------|--------|
-| 1 | Coordination is a priority problem. | — | — | Low | Untested |
-| 2 | Information/matching is a significant bottleneck. | Resident interview (Adam E., 2026-07-14): info access depends on connectivity; outage cut family's access to food-distribution info. | — | Medium | Strengthened |
+| 1 | Coordination is a priority problem. | MSF coord. (Mones, 2026-07-17): "Information sharing is one of the most important elements of operational success" + daily cross-dept/external coordination with named owners. | — | Medium | Strengthened |
+| 2 | Information/matching is a significant bottleneck. | Resident interview (Adam E., 2026-07-14): info access depends on connectivity; outage cut family's access to food-distribution info. | Omar Ghazal (2026-07-24, named practitioner, original Arabic + translation): "the main challenge is not communication itself, but organizing the flow of information, verifying it, defining responsibilities" — bottleneck is info FLOW/VERIFY, not mere exchange. Independent of Mones. | High | Strengthened |
 | 3 | Offline capability materially matters. | Resident interview (Adam E., 2026-07-14): connectivity outages cut access to aid info AND digital payments/transfers; incumbent tools' failure mode is connectivity itself. | — | Medium | Strengthened |
-| 4 | Verification materially matters. | — | — | Low | Untested |
+| 4 | Verification materially matters. | MSF coord. (Mones, 2026-07-17): "we rely on verifying information from trusted and specific sources before adopting or sharing it." | — | Medium | Strengthened |
 | 5 | Existing tools are insufficient for at least some communities. | Resident interview (Adam E., 2026-07-14): WhatsApp/Telegram/FB work only when connectivity exists; they fail exactly during outages, when needed most. | — | Medium | Strengthened |
-| 6 | Organizations would trust designated verifiers. | — | — | Low | Untested |
-| 7 | Communities would adopt a new workflow if it solved the problem. | — | — | Low | Untested |
+| 6 | Organizations would trust designated verifiers. | MSF (Mones, 2026-07-17): structured, owned, tooled coordination w/ satellite backup that survives outages; explicit verify-from-trusted-sources behavior. Strengthens OWNER/MANDATE branch only. Omar Ghazal (2026-07-24, named practitioner, original Arabic + translation): initiatives work "when they have trusted individuals, clearly defined roles, direct communication channels with the relevant institutions, and a simple mechanism for verifying and updating information" — second NAMED, different-background source describing the SAME owner/verify precondition (convergence with Mones). [Refined 2026-07-24:
+ both independently identify structured information management—clear ownership,
+ verification, defined responsibilities, and institutional linkage—as central to
+ effective coordination despite operating in different humanitarian contexts.] | Loose-informal branch (G2) NOW PRESENT at pattern level (2026-07-24, Omar Ghazal — named practitioner): collapse occurred exactly where owner/mandate + docs ABSENT (single-person reliance, weak documentation, conflicting info, burnout). First real G2, from a named source. | Medium-High | Strengthened (conditional) |
+| 7 | Communities would adopt a new workflow if it solved the problem. | MSF coord. (Mones, 2026-07-17): active use of Teams/Google Earth/internal IM/WhatsApp/Telegram = coordinators DO adopt tooled workflows (A7a). | A7b (beneficiary adoption) still untested. | Medium | Strengthened (A7a) |
 
 ---
 
@@ -112,6 +146,8 @@ After pasting the template and filling the Evidence Ledger:
 | # | Org / Role | Date | A1 | A2 | A5 | Biggest-hit assumption | Pivot triggered? |
 |---|------------|------|----|----|----|------------------------|------------------|
 | 1 | Adam Elijilah (Resident) | 2026-07-14 | U | S | S | A3 (offline = connectivity failure mode) | no |
+| 2 | Mones (MSF Field Coordinator Support, Gaza) | 2026-07-17 | S | S | S | A6b owner-branch / A4 (verification behavior) | no |
+| 3 | Omar Ghazal (named practitioner, Gaza, translated, relayed) | 2026-07-24 | S | S | S | A2 (bottleneck = info flow/verify) + FIRST NAMED G1+G2 material; convergence with Mones | no |
 
 (A1/A2/A5 = status of those assumptions after the call: S=Strengthened,
 W=Weakened, F=Falsified, U=Untested. "Pivot triggered?" = yes only if the Pivot
