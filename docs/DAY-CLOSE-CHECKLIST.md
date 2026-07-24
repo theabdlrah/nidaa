@@ -1,49 +1,49 @@
-# Nidaa — Day-Close Checklist (Standing Practice)
+# Nidaa — Daily Habit: Project Synchronization (Standing Practice)
 
-Standing practice adopted Day 13 (2026-07-25), recorded here so it does not live
-only in chat. Deliberately NOT part of `Nidaa-Build-Governance.md` (governance stays
-stable; this is a working practice — fold into governance only if repeated experience
-justifies it).
+Adopted Day 13 (2026-07-25). Recorded here so it does not live only in chat.
+Deliberately NOT part of `Nidaa-Build-Governance.md` (governance stays stable;
+fold into governance only if repeated experience justifies it). This is the
+canonical end-of-session routine — it refines the earlier Day-Close draft into the
+form the project lead specified.
 
-Runs at the END of each Nidaa day, before the day is declared closed. Mirrors the
-Day-12 Operational Integrity Review but at close rather than open, and — critically —
-it is the gate that catches work that exists ONLY in chat.
+At the end of EVERY Nidaa work session, before declaring the day closed:
 
-Before declaring a day closed, answer ALL of the following. If any answer is
-unsatisfactory, resolve it (record or correct) BEFORE closing the day:
+## 1. Synchronize GitHub
+- Commit all intentional Nidaa changes.
+- Push to the remote repository.
+- **Verify the remote matches local** — `git fetch` + compare HEAD; do not rely on
+  the push message alone.
 
-1. **Repository committed and pushed?**
-   `git status` clean-or-intentional; `git log`/remote confirms the day's work is
-   persisted and pushed (not just local).
+## 2. Synchronize the Project Records
+- Update **`pilot/EVIDENCE-JOURNAL.md`** with the day's engineering/evidence events,
+  following the "one fact, one home" principle.
+- Update **`Nidaa-Journal.docx`** with the day's narrative (mission, successes,
+  failures, lessons, decisions, project state, next objective). This journal exists
+  **for the project lead's own reference and reflection**, not as the canonical
+  engineering record. Use the captain's-log structure: it complements the repo
+  artifacts instead of duplicating them.
+  - Evidence Journal → what changed (factual record).
+  - Milestones (`docs/MILESTONES.md`) → project status.
+  - Specs (`docs/specs/`) → design decisions.
+  - Captain's Log (`Nidaa-Journal.docx`) → the story: why the project evolved.
 
-2. **Evidence Journal updated?**
-   `pilot/EVIDENCE-JOURNAL.md` reflects the day's evidence events (or explicitly
-   records "no evidence event" for engineering-only days).
+## 3. Confirm Completeness
+- No important decision or lesson exists only in chat.
+- Every maintained project artifact is either: **updated**, **intentionally left
+  unchanged**, or **explicitly retired**.
+- Only after these checks pass is the day considered closed.
 
-3. **Narrative journal updated?**
-   `C:\Users\theab\Desktop\Nidaa-Journal.docx` — IF it is still an active project
-   artifact. As of Day 13 it IS in scope. Any narrative-relevant work from the day
-   that is not yet mirrored there must be added before close. (This item was the
-   Day-12–Day-13 gap: the `.docx` was silently excluded from review scope and the
-   engineering phase was discovered stale several days later. Do not let it recur.)
+## Standing Principle
+> Every work session ends by synchronizing the repository and the journals.
+> GitHub preserves the project's history; the journal preserves my understanding
+> of that history.
 
-4. **Tracker / specs / governance synchronized?**
-   `docs/MILESTONES.md`, frozen specs under `docs/specs/`, and
-   `Nidaa-Build-Governance.md` all reflect the day's actual state. No stale cells,
-   no tracker entry contradicting the repo.
-
-5. **Anything still exists only in chat?**
-   Scan the day's conversation for decisions, findings, bug fixes, or state changes
-   that were reasoned through in chat but never written to a durable artifact (repo,
-   journal, tracker, or doc). If found, persist it before close.
-
-Pass: "Day X close verified — repo pushed, journals synced, nothing left in chat."
-Fail: list the gap; close the gap (or, if genuinely deferring, record the deferral
-with a reason) before declaring the day closed.
-
-## Why this exists
-The Day-12 discipline proved "don't trust writes; verify resulting state." But
-verification at day-open only catches drift that the PREVIOUS close left behind. A
-close-time checklist is the complementary gate: it is the moment a day's work is
-forced out of chat and into artifacts. A fact that lives only in chat is a fact that
-will not survive the next context window.
+## Why this exists / provenance
+Adopted from the project lead's explicit Day-13 instruction. It closes the
+Day-12–Day-13 gap, where the narrative `.docx` drifted four days behind because it
+was silently outside the pre-day review scope (the review's "journal" implicitly
+meant only `pilot/EVIDENCE-JOURNAL.md`). The `.docx` is now a named item here and in
+`docs/PRE-DAY-REVIEW.md`, so it cannot silently drift again. The Day-12 discipline
+("don't trust writes; verify resulting state") is the foundation: verification at
+day-open only catches drift the previous close left behind; a close-time gate is the
+complementary checkpoint that forces a day's work out of chat and into artifacts.
