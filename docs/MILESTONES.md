@@ -13,7 +13,7 @@ its spec's acceptance criteria are verified, not when code is merely written.
 | M0 – Evidence-vs-Impl Gap Analysis | ✅ Complete             | `docs/specs/M0-Evidence-Impl-Gap.md` (FROZEN) |
 | M1 – Offline Core Hardening        | ✅ Complete             | `docs/specs/M1-Offline-Core.md` (FROZEN). T1 persist lastSync, T2 verification survives sync. Tested and audited; passed all acceptance criteria. |
 | M2 – Verification Model            | ✅ Already Implemented  | Role-gated verify (`lib/auth.ts`, `app/api/verify`) + verifier UI (`app/page.tsx`). Met; no M1-era change required. |
-| M3 – Ownership & Responsibilities  | ✅ Complete             | `docs/specs/M3-Ownership-Responsibilities.md` (FROZEN). `owner` + `assignedTo` (privileged, audited, offline-first). Self-audited PASS vs spec; integrator review pending. |
+| M3 – Ownership & Responsibilities  | ✅ Complete             | `docs/specs/M3-Ownership-Responsibilities.md` (FROZEN). `owner` + `assignedTo` (privileged, audited, offline-first). Implementation complete and independently reviewed under current test coverage; merge-rule defect found in review and fixed (14a5665). |
 | M4 – Institutional Linkage         | ⏸ Planned              | Final A6b mechanism; links entries to orgs. After M3. |
 | M5 – Operational Validation        | ⏸ Planned (gate)        | Real-world case study / 2nd practitioner before assumptions further strengthened. |
 
