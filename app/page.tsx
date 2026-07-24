@@ -34,6 +34,16 @@ export default function Page() {
   const [showForm, setShowForm] = useState<boolean>(false);
   const [lastSync, setLastSync] = useState<string>("");
   const [setupRequired, setSetupRequired] = useState<boolean>(false);
+  // ---- verifier mode (trust transparency; evidence A4 / A6-conditional) ----
+  // Token is entered once per session and kept only in memory (never persisted,
+  // never sent except as a Bearer header to /api/verify). Without a token the
+  // board is fully usable; only the verify action is gated.
+  const [verifyToken, setVerifyToken] = useState<string>("");
+  const [audit, setAudit] = useState<any[]>([]);
+  const [showAudit, setShowAudit] = useState<boolean>(false);
+  // Render cap: the board can hold 10k+ HDX facility rows; painting them all
+  // freezes the browser. Cap the list view and surface the remainder.
+  const LIST_CAP = 150;
 
   const t = (ar: string, en: string) => (lang === "ar" ? ar : en);
 
@@ -100,11 +110,63 @@ export default function Page() {
     await pull();
   }, [pull, refreshLocal]);
 
-  // initial load
-  useEffect(() => {
-    refreshLocal().then(pull);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+  // ---- load verification audit trail (transparency; read-only endpoint) ----
+  const loadAudit = useCallback(async () => {
+    try {
+      const res = await fetch("/api/verify", { cache: "no-store" });
+      if (!res.ok) return;
+      const data = (await res.json()) as { audit: any[] };
+      setAudit(data.audit || []);
+    } catch {
+      /* ignore */
+    }
   }, []);
+
+  // ---- verifier action: mark entry verified/unverified (role-gated server-side) ----
+  const verifyEntry = useCallback(
+    async (clientId: string, verified: boolean) => {
+      if (!verifyToken) {
+        alert(
+          t(
+            "أدخل رمز المُحقق أولاً (الزر أدناه).",
+            "Enter a verifier token first (button below)."
+          )
+        );
+        return;
+      }
+      try {
+        const res = await fetch("/api/verify", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${verifyToken}`,
+          },
+          body: JSON.stringify({ id: clientId, verified }),
+        });
+        if (res.status === 401) {
+          alert(
+            t(
+              "الرمز غير صالح أو بلا صلاحية للتحقق.",
+              "Token invalid or lacks verify permission."
+            )
+          );
+          return;
+        }
+        if (!res.ok) return;
+        await refreshLocal();
+        await pull();
+        await loadAudit();
+      } catch {
+        /* ignore */
+      }
+    },
+    [verifyToken, refreshLocal, pull, loadAudit, t]
+  );
+
+  useEffect(() => {
+    if (verifyToken) loadAudit();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [verifyToken]);
 
   // auto-sync when coming online
   useEffect(() => {
@@ -188,6 +250,25 @@ export default function Page() {
         <button className="btn" onClick={() => pushPending()} disabled={syncing || !online}>
           {syncing ? t("جارٍ المزامنة…", "Syncing…") : t("مزامنة الآن", "Sync now")}
         </button>
+        <button
+          className="btn secondary"
+          onClick={() => {
+            const tok = prompt(
+              t("أدخل رمز المُحقق (يُحفظ في الجلسة فقط):", "Enter verifier token (session-only):")
+            );
+            if (tok) {
+              setVerifyToken(tok.trim());
+              setShowAudit(true);
+            }
+          }}
+        >
+          {verifyToken ? t("✓ وضع المُحقق", "✓ Verifier") : t("وضع المُحقق", "Verifier")}
+        </button>
+        {verifyToken && (
+          <button className="btn secondary" onClick={() => { setShowAudit((s) => !s); loadAudit(); }}>
+            {t(`السجل (${audit.length})`, `Audit (${audit.length})`)}
+          </button>
+        )}
       </div>
 
       <div className="notice">
@@ -240,8 +321,7 @@ export default function Page() {
                 : t("لا توجد منشورات بعد.", "No posts yet.")}
             </div>
           )}
-
-          {merged.map((e) => (
+          {merged.slice(0, LIST_CAP).map((e) => (
             <div className="card" key={e.clientId}>
               <div className="row1">
                 <div>
@@ -267,8 +347,37 @@ export default function Page() {
                 {e.contact ? " · ☎ " + e.contact : ""}
                 {e.lat && e.lng ? " · 🗺 " + e.lat.toFixed(2) + "," + e.lng.toFixed(2) : ""}
               </div>
+              {verifyToken && !e.source && (
+                <div className="verifyrow">
+                  <button
+                    className="btn secondary small"
+                    onClick={() => verifyEntry(e.clientId, !e.verified)}
+                  >
+                    {e.verified ? t("إلغاء التوثيق", "Unverify") : t("توثيق", "Verify")}
+                  </button>
+                </div>
+              )}
             </div>
           ))}
+          {merged.length > LIST_CAP && (
+            <div className="skeleton">
+              {t(
+                `يُعرض ${LIST_CAP} من ${merged.length} — استخدم البحث أو الفلتر للضييق.`,
+                `Showing ${LIST_CAP} of ${merged.length} — use search/filter to narrow.`
+              )}
+            </div>
+          )}
+          {showAudit && audit.length > 0 && (
+            <div className="card audit">
+              <h3>{t("سجل التوثيق (شفافية)", "Verification audit (transparency)")}</h3>
+              {audit.slice().reverse().slice(0, 20).map((r, i) => (
+                <div className="auditrow" key={i}>
+                  {r.action === "verify" ? "✓" : "↺"} {r.actorRole} ·{" "}
+                  {new Date(r.at).toLocaleString()} · {r.entryId.slice(0, 12)}
+                </div>
+              ))}
+            </div>
+          )}
         </>
       )}
 

@@ -1,8 +1,15 @@
 import { NextRequest, NextResponse } from "next/server";
-import { setVerified } from "@/lib/store";
+import { setVerified, readAudit } from "@/lib/store";
 import { getRole, canVerify } from "@/lib/auth";
 
 export const dynamic = "force-dynamic";
+
+// GET /api/verify — read-only transparency trail of all verification actions.
+// Intentionally unauthorized: the audit log is meant to be auditable/visible.
+export async function GET() {
+  const log = await readAudit();
+  return NextResponse.json({ audit: log });
+}
 
 // POST /api/verify  { id, verified } — a trusted verifier/admin marks an entry
 // verified (or reverses it). This endpoint is now ROLE-GATED: anonymous users,

@@ -93,11 +93,14 @@ button {
   font-size: 0.95rem;
 }
 .btn:hover { background: var(--teal-dark); }
-.btn.secondary {
-  background: #e5e7eb;
-  color: #111827;
-}
+.btn.secondary { background: #e5e7eb; color: #111827; }
+.btn.small { padding: 6px 10px; font-size: 0.82rem; }
 .btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.verifyrow { margin-top: 8px; }
+.card.audit { background: #f8fafc; }
+.card.audit h3 { font-size: 0.95rem; }
+.auditrow { font-size: 0.78rem; color: var(--muted); padding: 3px 0; border-bottom: 1px solid #eef2f7; }
 
 .card {
   background: var(--card);
