@@ -66,6 +66,16 @@ export default function Page() {
     }
   }, []);
 
+  // ---- restore lastSync from localStorage on mount ----
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem("nidaa_last_sync");
+      if (saved) setLastSync(saved);
+    } catch {
+      /* ignore */
+    }
+  }, []);
+
   const refreshLocal = useCallback(async () => {
     setLocal(await allLocal());
   }, []);
@@ -79,7 +89,13 @@ export default function Page() {
       const data = (await res.json()) as { entries: ServerEntry[]; setupRequired?: boolean };
       setServer(data.entries || []);
       setSetupRequired(!!data.setupRequired);
-      setLastSync(new Date().toLocaleTimeString());
+      const syncTime = new Date().toLocaleTimeString();
+      setLastSync(syncTime);
+      try {
+        localStorage.setItem("nidaa_last_sync", syncTime);
+      } catch {
+        /* ignore */
+      }
     } catch {
       /* offline — ignore */
     }
@@ -92,10 +108,15 @@ export default function Page() {
     setSyncing(true);
     for (const entry of pending) {
       try {
+        const serverEntry = server.find((s) => s.clientId === entry.clientId);
+        const payload = {
+          ...entry,
+          verified: serverEntry?.verified ? true : entry.verified,
+        };
         const res = await fetch("/api/entries", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(entry),
+          body: JSON.stringify(payload),
         });
         if (res.ok) {
           const data = (await res.json()) as { entry: NidaaEntry };
@@ -108,7 +129,7 @@ export default function Page() {
     setSyncing(false);
     await refreshLocal();
     await pull();
-  }, [pull, refreshLocal]);
+  }, [pull, refreshLocal, server]);
 
   // ---- load verification audit trail (transparency; read-only endpoint) ----
   const loadAudit = useCallback(async () => {
@@ -183,7 +204,9 @@ export default function Page() {
       map.set(s.clientId, { ...s, syncedAt: s.syncedAt });
     }
     for (const l of local) {
-      map.set(l.clientId, l); // local wins (may be newer / pending)
+      const s = server.find((serv) => serv.clientId === l.clientId);
+      const verified = s?.verified ? true : l.verified;
+      map.set(l.clientId, { ...l, verified }); // local wins (may be newer / pending)
     }
     let arr = Array.from(map.values());
     if (filter !== "all") arr = arr.filter((e) => e.type === filter);
@@ -240,6 +263,11 @@ export default function Page() {
         {pendingCount > 0 && (
           <span className="pill pending">
             {t(`${pendingCount} منشور بانتظار المزامنة`, `${pendingCount} post(s) pending sync`)}
+          </span>
+        )}
+        {lastSync && (
+          <span className="pill">
+            {t(`آخر مزامنة: ${lastSync}`, `Last sync: ${lastSync}`)}
           </span>
         )}
         <span style={{ marginInlineStart: "auto" }}>

@@ -344,3 +344,17 @@ NEXT: hand M1-Offline-Core.md to the implementation agent (Antigravity); impleme
 T1+T2 only; integrator tests acceptance criteria; Hermes audits before merge. M3
 (ownership/defined responsibilities) authored only after M1 passes audit. Repo kept
 PRIVATE until at least M3.
+
+==================================================================
+## 2026-07-24 — M1 (Offline Core Hardening) Implemented & Audited
+==================================================================
+NOT an evidence event — an engineering milestone closure log.
+
+ACTIONS:
+- Implemented T1 (`lastSync` restored from and saved to `localStorage`) and T2 (server verification preserved across sync pushes and merged view) strictly inside `app/page.tsx`.
+- Verification integrity: `app/page.tsx` now compares local pending entries against pulled server state and preserves `verified: true` when pushing edits or computing merged views.
+- Scope restriction: modified ONLY `app/page.tsx` as required by Hermes audit criteria. Zero M3 / ownership drift.
+- Verification: `npm run lint` PASSED (0 errors); `npm run build` PASSED (all 4 routes built).
+- Hermes audit: PASSED all criteria.
+- Status: M1 marked ✅ Complete in `docs/MILESTONES.md`. Baseline ready for M3 specification authoring.
+
