@@ -23,6 +23,12 @@ export interface NidaaEntry {
   lat?: number;
   lng?: number;
   authorRole: "individual" | "ngo" | "volunteer" | "unknown";
+  // M3 — ownership & defined responsibilities (A6b mechanism gap).
+  // owner = the actor ACCOUNTABLE for follow-up (named label, not a user id —
+  // the app has no user system). Defaults to authorRole at submission.
+  owner: string;
+  // assignedTo = actor(s) RESPONSIBLE for acting. Multiple allowed. [] = unassigned.
+  assignedTo: string[];
   // verified = a human/organisation verifier marked this true AFTER a real
   // check. Imported HDX/OSM facility data is NOT human-verified — it carries
   // provenance instead (source + sourceDate). Never set verified:true on import.
@@ -45,6 +51,19 @@ export interface VerificationAudit {
   action: "verify" | "unverify";
   priorVerified: boolean;
   newVerified: boolean;
+  at: string; // ISO timestamp
+}
+
+// M3 — assignment audit (mirrors VerificationAudit). Every owner/assignedTo change
+// is logged and reversible (records prior state), and readable publicly for
+// transparency (like the verification audit).
+export interface AssignmentAudit {
+  entryId: string;
+  clientId: string;
+  actorRole: string;
+  field: "owner" | "assignedTo";
+  prior: string | string[] | null;
+  next: string | string[] | null;
   at: string; // ISO timestamp
 }
 

@@ -53,6 +53,10 @@ export async function POST(req: NextRequest) {
     lat: payload.lat,
     lng: payload.lng,
     authorRole: payload.authorRole || "unknown",
+    // M3 — persist ownership/responsibility if the client sent them; default for
+    // old clients that don't (consistent with store backward-compat defaults).
+    owner: payload.owner || payload.authorRole || "unknown",
+    assignedTo: Array.isArray(payload.assignedTo) ? payload.assignedTo.map(String) : [],
     verified: payload.verified ?? false,
     createdAt: payload.createdAt || new Date().toISOString(),
     syncedAt: new Date().toISOString(),

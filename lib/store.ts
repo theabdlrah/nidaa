@@ -1,6 +1,6 @@
 import { promises as fs } from "fs";
 import path from "path";
-import { NidaaEntry, DbShape, VerificationAudit } from "./types";
+import { NidaaEntry, DbShape, VerificationAudit, AssignmentAudit } from "./types";
 
 const AUDIT_PATH = path.join(process.cwd(), "data", "verify-audit.json");
 
@@ -64,10 +64,16 @@ export async function writeDb(db: DbShape): Promise<void> {
 
 export async function listEntries(): Promise<NidaaEntry[]> {
   const db = await readDb();
-  // newest first
-  return [...db.entries].sort(
-    (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
-  );
+  // newest first; backward-compat defaults for pre-M3 entries (no owner/assignedTo)
+  return [...db.entries]
+    .map((e) => ({
+      ...e,
+      owner: e.owner ?? e.authorRole,
+      assignedTo: e.assignedTo ?? [],
+    }))
+    .sort(
+      (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+    );
 }
 
 export async function upsertEntry(entry: NidaaEntry): Promise<NidaaEntry> {
@@ -132,6 +138,79 @@ export async function readAudit(): Promise<VerificationAudit[]> {
   try {
     const raw = await fs.readFile(AUDIT_PATH, "utf-8");
     const log = JSON.parse(raw) as VerificationAudit[];
+    return Array.isArray(log) ? log : [];
+  } catch {
+    return [];
+  }
+}
+
+const ASSIGN_AUDIT_PATH = path.join(process.cwd(), "data", "assign-audit.json");
+
+// M3 — privileged assignment (owner / assignedTo). Mirrors setVerified: gated by
+// caller (route checks the token), writes the fields, and logs a reversible audit.
+export async function setAssignment(
+  id: string,
+  patch: { owner?: string; assignedTo?: string[] },
+  actorRole: string
+): Promise<NidaaEntry | null> {
+  return withWriteLock(async () => {
+    const db = await readDb();
+    const entry = db.entries.find((e) => e.id === id || e.clientId === id);
+    if (!entry) return null;
+    const records: AssignmentAudit[] = [];
+    if (patch.owner !== undefined && patch.owner !== entry.owner) {
+      records.push({
+        entryId: entry.id,
+        clientId: entry.clientId,
+        actorRole,
+        field: "owner",
+        prior: entry.owner ?? null,
+        next: patch.owner,
+        at: new Date().toISOString(),
+      });
+      entry.owner = patch.owner;
+    }
+    if (patch.assignedTo !== undefined) {
+      const prior = entry.assignedTo ?? [];
+      if (JSON.stringify(prior) !== JSON.stringify(patch.assignedTo)) {
+        records.push({
+          entryId: entry.id,
+          clientId: entry.clientId,
+          actorRole,
+          field: "assignedTo",
+          prior,
+          next: patch.assignedTo,
+          at: new Date().toISOString(),
+        });
+        entry.assignedTo = patch.assignedTo;
+      }
+    }
+    await writeDb(db);
+    for (const r of records) await appendAssignAudit(r);
+    return entry;
+  });
+}
+
+async function appendAssignAudit(record: AssignmentAudit): Promise<void> {
+  return withAuditLock(async () => {
+    let log: AssignmentAudit[] = [];
+    try {
+      const raw = await fs.readFile(ASSIGN_AUDIT_PATH, "utf-8");
+      log = JSON.parse(raw) as AssignmentAudit[];
+      if (!Array.isArray(log)) log = [];
+    } catch {
+      log = [];
+    }
+    log.push(record);
+    await fs.mkdir(path.dirname(ASSIGN_AUDIT_PATH), { recursive: true });
+    await fs.writeFile(ASSIGN_AUDIT_PATH, JSON.stringify(log, null, 2), "utf-8");
+  });
+}
+
+export async function readAssignAudit(): Promise<AssignmentAudit[]> {
+  try {
+    const raw = await fs.readFile(ASSIGN_AUDIT_PATH, "utf-8");
+    const log = JSON.parse(raw) as AssignmentAudit[];
     return Array.isArray(log) ? log : [];
   } catch {
     return [];

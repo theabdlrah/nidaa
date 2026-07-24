@@ -184,6 +184,48 @@ export default function Page() {
     [verifyToken, refreshLocal, pull, loadAudit, t]
   );
 
+  // ---- coordinator action: set owner / assignedTo (privileged, same gate as verify) ----
+  const assignEntry = useCallback(
+    async (clientId: string, patch: { owner?: string; assignedTo?: string[] }) => {
+      if (!verifyToken) {
+        alert(
+          t(
+            "أدخل رمز المنسّق أولاً (زر المُحقق).",
+            "Enter a coordinator token first (Verifier button)."
+          )
+        );
+        return;
+      }
+      try {
+        const authHeader = "Bearer " + verifyToken;
+        const res = await fetch("/api/assign", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: authHeader,
+          },
+          body: JSON.stringify({ id: clientId, ...patch }),
+        });
+        if (res.status === 401) {
+          alert(
+            t(
+              "الرمز غير صالح أو بلا صلاحية للتعيين.",
+              "Token invalid or lacks assignment permission."
+            )
+          );
+          return;
+        }
+        if (!res.ok) return;
+        await refreshLocal();
+        await pull();
+        await loadAudit();
+      } catch {
+        /* ignore */
+      }
+    },
+    [verifyToken, refreshLocal, pull, loadAudit, t]
+  );
+
   useEffect(() => {
     if (verifyToken) loadAudit();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -206,7 +248,14 @@ export default function Page() {
     for (const l of local) {
       const s = server.find((serv) => serv.clientId === l.clientId);
       const verified = s?.verified ? true : l.verified;
-      map.set(l.clientId, { ...l, verified }); // local wins (may be newer / pending)
+      // M3 — privileged fields (owner/assignedTo) follow the T2 rule: take the
+      // server value if set, unless the client explicitly changed it this session.
+      const owner = s?.owner && s.owner !== l.owner ? s.owner : l.owner;
+      const assignedTo =
+        s?.assignedTo && JSON.stringify(s.assignedTo) !== JSON.stringify(l.assignedTo)
+          ? s.assignedTo
+          : l.assignedTo;
+      map.set(l.clientId, { ...l, verified, owner, assignedTo }); // local wins (may be newer / pending)
     }
     let arr = Array.from(map.values());
     if (filter !== "all") arr = arr.filter((e) => e.type === filter);
@@ -229,6 +278,10 @@ export default function Page() {
       ...newEntry,
       clientId,
       id: clientId,
+      // M3 — every entry has a named accountable owner (defaults to the author's
+      // role); responsibilities start unassigned until a coordinator assigns them.
+      owner: newEntry.authorRole,
+      assignedTo: [],
       verified: false, // local posts start unverified
       // Safe default: user posts are neighborhood-precise unless the author
       // opts in to exact coordinates. Reduces targeting risk in active conflict.
@@ -375,6 +428,14 @@ export default function Page() {
                 {e.contact ? " · ☎ " + e.contact : ""}
                 {e.lat && e.lng ? " · 🗺 " + e.lat.toFixed(2) + "," + e.lng.toFixed(2) : ""}
               </div>
+              <div className="meta">
+                👤 {t("المسؤول", "Owner")}: {e.owner || t("غير معيّن", "Unassigned")}
+                {" · "}
+                {t("معيّن إلى", "Assigned")}:{" "}
+                {e.assignedTo && e.assignedTo.length > 0
+                  ? e.assignedTo.join("، ")
+                  : t("غير معيّن", "Unassigned")}
+              </div>
               {verifyToken && !e.source && (
                 <div className="verifyrow">
                   <button
@@ -382,6 +443,41 @@ export default function Page() {
                     onClick={() => verifyEntry(e.clientId, !e.verified)}
                   >
                     {e.verified ? t("إلغاء التوثيق", "Unverify") : t("توثيق", "Verify")}
+                  </button>
+                  <button
+                    className="btn secondary small"
+                    onClick={() => {
+                      const owner = prompt(
+                        t("المسؤول (اتركه فارغاً لعدم التغيير):", "Owner (leave blank for no change):"),
+                        e.owner
+                      );
+                      if (owner !== null) {
+                        assignEntry(e.clientId, { owner: owner.trim() || undefined });
+                      }
+                    }}
+                  >
+                    {t("تعيين المسؤول", "Set owner")}
+                  </button>
+                  <button
+                    className="btn secondary small"
+                    onClick={() => {
+                      const raw = prompt(
+                        t(
+                          "المعيّن إليهم (مفصولة بفاصلة، اتركه فارغاً لعدم التغيير):",
+                          "Assignees (comma-separated, leave blank for no change):"
+                        ),
+                        (e.assignedTo || []).join(", ")
+                      );
+                      if (raw !== null) {
+                        const list = raw
+                          .split(",")
+                          .map((s) => s.trim())
+                          .filter(Boolean);
+                        assignEntry(e.clientId, { assignedTo: list });
+                      }
+                    }}
+                  >
+                    {t("تعيين المسؤولية", "Assign")}
                   </button>
                 </div>
               )}
